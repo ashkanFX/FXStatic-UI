@@ -25,14 +25,14 @@ export class HomeComponent {
       router: rout.Main,
       subText: 'testSubtext',
       description: '    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, iste laudantium non\n' +
-        '      odit perferendis quas quos sit? Adipisci autem debitis deserunt dicta error exercitationem, quasi suscipit?\n'
+        '      odit perferendis quas quos sit?  exercitationem, quasi suscipit?\n'
     }, {
       text: 'test',
       isShow: true,
       router: rout.Main,
       subText: 'testSubtext',
       description: '    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, iste laudantium non\n' +
-        '      odit perferendis quas quos sit? Adipisci autem debitis deserunt dicta error exercitationem, quasi suscipit?\n'
+        '      odit perferendis quas quos sit?  exercitationem, quasi suscipit?\n'
     }
   ];
 
