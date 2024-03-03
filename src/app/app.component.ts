@@ -1,13 +1,21 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component} from '@angular/core';
+import {Router, RouterOutlet} from '@angular/router';
+import {CommonModule} from "@angular/common";
+import {ButtonModule} from "primeng/button";
+import {rout} from "./shared/model/routing.model";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, CommonModule, ButtonModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+
 })
 export class AppComponent {
+  constructor(private router: Router) {
+    this.router.navigate([rout.Home.url]).then(r => console.log(r))
+  }
+
   title = 'ptMedia';
 }
