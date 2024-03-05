@@ -24,7 +24,7 @@ export class CategoryComponent implements OnInit {
   constructor(private share: ShareService) {
   }
 
-  selectedCategory = <any>[""]
+  selectedCategory = <any>[]
   cards: Card[] = [
     {
       isShow: true,

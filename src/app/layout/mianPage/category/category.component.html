@@ -27,11 +27,12 @@
       </div>
       <p-divider></p-divider>
 
-      <div class="w-full h-30rem bg-2-color">
-          <span *ngFor="let item of selectedCategory ; track ngOnInit">{{item}}</span>
+      <div class="w-full h-30rem p-3 bg-2-color">
+        <div class="w-full flex align-items-center h-2rem p-1 justify-content-between m-1  bg-3-color" *ngFor="let item of selectedCategory ; track ngOnInit">
+          {{item}} <i class="pi pi-times"></i> </div>
       </div>
     </div>
-    <div class="col-12 xl:col-7 max-h-screen border-round  p-3  bg-2-color  m-3 overflow-auto ">
+    <div class="col-12 xl:col-7 max-h-screen   border-round  p-3  bg-2-color  m-3 overflow-auto ">
       <app-card [config]="cards[0]"></app-card>
       <p-divider></p-divider>
       <app-card [config]="cards[1]"></app-card>
