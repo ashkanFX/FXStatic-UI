@@ -3,13 +3,15 @@ import {CardComponent} from "../../../shared/component/card/card.component";
 import {Card} from "../../../shared/interface/card.interface";
 import {rout} from "../../../shared/model/routing.model";
 import {CategoryComponent} from "../category/category.component";
+import {LastActivityComponent} from "../last-activity/last-activity.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
     CardComponent,
-    CategoryComponent
+    CategoryComponent,
+    LastActivityComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
