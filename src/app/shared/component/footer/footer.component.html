@@ -1,11 +1,14 @@
-<section *ngIf="!config?.show" class="     col-12 bottom-0 p-0 left-0 bg-2-color font-bold flex
+<section *ngIf="!config?.show" class="align-items-center     col-12 bottom-0 p-0 left-0 bg-2-color font-bold flex
   justify-content-center  ">
   <div class="">
      <p class="font-light {{config?.textColor}}   max-h-1rem m-2 ">
       {{config?.text}}
       <i [class]="config?.icon"></i>
+
     </p>
   </div>
+       <img width="20" height="20" class="  mx-2  bg-3-color border-round-3xl" src="assets/img/java-logo.png" alt="">
+       <img width="20" height="20" class="  mx-2  bg-3-color border-round-3xl" src="assets/img/angular_solidBlack.png" alt="">
 </section>
 
 
