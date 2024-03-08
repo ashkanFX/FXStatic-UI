@@ -4,6 +4,7 @@ import {Card} from "../../../shared/interface/card.interface";
 import {rout} from "../../../shared/model/routing.model";
 import {CategoryComponent} from "../category/category.component";
 import {LastActivityComponent} from "../last-activity/last-activity.component";
+import {ChapterComponent} from "../chapter/chapter.component";
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,8 @@ import {LastActivityComponent} from "../last-activity/last-activity.component";
   imports: [
     CardComponent,
     CategoryComponent,
-    LastActivityComponent
+    LastActivityComponent,
+    ChapterComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

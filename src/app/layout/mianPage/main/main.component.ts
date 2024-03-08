@@ -9,6 +9,9 @@ import {footer} from "../../../shared/interface/footer.interface";
 import {navBar} from "../../../shared/interface/nav.interface";
 import {ButtonIcon} from "../../../shared/enums/public.enum";
 import {rout} from "../../../shared/model/routing.model";
+import {ImgIconEnum} from "../../../shared/enums/imgIcon.enum";
+import {ImgModel} from "../../../shared/model/img.model";
+import {JsonPipe} from "@angular/common";
 
 @Component({
   selector: 'app-main',
@@ -18,13 +21,15 @@ import {rout} from "../../../shared/model/routing.model";
     TieredMenuModule,
     DividerModule,
     CardModule,
-    FooterComponent
+    FooterComponent,
+    JsonPipe
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
 })
 export class MainComponent implements OnInit {
   ngOnInit(): void {
+
   }
 
   mainColor: string = 'text-blue-600'
@@ -59,5 +64,6 @@ export class MainComponent implements OnInit {
     icon: PrimeIcons.HEART_FILL,
     textColor: this.mainColor
   }
+
 
 }
