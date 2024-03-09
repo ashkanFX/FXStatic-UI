@@ -1,4 +1,16 @@
 <section class="min-h-screen">
+  <section class="col-12 h-24rem bg-1-color  border-round-3xl "
+           style="
+           background: rgb(0,0,0);
+           background: linear-gradient(90deg, rgb(26,29,36) 0%, rgba(255,255,255,0) 100%);">
+
+    <div class=" col-4 text-white text-4xl   " style="">
+      hi
+      <br>
+      <span id="element"></span>
+    </div>
+
+  </section>
   <div class="col-12 p-3 text-3xl text-white-alpha-80">
     <span>new 📌 : </span>
   </div>
@@ -16,10 +28,11 @@
       <app-card [config]="cards[1]"></app-card>
     </div>
   </div>
+  <app-slider></app-slider>
+
   <app-category></app-category>
   <div class="relative col-12 flex">
     <app-chapter class="col-8"></app-chapter>
-  <app-last-activity class="col-4"></app-last-activity>
+    <app-last-activity class="col-4"></app-last-activity>
   </div>
-
 </section>

@@ -1,0 +1,12 @@
+<div class="col-12 p-3 text-3xl text-white-alpha-80">
+  <span> most viewed 🚀 : </span>
+</div>
+<section class="col-12  h-10rem ">
+  <div class="flex p-2 justify-content-between gap-2  h-full align-items-center">
+    <i class="text-white pi pi-arrow-circle-left" (click)="nextSlide()">  </i>
+    <div *ngFor="let slide of slides" class="w-full border-round-3xl p-3   shadow-8 bg-3-color h-full" >
+      {{slide}}
+    </div>
+    <i (click)="priviesSlide()" class=" text-white pi pi-arrow-circle-right">  </i>
+  </div>
+</section>
