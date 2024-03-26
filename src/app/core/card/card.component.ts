@@ -1,8 +1,8 @@
 import {Component, Input} from '@angular/core';
-import {CardModule} from "primeng/card";
-import {Card} from "../../interface/card.interface";
+import { CardModule} from "primeng/card";
 import {RouterLink} from "@angular/router";
-import {NgIf} from "@angular/common";
+import {CommonModule, NgIf} from "@angular/common";
+import {Card} from "../../shared/interface/card.interface";
 
 @Component({
   selector: 'app-card',
@@ -10,6 +10,7 @@ import {NgIf} from "@angular/common";
   imports: [
     CardModule,
     RouterLink,
+    CommonModule,
     NgIf
   ],
   templateUrl: './card.component.html',

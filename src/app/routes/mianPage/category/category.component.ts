@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {DividerModule} from "primeng/divider";
-import {CardComponent} from "../../../shared/component/card/card.component";
 import {Card} from "../../../shared/interface/card.interface";
 import {rout} from "../../../shared/model/routing.model";
 import {ButtonModule} from "primeng/button";
 import {ShareService} from "../../../shared/structure/share.service";
 import {NgForOf} from "@angular/common";
 import {filter} from "rxjs";
+import {CardComponent} from "../../../core/card/card.component";
 
 @Component({
   selector: 'app-category',
@@ -53,6 +53,7 @@ export class CategoryComponent implements OnInit {
     ).subscribe(res => {
       this.selectedCategory.push(res)
       console.log(res)
+
     })
 
   }

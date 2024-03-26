@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {DividerModule} from "primeng/divider";
 import {ImgModel} from "../../../shared/model/img.model";
 import {ImgIconEnum} from "../../../shared/enums/imgIcon.enum";

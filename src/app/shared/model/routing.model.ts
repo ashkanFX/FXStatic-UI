@@ -1,6 +1,6 @@
 import {Routing} from "../interface/routing.interface";
-import {MainComponent} from "../../layout/mianPage/main/main.component";
-import {ContentComponent} from "../component/content/content.component";
+import {MainComponent} from "../../routes/mianPage/main/main.component";
+import {ContentComponent} from "../../routes/content/content.component";
 
 export abstract class rout {
   static Main: Routing = {

@@ -3,7 +3,7 @@ import {MenubarModule} from "primeng/menubar";
 import {ButtonModule} from "primeng/button";
 import {RippleModule} from "primeng/ripple";
 import {CommonModule, NgClass} from "@angular/common";
-import {navBar} from "../../interface/nav.interface";
+import {navBar} from "../../shared/interface/nav.interface";
 
 @Component({
   selector: 'app-nav-bar',

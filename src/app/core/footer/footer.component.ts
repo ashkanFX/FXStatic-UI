@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
-import {footer} from "../../interface/footer.interface";
 import {NgClass, NgIf} from "@angular/common";
+import {footer} from "../../shared/interface/footer.interface";
 
 @Component({
   selector: 'app-footer',

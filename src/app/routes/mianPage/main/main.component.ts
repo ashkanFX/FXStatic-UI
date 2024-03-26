@@ -1,17 +1,15 @@
 import {Component, OnInit} from '@angular/core';
-import {NavBarComponent} from "../../../shared/component/nav-bar/nav-bar.component";
 import {TieredMenuModule} from "primeng/tieredmenu";
 import {DividerModule} from "primeng/divider";
 import {PrimeIcons} from "primeng/api";
 import {CardModule} from "primeng/card";
-import {FooterComponent} from "../../../shared/component/footer/footer.component";
 import {footer} from "../../../shared/interface/footer.interface";
 import {navBar} from "../../../shared/interface/nav.interface";
 import {ButtonIcon} from "../../../shared/enums/public.enum";
 import {rout} from "../../../shared/model/routing.model";
-import {ImgIconEnum} from "../../../shared/enums/imgIcon.enum";
-import {ImgModel} from "../../../shared/model/img.model";
 import {JsonPipe} from "@angular/common";
+import {NavBarComponent} from "../../../core/nav-bar/nav-bar.component";
+import {FooterComponent} from "../../../core/footer/footer.component";
 
 @Component({
   selector: 'app-main',

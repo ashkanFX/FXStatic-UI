@@ -12,10 +12,10 @@ import {rout} from "./shared/model/routing.model";
   styleUrl: './app.component.css',
 
 })
+
 export class AppComponent {
   constructor(private router: Router) {
     this.router.navigate([rout.Home.url]).then(r => console.log(r))
-  }
 
-  title = 'ptMedia';
+  }
 }
