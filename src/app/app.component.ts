@@ -15,7 +15,7 @@ import {rout} from "./shared/model/routing.model";
 
 export class AppComponent {
   constructor(private router: Router) {
-    this.router.navigate([rout.Home.url]).then(r => console.log(r))
+    this.router.navigate([rout.Content.url]).then(r => console.log(r))
 
   }
 }
