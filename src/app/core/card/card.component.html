@@ -1,8 +1,14 @@
 <div *ngIf="config?.isShow" class="bg-3-color  border-round">
-  <section class="col-12" *ngIf="config?.text">
-    <h2 class="m-1">{{config?.text}}</h2>
-    <span class="m-1"> {{config?.subText}}</span>
-  </section>
+  <div class="flex col-12 " *ngIf="config.text || config.haveProfile">
+    <section class="col-6 p-0" *ngIf="config?.text">
+      <h2 class="m-1">{{config?.text}}</h2>
+      <span class="m-1"> {{config?.subText}}</span>
+    </section>
+    <section *ngIf="config.haveProfile" class="col-6 disableSelect p-0 flex justify-content-end align-items-center">
+      <p-avatar   label="V" styleClass="mr-2" size="large" shape="circle"></p-avatar>
+      <h5 class="p-1">name </h5>
+    </section>
+  </div>
   <section class="col-12 p-0 flex  ">
     <div class="col-6 p-0  ">
       <img style="object-fit: cover " class="col-12 h-full p-0 border-round"
@@ -14,9 +20,8 @@
         }}
       </p>
       <div class="m-3  flex justify-content-end">
-        <span class="m-1" routerLink="{{config?.router?.url}}"> <a  href="">more-></a></span>
+        <span class="m-1" routerLink="{{config?.router?.url}}"> <a class="linkStyle" href="">more-></a></span>
       </div>
     </div>
   </section>
-
 </div>

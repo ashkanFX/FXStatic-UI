@@ -29,17 +29,20 @@ export class CategoryComponent implements OnInit {
     {
       isShow: true,
       router: rout.Main,
+      haveProfile: false,
       img: '../assets/img/JavaScript-Tutorial.svg',
       description: '    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, iste laudantium non\n' +
         '      odit perferendis quas quos sit? Adipisci autem debitis deserunt dicta error exercitationem, quasi suscipit?\n'
     }, {
       isShow: true,
+      haveProfile: false,
       img: '../assets/img/typescript.svg',
       router: rout.Main,
       description: '    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, iste laudantium non\n' +
         '      odit perferendis quas quos sit? Adipisci autem debitis deserunt dicta error exercitationem, quasi suscipit?\n'
     }, {
       isShow: true,
+      haveProfile: false,
       img: '../assets/img/Angular_Logo_SVG.svg',
       router: rout.Main,
       description: '    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, iste laudantium non\n' +

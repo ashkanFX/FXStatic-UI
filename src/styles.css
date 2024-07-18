@@ -44,5 +44,8 @@ body {
 
 .disableSelect {
   user-select: none
+}
 
+.linkStyle {
+  color: var(--blue-500) !important;
 }

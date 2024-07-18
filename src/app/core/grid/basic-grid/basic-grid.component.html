@@ -1,0 +1,41 @@
+<table>
+  <tr>
+    @for (columnName of configGrid.columnName; track configGrid.columnName) {
+    <th>{{ columnName}}</th>
+    }
+    <th *ngIf="configGrid?.operation">operation</th>
+  </tr>
+  <tr *ngFor="let rowBody  of configGrid.rowBody">
+    <td>{{rowBody.title}}</td>
+    <td>{{rowBody.description}}</td>
+    <td>{{rowBody.category[0]?.name}}</td>
+    <td class=" gap-1">
+      <span *ngIf="configGrid?.operation?.view">
+        <i class="pi pi-eye " (click)="configGrid.operation?.view()"></i>
+      </span>
+      <span *ngIf="configGrid?.operation?.update">
+        <i class="pi pi-arrow-circle-up" (click)="configGrid.operation?.update()"></i>
+      </span>
+      <span *ngIf="configGrid?.operation?.delete">
+        <i class="pi pi-trash" (click)="configGrid.operation?.delete(rowBody)"></i>
+      </span>
+    </td>
+
+  </tr>
+
+</table>
+<!--<div class="card">-->
+<!--  <p-table [tableStyle]="{ 'min-width': '50rem' }">-->
+<!--    <ng-template pTemplate="header">-->
+<!--      <tr>-->
+<!--        @for (option of options; track option) {-->
+<!--        <th>{{option}}</th>-->
+<!--        }-->
+<!--      </tr>-->
+<!--    </ng-template>-->
+<!--    <ng-template pTemplate="body" let-options>-->
+
+<!--    </ng-template>-->
+<!--  </p-table>-->
+<!--</div>-->
+

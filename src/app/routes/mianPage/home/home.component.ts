@@ -9,6 +9,8 @@ import {NavBarComponent} from "../../../core/nav-bar/nav-bar.component";
 import {SliderComponent} from "../../../core/slider/slider.component";
 import {TypeEffectComponent} from "../../../core/type-effect/type-effect.component";
 import {TypeEffectService} from "../../../core/type-effect/type-effect.service";
+import {ReactiveFormsModule} from "@angular/forms";
+import {FileUploadModule} from "primeng/fileupload";
 
 @Component({
   selector: 'app-home',
@@ -20,7 +22,9 @@ import {TypeEffectService} from "../../../core/type-effect/type-effect.service";
     ChapterComponent,
     NavBarComponent,
     SliderComponent,
-    TypeEffectComponent
+    TypeEffectComponent,
+    ReactiveFormsModule,
+    FileUploadModule
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
@@ -31,8 +35,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.time()
-    this.typeEffectService.state.next({
+     this.typeEffectService.state.next({
       strings: ['welcome', 'This is dock ', 'that help you to understand about ', "everything new"],
       startDelay: 1000,
       typeSpeed: 50,
@@ -43,20 +46,22 @@ export class HomeComponent implements OnInit {
       loop: true,
       smartBackspace: false
     })
-    console.timeLog()
-  }
+    this.typeEffectService.state.complete()
+   }
 
 
   cards: Card[] = [
     {
       text: 'test',
       isShow: true,
+      haveProfile : true,
       router: rout.Main,
       subText: 'testSubtext',
       description: '    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, iste laudantium non' +
         '      odit perferendis quas quos sit?  exercitationem, quasi suscipit?'
     }, {
       text: 'test',
+      haveProfile : true,
       isShow: true,
       router: rout.Main,
       subText: 'testSubtext',
@@ -64,4 +69,6 @@ export class HomeComponent implements OnInit {
         '      odit perferendis quas quos sit?  exercitationem, quasi suscipit?'
     }
   ];
+
 }
+

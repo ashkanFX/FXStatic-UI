@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import Typed from "typed.js";
 import {TypeEffectService} from "./type-effect.service";
 
@@ -16,7 +16,7 @@ import {TypeEffectService} from "./type-effect.service";
 })
 
 
-export class TypeEffectComponent implements OnInit {
+export class TypeEffectComponent implements OnInit  {
   constructor(private readonly typeEffectService: TypeEffectService) {}
   ngOnInit(): void {
     this.typeEffectService.state.subscribe({
@@ -25,4 +25,8 @@ export class TypeEffectComponent implements OnInit {
       }
     })
   }
+
+
+
+
 }

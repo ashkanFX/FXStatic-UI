@@ -10,6 +10,7 @@ import {rout} from "../../../shared/model/routing.model";
 import {JsonPipe} from "@angular/common";
 import {NavBarComponent} from "../../../core/nav-bar/nav-bar.component";
 import {FooterComponent} from "../../../core/footer/footer.component";
+import {MainPageComponent} from "../../../core/pageConfig/main-page/main-page.component";
 
 @Component({
   selector: 'app-main',
@@ -20,7 +21,8 @@ import {FooterComponent} from "../../../core/footer/footer.component";
     DividerModule,
     CardModule,
     FooterComponent,
-    JsonPipe
+    JsonPipe,
+    MainPageComponent
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
@@ -34,7 +36,20 @@ export class MainComponent implements OnInit {
 
   navBarConf: navBar = {
     textColor: this.mainColor,
+    rightButton:[
+
+    ],
     leftButton: [
+      {
+        text: "admin",
+        icon: PrimeIcons.TAG,
+        iconStatus: ButtonIcon.right,
+        show: true,
+        router: rout.admin,
+        clicked($even) {
+          console.log('test')
+        }
+      } ,
       {
         text: "Home",
         icon: PrimeIcons.HOME,

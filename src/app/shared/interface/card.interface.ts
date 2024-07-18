@@ -1,10 +1,11 @@
 import {Routing} from "./routing.interface";
 
 export interface Card{
-  img ?:string,
-  text ?: string,
-  subText ?:string,
+  img?: string,
+  text?: string,
+  subText?: string,
   router?: Routing
-  description?:string,
-  isShow ?: boolean;
+  description?: string,
+  isShow?: boolean;
+  haveProfile: boolean;
 }
