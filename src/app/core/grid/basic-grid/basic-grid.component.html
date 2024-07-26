@@ -2,23 +2,26 @@
   <tr>
     @for (columnName of configGrid.columnName; track configGrid.columnName) {
     <th>{{ columnName}}</th>
-    }
+      }
     <th *ngIf="configGrid?.operation">operation</th>
   </tr>
   <tr *ngFor="let rowBody  of configGrid.rowBody">
+
     <td>{{rowBody.title}}</td>
     <td>{{rowBody.description}}</td>
     <td>{{rowBody.category[0]?.name}}</td>
-    <td class=" gap-1">
+    <td class=" ">
+      <div class="flex gap-1 w-full justify-content-around">
       <span *ngIf="configGrid?.operation?.view">
         <i class="pi pi-eye " (click)="configGrid.operation?.view()"></i>
       </span>
-      <span *ngIf="configGrid?.operation?.update">
+        <span *ngIf="configGrid?.operation?.update">
         <i class="pi pi-arrow-circle-up" (click)="configGrid.operation?.update()"></i>
       </span>
-      <span *ngIf="configGrid?.operation?.delete">
+        <span *ngIf="configGrid?.operation?.delete">
         <i class="pi pi-trash" (click)="configGrid.operation?.delete(rowBody)"></i>
       </span>
+      </div>
     </td>
 
   </tr>
