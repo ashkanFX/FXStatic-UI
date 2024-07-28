@@ -1,16 +1,14 @@
 import {HttpInterceptorFn} from '@angular/common/http';
 
 export const fXInterceptor: HttpInterceptorFn = (req, next) => {
-  const authToken = 'YOUR_AUTH_TOKEN_HERE';
-  debugger
-  // Clone the request and add the authorization header
+  let userLogin = JSON.parse(sessionStorage.getItem('userdetails')!)
   const authReq = req.clone({
     setHeaders: {
-      Authorization: `Bearer ${authToken}`
+      Authorization: "Basic " + window.btoa(userLogin.username   + ':' + userLogin.password)
     }
   });
 
-  // Pass the cloned request with the updated header to the next handler
+
   return next(authReq);
 
 };

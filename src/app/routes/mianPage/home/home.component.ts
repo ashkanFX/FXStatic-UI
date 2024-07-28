@@ -5,8 +5,7 @@ import {CategoryComponent} from "../category/category.component";
 import {LastActivityComponent} from "../last-activity/last-activity.component";
 import {ChapterComponent} from "../chapter/chapter.component";
 import {CardComponent} from "../../../core/card/card.component";
-import {NavBarComponent} from "../../../core/nav-bar/nav-bar.component";
-import {SliderComponent} from "../../../core/slider/slider.component";
+ import {SliderComponent} from "../../../core/slider/slider.component";
 import {TypeEffectComponent} from "../../../core/type-effect/type-effect.component";
 import {TypeEffectService} from "../../../core/type-effect/type-effect.service";
 import {ReactiveFormsModule} from "@angular/forms";
@@ -20,8 +19,7 @@ import {FileUploadModule} from "primeng/fileupload";
     CategoryComponent,
     LastActivityComponent,
     ChapterComponent,
-    NavBarComponent,
-    SliderComponent,
+     SliderComponent,
     TypeEffectComponent,
     ReactiveFormsModule,
     FileUploadModule

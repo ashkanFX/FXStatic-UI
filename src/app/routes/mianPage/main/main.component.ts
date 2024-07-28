@@ -59,12 +59,21 @@ export class MainComponent implements OnInit {
         clicked($even) {
           console.log('test')
         }
-      }  ,  {
+      }, {
         text: "Content",
         icon: PrimeIcons.ARROW_RIGHT,
         iconStatus: ButtonIcon.right,
         show: true,
         router: rout.Content,
+        clicked($even) {
+          console.log('test')
+        }
+      }, {
+        text: "Login",
+        icon: PrimeIcons.PENCIL,
+        iconStatus: ButtonIcon.right,
+        show: true,
+        router: rout.Login,
         clicked($even) {
           console.log('test')
         }
