@@ -9,7 +9,7 @@ import {NavBarComponent} from "../../core/nav-bar/nav-bar.component";
 import {ButtonModule} from "primeng/button";
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {LoginService} from "./login.service";
-
+import {getCookie} from "typescript-cookie"
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -59,6 +59,9 @@ export class LoginComponent implements OnInit {
   login() {
     window.sessionStorage.setItem("userdetails", JSON.stringify(this.formGroup.getRawValue()));
     this.service.login().subscribe(() => {
+      let xsrf = getCookie("XSRF-TOKEN")
+      window.sessionStorage.setItem("X-XSRF-TOKEN", JSON.stringify(xsrf));
+
     })
   }
 }

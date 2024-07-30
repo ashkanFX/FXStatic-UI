@@ -37,7 +37,27 @@ export class MainComponent implements OnInit {
   navBarConf: navBar = {
     textColor: this.mainColor,
     rightButton:[
+      {
+        text: "Log in",
+        icon: PrimeIcons.LOCK,
+        iconStatus: ButtonIcon.right,
+        show: true,
+        router: rout.Login,
+        clicked($even) {
+          console.log('test')
+        }
+      },
+      {
+        text: "Log out",
+        icon: PrimeIcons.LOCK_OPEN,
+        iconStatus: ButtonIcon.right,
+        show: true,
+        router: rout.Home,
+        clicked($even) {
+          sessionStorage.clear()
+        },
 
+      }
     ],
     leftButton: [
       {
@@ -49,7 +69,7 @@ export class MainComponent implements OnInit {
         clicked($even) {
           console.log('test')
         }
-      } ,
+      },
       {
         text: "Home",
         icon: PrimeIcons.HOME,
@@ -65,15 +85,6 @@ export class MainComponent implements OnInit {
         iconStatus: ButtonIcon.right,
         show: true,
         router: rout.Content,
-        clicked($even) {
-          console.log('test')
-        }
-      }, {
-        text: "Login",
-        icon: PrimeIcons.PENCIL,
-        iconStatus: ButtonIcon.right,
-        show: true,
-        router: rout.Login,
         clicked($even) {
           console.log('test')
         }

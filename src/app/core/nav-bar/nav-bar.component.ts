@@ -28,4 +28,7 @@ export class NavBarComponent {
   }
 
 
+  clicked(item: any) {
+    item.clicked()
+  }
 }

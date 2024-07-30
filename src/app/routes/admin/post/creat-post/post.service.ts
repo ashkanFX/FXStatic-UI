@@ -13,11 +13,13 @@ export class PostService {
   }
 
   appPost(post: ReqAddPostDto): Observable<any> {
-    return this.http.post<any>(environment.apiUrl + 'post/add', post)
+    return this.http.post<any>(environment.apiUrl + 'post/add', post,
+      { observe: 'response',withCredentials: true })
   }
 
   getAllPost(): Observable<any> {
-    return this.http.get<any>(environment.apiUrl + 'post/getAll')
+    return this.http.get<any>(environment.apiUrl + 'post/getAll',
+      {observe: 'response', withCredentials: true})
   }
 
   deletePost(id: number): Observable<boolean> {

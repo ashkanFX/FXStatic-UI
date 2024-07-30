@@ -45,7 +45,7 @@ export class CreatPostComponent implements OnInit {
 
   formGroup: FormGroup;
   userConfig = new ReplaySubject<UserDetailConfig>();
-  category: any;
+  category: any = [];
   @ViewChild('grid') grid: BasicGridComponent;
   configGrid: ConfigGrid = {
     class: [],
@@ -56,15 +56,16 @@ export class CreatPostComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.categoryService.getAllCategory().subscribe(res => {
-      this.category = res;
-    })
+    // this.categoryService.getAllCategory().subscribe(res => {
+      // this.category = res;
+    // })
     this.formGroup = this.fb.group({
       title: new FormControl(null, [Validators.required, Validators.min(10)]),
       description: new FormControl(null, [Validators.required]),
       categories: new FormControl(null, [Validators.required])
     })
-    this.prepareGird()
+    // this.prepareGird()
+
   }
 
 
@@ -74,10 +75,9 @@ export class CreatPostComponent implements OnInit {
     post.title = postForm.title;
     post.description = postForm.description;
     post.profileId = 2;
-    post.categories = [postForm.categories.id];
-    this.service.appPost(post).subscribe(response => {
-      console.log(response);
-      this.formGroup.reset();
+    post.categories = [2];
+    this.categoryService.addCategory('post').subscribe(response => {
+       this.formGroup.reset();
       this.prepareGird();
     })
   }
@@ -89,7 +89,7 @@ export class CreatPostComponent implements OnInit {
         columnName: ['name', 'description', 'category'],
         configGridUpdate: new ReplaySubject<ConfigGrid>(),
         name: "",
-        rowBody: response,
+        rowBody: response.body,
         operation: {
           delete: (rowBody) => {
             this.service.deletePost(rowBody.id).subscribe(res => {

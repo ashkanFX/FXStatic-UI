@@ -49,7 +49,6 @@ export class CategoryComponent implements OnInit {
   }
 
   public saveCategory() {
-    debugger
     const category = new Category();
     category.name = this.categoryForm.get('name')?.value
     this.category.addCategory(category.name).subscribe(res => {

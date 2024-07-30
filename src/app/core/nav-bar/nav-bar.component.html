@@ -1,5 +1,5 @@
 <header class="flex justify-content-center  align-items-center p-0 bg-2-color fixed z-1 w-full">
-  <section class="col-9 p-0">
+  <section class="col-9 p-0 flex justify-content-between">
     <p-button icon="pi-align-justify pi " class="md:hidden" size="small"
               (onClick)="ngClick()" [rounded]="true" [link]="true"></p-button>
     <ul
@@ -8,6 +8,15 @@
           routerLink="{{item.router.url}}" class=" flex w-full h-2rem align-items-center justify-content-center
       md:w-auto p-2  border-round "><p
         style="text-decoration: none"> {{item.text}} <i [class]="item.icon"></i></p></li>
+    </ul>
+    <ul
+      class="list-none    {{onShow}}  md:flex min-h-0 p-2 {{config.textColor}}  flex-wrap align-items-center  m-0 border-round ">
+      <li *ngFor="let item  of config.rightButton" style="cursor: pointer"
+          routerLink="{{item.router.url}}" class=" flex w-full h-2rem align-items-center justify-content-center
+      md:w-auto p-2  border-round ">
+        <p-button (onClick)="clicked(item)">
+          {{item.text}} <i [class]="item.icon"></i></p-button>
+      </li>
     </ul>
   </section>
 </header>

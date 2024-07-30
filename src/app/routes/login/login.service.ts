@@ -11,7 +11,7 @@ export class LoginService {
   }
 
   login(): Observable<any> {
-    return this.http.get<any>(environment.apiUrl + 'user')
+    return this.http.get<any>(environment.apiUrl + 'user',{ observe: 'response',withCredentials: true })
   }
 
 }

@@ -9,5 +9,5 @@ export interface button {
   iconStatus?: ButtonIcon
   router: Routing
 
-  clicked($event: any): void | any;
+  clicked($event?: any): void | any;
 }
