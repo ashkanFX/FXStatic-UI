@@ -7,7 +7,7 @@ export const fXInterceptor: HttpInterceptorFn = (req, next) => {
   // let httpHeaders = new HttpHeaders();
   // httpHeaders.append("X-XSRF-TOKEN", JSON.parse(sessionStorage.getItem('XSRF-TOKEN')!))
   let headers = req.headers;
-  if (userLogin.username) {
+  if (userLogin?.username) {
     headers = headers.set('Authorization', `Basic `+window.btoa(userLogin.username + ':' + userLogin.password));
   }
   if (xsrfToken) {

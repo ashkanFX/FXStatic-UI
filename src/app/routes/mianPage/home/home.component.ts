@@ -5,11 +5,12 @@ import {CategoryComponent} from "../category/category.component";
 import {LastActivityComponent} from "../last-activity/last-activity.component";
 import {ChapterComponent} from "../chapter/chapter.component";
 import {CardComponent} from "../../../core/card/card.component";
- import {SliderComponent} from "../../../core/slider/slider.component";
+import {SliderComponent} from "../../../core/slider/slider.component";
 import {TypeEffectComponent} from "../../../core/type-effect/type-effect.component";
 import {TypeEffectService} from "../../../core/type-effect/type-effect.service";
 import {ReactiveFormsModule} from "@angular/forms";
 import {FileUploadModule} from "primeng/fileupload";
+import {PostService} from "../../admin/post/creat-post/post.service";
 
 @Component({
   selector: 'app-home',
@@ -29,23 +30,24 @@ import {FileUploadModule} from "primeng/fileupload";
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private readonly typeEffectService: TypeEffectService) {
+  constructor(private readonly typeEffectService: TypeEffectService, private postService: PostService) {
   }
 
   ngOnInit(): void {
      this.typeEffectService.state.next({
       strings: ['welcome', 'This is dock ', 'that help you to understand about ', "everything new"],
-      startDelay: 1000,
-      typeSpeed: 50,
-      backSpeed: 30,
-      fadeOut: true,
-      showCursor: true,
-      cursorChar: "!",
-      loop: true,
-      smartBackspace: false
-    })
+       startDelay: 1000,
+       typeSpeed: 50,
+       backSpeed: 30,
+       fadeOut: true,
+       showCursor: true,
+       cursorChar: "!",
+       loop: true,
+       smartBackspace: false
+     })
     this.typeEffectService.state.complete()
-   }
+    this.prepareCard()
+  }
 
 
   cards: Card[] = [
@@ -67,6 +69,12 @@ export class HomeComponent implements OnInit {
         '      odit perferendis quas quos sit?  exercitationem, quasi suscipit?'
     }
   ];
+  prepareCard(){
+    this.postService.getLatestPost().subscribe(res => {
+      console.log(res.body);
+    })
+
+  }
 
 }
 

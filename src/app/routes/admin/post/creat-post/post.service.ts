@@ -26,5 +26,8 @@ export class PostService {
     return this.http.delete<boolean>(environment.apiUrl + `post/delete/${id}`)
   }
 
+  getLatestPost(): Observable<any> {
+    return this.http.get<any>(environment.apiUrl + 'post/latest', {observe: 'response', withCredentials: false})
+  }
 
 }

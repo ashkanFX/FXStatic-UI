@@ -28,6 +28,7 @@ import {MainPageComponent} from "../../../core/pageConfig/main-page/main-page.co
   styleUrl: './main.component.css'
 })
 export class MainComponent implements OnInit {
+
   ngOnInit(): void {
 
   }
@@ -36,35 +37,13 @@ export class MainComponent implements OnInit {
 
   navBarConf: navBar = {
     textColor: this.mainColor,
-    rightButton:[
-      {
-        text: "Log in",
-        icon: PrimeIcons.LOCK,
-        iconStatus: ButtonIcon.right,
-        show: true,
-        router: rout.Login,
-        clicked($even) {
-          console.log('test')
-        }
-      },
-      {
-        text: "Log out",
-        icon: PrimeIcons.LOCK_OPEN,
-        iconStatus: ButtonIcon.right,
-        show: true,
-        router: rout.Home,
-        clicked($even) {
-          sessionStorage.clear()
-        },
-
-      }
-    ],
+    rightButton: [],
     leftButton: [
       {
         text: "admin",
         icon: PrimeIcons.TAG,
         iconStatus: ButtonIcon.right,
-        show: true,
+        show: Boolean(JSON.parse(sessionStorage.getItem('userdetails')!)),
         router: rout.admin,
         clicked($even) {
           console.log('test')
@@ -88,8 +67,27 @@ export class MainComponent implements OnInit {
         clicked($even) {
           console.log('test')
         }
+      },
+      {
+        text: "Log in",
+        icon: PrimeIcons.LOCK,
+        iconStatus: ButtonIcon.right,
+        show: !Boolean(JSON.parse(sessionStorage.getItem('userdetails')!)),
+        router: rout.Login,
+        clicked($even) {
+          console.log('test')
+        }
+      },
+      {
+        text: "Log out",
+        icon: PrimeIcons.LOCK_OPEN,
+        iconStatus: ButtonIcon.right,
+        show: Boolean(JSON.parse(sessionStorage.getItem('userdetails')!)),
+        router: rout.Home,
+        clicked($even) {
+          sessionStorage.clear()
+        }
       }
-
     ]
   };
   footerConf: footer = {

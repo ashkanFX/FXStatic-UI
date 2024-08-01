@@ -10,6 +10,8 @@ import {ButtonModule} from "primeng/button";
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {LoginService} from "./login.service";
 import {getCookie} from "typescript-cookie"
+import {Router, RouterOutlet} from "@angular/router";
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -23,7 +25,7 @@ import {getCookie} from "typescript-cookie"
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit {
-  constructor(private fb: FormBuilder, private service: LoginService) {
+  constructor(private fb: FormBuilder, private service: LoginService, private router: Router) {
   }
 
   formGroup: FormGroup;
@@ -61,6 +63,7 @@ export class LoginComponent implements OnInit {
     this.service.login().subscribe(() => {
       let xsrf = getCookie("XSRF-TOKEN")
       window.sessionStorage.setItem("X-XSRF-TOKEN", JSON.stringify(xsrf));
+      this.router.navigate(['/main']);
 
     })
   }

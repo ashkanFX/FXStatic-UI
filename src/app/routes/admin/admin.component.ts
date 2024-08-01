@@ -35,9 +35,7 @@ export class AdminComponent {
         iconStatus: ButtonIcon.right,
         show: true,
         router: rout.Post ,
-        clicked($even) {
-          console.log('test')
-        }
+        clicked($even) {}
       },
       {
         text: "profile",
@@ -45,9 +43,7 @@ export class AdminComponent {
         iconStatus: ButtonIcon.right,
         show: true,
         router: rout.admin,
-        clicked($even) {
-          console.log('test')
-        }
+        clicked($even) {}
       }
     ]
   };

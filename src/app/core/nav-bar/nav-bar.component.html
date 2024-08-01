@@ -4,10 +4,14 @@
               (onClick)="ngClick()" [rounded]="true" [link]="true"></p-button>
     <ul
       class="list-none    {{onShow}}  md:flex min-h-0 p-2 {{config.textColor}}  flex-wrap align-items-center  m-0 border-round ">
-      <li *ngFor="let item  of config.leftButton" style="cursor: pointer"
+        <ng-container *ngFor="let item  of config.leftButton" >
+      <li *ngIf="item.show" style="cursor: pointer"
           routerLink="{{item.router.url}}" class=" flex w-full h-2rem align-items-center justify-content-center
-      md:w-auto p-2  border-round "><p
-        style="text-decoration: none"> {{item.text}} <i [class]="item.icon"></i></p></li>
+      md:w-auto p-2  border-round ">
+          <p (click)="clicked(item)"
+            style="text-decoration: none"> {{item.text}} <i [class]="item.icon"></i></p>
+      </li>
+        </ng-container>
     </ul>
     <ul
       class="list-none    {{onShow}}  md:flex min-h-0 p-2 {{config.textColor}}  flex-wrap align-items-center  m-0 border-round ">

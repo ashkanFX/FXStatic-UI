@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {Router, RouterOutlet} from '@angular/router';
 import {CommonModule} from "@angular/common";
 import {ButtonModule} from "primeng/button";
+import {rout} from "./shared/model/routing.model";
 
 @Component({
   selector: 'app-root',
@@ -12,9 +13,4 @@ import {ButtonModule} from "primeng/button";
 
 })
 
-export class AppComponent {
-  constructor(private router: Router) {
-    // this.router.navigate([rout.Post.url]).then(r => console.log(r))
-
-  }
-}
+export class AppComponent {}
