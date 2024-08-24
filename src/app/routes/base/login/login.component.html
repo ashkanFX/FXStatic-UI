@@ -5,13 +5,14 @@
   <div class="wrapper fadeInDown  ">
     <div id="formContent " class="p-2">
       <h2 class="active"> Sign In </h2>
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete="on">
-        <input type="text" id="username" name="username" formControlName="username" placeholder="username"
-               required>
+      <form [formGroup]="loginForm" class="  flex flex-wrap" (ngSubmit)="onSubmit()" autocomplete="on">
+        <input type="text" id="username" name="username" formControlName="email" placeholder="Enter your email">
+<!--        <span class="text-red-400" *ngIf="!loginForm.get('email')?.valid && loginForm.get('email')?.dirty "> email is not valid  </span>-->
         <input type="password" id="password" name="password" formControlName="password"
-               placeholder="Enter your password" required>
-        <p-button label="accept" (onClick)="onSubmit()" class="mt-5" [outlined]="true" severity="success"></p-button>
+               placeholder="Enter your password">
+        <button class="button">submit</button>
       </form>
     </div>
   </div>
 </app-main-page>
+
