@@ -55,8 +55,6 @@ export class CategoryComponent implements OnInit {
       filter(x => !this.selectedCategory.includes(x))
     ).subscribe(res => {
       this.selectedCategory.push(res)
-      console.log(res)
-
     })
 
   }

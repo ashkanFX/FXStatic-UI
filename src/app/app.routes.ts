@@ -1,18 +1,18 @@
 import {Routes} from '@angular/router';
-import {authGuard} from "./routes/login/auth.guard";
+import {authGuard} from "./shared/auth/auth.guard";
 
 export const routes: Routes = [
   {
     path: 'main',
-    loadComponent: () => import('./routes/mianPage/main/main.component').then(m => m.MainComponent),
+    loadComponent: () => import('./routes/base/base.component').then(m => m.BaseComponent),
     children: [
       {
         path: "",
-        loadComponent: () => import('./routes/mianPage/home/home.component').then(m => m.HomeComponent)
+        loadComponent: () => import('./routes/base/home/home.component').then(m => m.HomeComponent)
       },
       {
         path: "content",
-        loadComponent: () => import('./routes/content/content.component').then(m => m.ContentComponent)
+        loadComponent: () => import('./routes/base/content/content.component').then(m => m.ContentComponent)
       }
     ]
   },
@@ -31,7 +31,7 @@ export const routes: Routes = [
     ]
   },
   {
-    path: 'login', loadComponent: () => import ('./routes/login/login.component').then(m => m.LoginComponent)
+    path: 'login', loadComponent: () => import ('./routes/base/login/login.component').then(m => m.LoginComponent)
   },
   {
     path: '', redirectTo: 'main', pathMatch: 'full'

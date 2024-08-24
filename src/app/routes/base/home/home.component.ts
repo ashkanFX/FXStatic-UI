@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Card} from "../../../shared/interface/card.interface";
 import {rout} from "../../../shared/model/routing.model";
-import {CategoryComponent} from "../category/category.component";
-import {LastActivityComponent} from "../last-activity/last-activity.component";
-import {ChapterComponent} from "../chapter/chapter.component";
+
 import {CardComponent} from "../../../core/card/card.component";
 import {SliderComponent} from "../../../core/slider/slider.component";
 import {TypeEffectComponent} from "../../../core/type-effect/type-effect.component";
@@ -11,6 +9,9 @@ import {TypeEffectService} from "../../../core/type-effect/type-effect.service";
 import {ReactiveFormsModule} from "@angular/forms";
 import {FileUploadModule} from "primeng/fileupload";
 import {PostService} from "../../admin/post/creat-post/post.service";
+import {ChapterComponent} from "./chapter/chapter.component";
+import {LastActivityComponent} from "./last-activity/last-activity.component";
+import {CategoryComponent} from "../../admin/category/category.component";
 
 @Component({
   selector: 'app-home',
@@ -35,7 +36,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
      this.typeEffectService.state.next({
-      strings: ['welcome', 'This is dock ', 'that help you to understand about ', "everything new"],
+      strings: ['welcome', 'This is FX ', 'that help you to understand about ', "everything new"],
        startDelay: 1000,
        typeSpeed: 50,
        backSpeed: 30,
@@ -71,7 +72,6 @@ export class HomeComponent implements OnInit {
   ];
   prepareCard(){
     this.postService.getLatestPost().subscribe(res => {
-      console.log(res.body);
     })
 
   }

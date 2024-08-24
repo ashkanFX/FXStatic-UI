@@ -3,14 +3,14 @@ import {TieredMenuModule} from "primeng/tieredmenu";
 import {DividerModule} from "primeng/divider";
 import {PrimeIcons} from "primeng/api";
 import {CardModule} from "primeng/card";
-import {footer} from "../../../shared/interface/footer.interface";
-import {navBar} from "../../../shared/interface/nav.interface";
-import {ButtonIcon} from "../../../shared/enums/public.enum";
-import {rout} from "../../../shared/model/routing.model";
+import {rout} from "../../shared/model/routing.model";
+import {ButtonIcon} from "../../shared/enums/public.enum";
+import {navBar} from "../../shared/interface/nav.interface";
+import {NavBarComponent} from "../../core/nav-bar/nav-bar.component";
+import {FooterComponent} from "../../core/footer/footer.component";
+import {MainPageComponent} from "../../core/pageConfig/main-page/main-page.component";
 import {JsonPipe} from "@angular/common";
-import {NavBarComponent} from "../../../core/nav-bar/nav-bar.component";
-import {FooterComponent} from "../../../core/footer/footer.component";
-import {MainPageComponent} from "../../../core/pageConfig/main-page/main-page.component";
+import {footer} from "../../shared/interface/footer.interface";
 
 @Component({
   selector: 'app-main',
@@ -24,10 +24,10 @@ import {MainPageComponent} from "../../../core/pageConfig/main-page/main-page.co
     JsonPipe,
     MainPageComponent
   ],
-  templateUrl: './main.component.html',
-  styleUrl: './main.component.css'
+  templateUrl: './base.component.html',
+  styleUrl: './base.component.css'
 })
-export class MainComponent implements OnInit {
+export class BaseComponent implements OnInit {
 
   ngOnInit(): void {
 
@@ -43,10 +43,9 @@ export class MainComponent implements OnInit {
         text: "admin",
         icon: PrimeIcons.TAG,
         iconStatus: ButtonIcon.right,
-        show: Boolean(JSON.parse(sessionStorage.getItem('userdetails')!)),
-        router: rout.admin,
+        show: true,
+        router: rout.Post,
         clicked($even) {
-          console.log('test')
         }
       },
       {
@@ -56,7 +55,6 @@ export class MainComponent implements OnInit {
         show: true,
         router: rout.Main,
         clicked($even) {
-          console.log('test')
         }
       }, {
         text: "Content",
@@ -65,27 +63,27 @@ export class MainComponent implements OnInit {
         show: true,
         router: rout.Content,
         clicked($even) {
-          console.log('test')
         }
       },
       {
         text: "Log in",
         icon: PrimeIcons.LOCK,
         iconStatus: ButtonIcon.right,
-        show: !Boolean(JSON.parse(sessionStorage.getItem('userdetails')!)),
+        show: true,
         router: rout.Login,
         clicked($even) {
-          console.log('test')
         }
       },
       {
         text: "Log out",
         icon: PrimeIcons.LOCK_OPEN,
         iconStatus: ButtonIcon.right,
-        show: Boolean(JSON.parse(sessionStorage.getItem('userdetails')!)),
+        show: true,
         router: rout.Home,
         clicked($even) {
-          sessionStorage.clear()
+          window.sessionStorage.setItem("Authorization", "");
+          window.sessionStorage.setItem("userdetails", "");
+          window.sessionStorage.setItem("Login", String(false));
         }
       }
     ]

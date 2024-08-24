@@ -1,25 +1,32 @@
-<app-main-page [config]="config">
-  <form [formGroup]="categoryForm">
-    <div class="flex flex-column gap-2 col-12">
-      <label for="name">name</label>
-      <input type="text"
-             id="name"
-             aria-describedby="username-help"
-             pInputText formControlName="name"/>
-    </div>
-    <div class="h-1rem"></div>
-    <div class="flex-1 flex justify-content-around align-items-center gap-3">
+<section class="flex flex-wrap col-12 h-screen  ">
+  <div id="form" class="col-7">
+    <form [formGroup]="categoryForm">
+      <div class="flex flex-column gap-2 col-12">
+        <label for="name">name</label>
+        <input type="text"
+               id="name"
+               aria-describedby="username-help"
+               pInputText formControlName="name"/>
+      </div>
+      <div class="h-1rem"></div>
+      <div class="flex-1 flex justify-content-around align-items-center gap-3">
       <span class="flex align-items-center justify-content-around gap-2">
         <label for="color" class="font-bold block mb-2"> color :</label>
         <p-colorPicker id="color" formControlName="color"/>
       </span>
-      <span class="flex align-items-center justify-content-around gap-2">
-        <label for="isActive" class="font-bold block mb-2"> active : </label>
-        <p-inputSwitch  id="isActive" formControlName="isActive"/>
+        <span class="flex align-items-center justify-content-around gap-2">
+        <label for="active" class="font-bold block mb-2"> active : </label>
+        <p-inputSwitch id="active" formControlName="active"/>
       </span>
-    </div>
-    <p-button label="accept"  class="mt-2" (onClick)="saveCategory()" [outlined]="true" severity="success"></p-button>
+      </div>
+      <p-button label="accept" class="mt-2" (onClick)="saveCategory()" [outlined]="true"
+                severity="success"></p-button>
+    </form>
+  </div>
+  <div id="list" class="col-5">
+    <app-basic-grid [configGrid]="configGrid"></app-basic-grid>
+  </div>
+</section>
 
-  </form>
 
-</app-main-page>
+

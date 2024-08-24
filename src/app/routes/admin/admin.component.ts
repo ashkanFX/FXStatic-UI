@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MainPageComponent} from "../../core/pageConfig/main-page/main-page.component";
 import {MainPageInterface} from "../../shared/interface/mainPage.interface";
 import {NavBarComponent} from "../../core/nav-bar/nav-bar.component";
@@ -6,7 +6,7 @@ import {navBar} from "../../shared/interface/nav.interface";
 import {rout} from "../../shared/model/routing.model";
 import {PrimeIcons} from "primeng/api";
 import {ButtonIcon} from "../../shared/enums/public.enum";
-import {RouterOutlet} from "@angular/router";
+import {Router, RouterOutlet} from "@angular/router";
 
 @Component({
   selector: 'app-admin',
@@ -19,7 +19,7 @@ import {RouterOutlet} from "@angular/router";
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
 })
-export class AdminComponent {
+export class AdminComponent implements OnInit {
   configMainPage: MainPageInterface = {
     bgColor: "bg-3-color "
   }
@@ -43,9 +43,26 @@ export class AdminComponent {
         iconStatus: ButtonIcon.right,
         show: true,
         router: rout.admin,
-        clicked($even) {}
+        clicked($even) {
+        }
+      },
+      {
+        text: "category",
+        icon: PrimeIcons.EJECT,
+        iconStatus: ButtonIcon.right,
+        show: true,
+        router: rout.Category,
+        clicked($even) {
+        }
       }
     ]
   };
+
+  constructor(private router: Router) {
+  }
+
+  ngOnInit(): void {
+   }
+
 
 }

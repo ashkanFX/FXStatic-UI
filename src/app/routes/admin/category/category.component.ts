@@ -9,6 +9,9 @@ import {JsonPipe} from "@angular/common";
 import {ButtonModule} from "primeng/button";
 import {CategoryService} from "./category.service";
 import {Category} from "./Category";
+import {BasicGridComponent} from "../../../core/grid/basic-grid/basic-grid.component";
+import {ConfigGrid} from "../../../core/grid/basic-grid/config-grid";
+import {ReplaySubject} from "rxjs";
 
 @Component({
   selector: 'app-category',
@@ -16,12 +19,12 @@ import {Category} from "./Category";
   imports: [
     MainPageComponent,
     ReactiveFormsModule,
-
     InputTextModule,
     InputSwitchModule,
     ColorPickerModule,
     JsonPipe,
     ButtonModule,
+    BasicGridComponent,
   ],
   templateUrl: './category.component.html',
   styleUrl: './category.component.css'
@@ -29,7 +32,14 @@ import {Category} from "./Category";
 export class CategoryComponent implements OnInit {
   config: MainPageInterface;
   categoryForm: FormGroup;
-  category = inject(CategoryService)
+  service = inject(CategoryService)
+  configGrid: ConfigGrid = {
+    class: [],
+    columnName: [],
+    configGridUpdate: new ReplaySubject<ConfigGrid>(),
+    name: "",
+    rowBody: []
+  };
 
   constructor(private fb: FormBuilder) {
   }
@@ -40,19 +50,45 @@ export class CategoryComponent implements OnInit {
     }
     this.categoryForm = this.fb.group({
       name: new FormControl(null, [Validators.required]),
-      isActive: new FormControl(true, [Validators.required]),
-      color: new FormControl(null, [Validators.required])
+      active: new FormControl(true, [Validators.required]),
+      color: new FormControl('#72B644', [Validators.required])
     })
-    this.categoryForm.valueChanges.subscribe(res => {
-      console.log(res);
-    })
+    this.prepareGrid()
   }
 
   public saveCategory() {
     const category = new Category();
     category.name = this.categoryForm.get('name')?.value
-    this.category.addCategory(category.name).subscribe(res => {
+    category.color = this.categoryForm.get('color')?.value
+    category.active = this.categoryForm.get('active')?.value
+    this.service.addCategory(category).subscribe(res => {// TODO need toast
+      this.prepareGrid();
+    })
+  }
 
+  public prepareGrid() {
+    this.service.getAllCategory().subscribe(response => {
+      this.configGrid.configGridUpdate.next({
+        class: [],
+        columnName: ['id', 'name'],
+        configGridUpdate: new ReplaySubject<ConfigGrid>(),
+        name: "",
+        rowBody: response,
+        operation: {
+          delete: (selectedRow) => {
+            this.deleteCategory(selectedRow.id);
+           },
+          update: () => {
+          }
+        }
+      })
+    })
+  }
+
+  deleteCategory(id: string) {
+    this.service.deleteCategory(id).subscribe(() => {
+      this.prepareGrid();
+      //TODO add toast
     })
   }
 }

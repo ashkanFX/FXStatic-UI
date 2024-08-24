@@ -12,12 +12,17 @@ export class CategoryService {
   constructor(private http: HttpClient) {
   }
 
-  public getAllCategory(): Observable<Category> {
-    return this.http.get<Category>(environment.apiUrl + 'category/getAll',)
+  public getAllCategory(): Observable<Category[]> {
+    return this.http.get<Category[]>(environment.apiUrl + 'category/getAll',)
+    // .pipe(catchError())
   }
 
-  public addCategory(name: string): Observable<HttpResponse<Category>> {
-    return this.http.post<Category>(environment.apiUrl + 'category/add', {name},
+  public addCategory(category: Category): Observable<HttpResponse<Category>> {
+    return this.http.post<Category>(environment.apiUrl + 'category/add', category,
       {observe: 'response', withCredentials: true})
+  }
+
+  deleteCategory(id: string): Observable<any> {
+    return this.http.delete(environment.apiUrl + `category/delete/${id}`, {observe: 'response', withCredentials: true})
   }
 }

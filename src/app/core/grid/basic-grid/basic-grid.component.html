@@ -6,10 +6,9 @@
     <th *ngIf="configGrid?.operation">operation</th>
   </tr>
   <tr *ngFor="let rowBody  of configGrid.rowBody">
-
-    <td>{{rowBody.title}}</td>
-    <td>{{rowBody.description}}</td>
-    <td>{{rowBody.category[0]?.name}}</td>
+    <ng-container *ngFor="let columnName of configGrid.columnName">
+      <td [ngStyle]="{'background-color': rowBody['color'] ? rowBody['color'] : null }">{{rowBody[columnName]}}</td>
+    </ng-container>
     <td class=" ">
       <div class="flex gap-1 w-full justify-content-around">
       <span *ngIf="configGrid?.operation?.view">
@@ -23,22 +22,6 @@
       </span>
       </div>
     </td>
-
   </tr>
-
 </table>
-<!--<div class="card">-->
-<!--  <p-table [tableStyle]="{ 'min-width': '50rem' }">-->
-<!--    <ng-template pTemplate="header">-->
-<!--      <tr>-->
-<!--        @for (option of options; track option) {-->
-<!--        <th>{{option}}</th>-->
-<!--        }-->
-<!--      </tr>-->
-<!--    </ng-template>-->
-<!--    <ng-template pTemplate="body" let-options>-->
-
-<!--    </ng-template>-->
-<!--  </p-table>-->
-<!--</div>-->
 

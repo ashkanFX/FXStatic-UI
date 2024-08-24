@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {TableModule} from "primeng/table";
 import {ConfigGrid} from "./config-grid";
-import {JsonPipe, NgFor, NgForOf, NgIf} from "@angular/common";
+import {JsonPipe, NgFor, NgForOf, NgIf, NgStyle} from "@angular/common";
 
 @Component({
   selector: 'app-basic-grid',
@@ -11,7 +11,8 @@ import {JsonPipe, NgFor, NgForOf, NgIf} from "@angular/common";
     NgFor,
     NgForOf,
     NgIf,
-    JsonPipe
+    JsonPipe,
+    NgStyle
   ],
   templateUrl: './basic-grid.component.html',
   styleUrl: './basic-grid.component.css',
@@ -20,10 +21,15 @@ import {JsonPipe, NgFor, NgForOf, NgIf} from "@angular/common";
 })
 export class BasicGridComponent implements OnInit {
   @Input() configGrid: ConfigGrid = new ConfigGrid();
-  constructor() {}
+  header: string[] = []
+
+  constructor() {
+  }
+
   ngOnInit(): void {
     this.configGrid.configGridUpdate.subscribe(res => {
       this.configGrid = res;
     })
   }
 }
+

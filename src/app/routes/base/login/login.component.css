@@ -74,7 +74,7 @@ h2.inactive {
 }
 
 h2.active {
-  color: #0d0d0d;
+  color: #ffffff;
   border-bottom: 2px solid #5fbae9;
 }
 
@@ -104,9 +104,6 @@ input[type=button], input[type=submit], input[type=reset]  {
   transition: all 0.3s ease-in-out;
 }
 
-input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
-  background-color: #39ace7;
-}
 
 input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
   -moz-transform: scale(0.95);
@@ -116,7 +113,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   transform: scale(0.95);
 }
 
-input[type=text] {
+input[type=text], [type=password] {
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;

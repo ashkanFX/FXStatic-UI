@@ -1,0 +1,17 @@
+<app-nav-bar [config]="navBarConf">
+
+</app-nav-bar>
+<app-main-page [config]="configMainPage">
+  <div class="wrapper fadeInDown  ">
+    <div id="formContent " class="p-2">
+      <h2 class="active"> Sign In </h2>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete="on">
+        <input type="text" id="username" name="username" formControlName="username" placeholder="username"
+               required>
+        <input type="password" id="password" name="password" formControlName="password"
+               placeholder="Enter your password" required>
+        <p-button label="accept" (onClick)="onSubmit()" class="mt-5" [outlined]="true" severity="success"></p-button>
+      </form>
+    </div>
+  </div>
+</app-main-page>
