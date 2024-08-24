@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Card} from "../../../shared/interface/card.interface";
 import {rout} from "../../../shared/model/routing.model";
-
 import {CardComponent} from "../../../core/card/card.component";
 import {SliderComponent} from "../../../core/slider/slider.component";
 import {TypeEffectComponent} from "../../../core/type-effect/type-effect.component";
@@ -11,7 +10,7 @@ import {FileUploadModule} from "primeng/fileupload";
 import {PostService} from "../../admin/post/creat-post/post.service";
 import {ChapterComponent} from "./chapter/chapter.component";
 import {LastActivityComponent} from "./last-activity/last-activity.component";
-import {CategoryComponent} from "../../admin/category/category.component";
+import {CategoryComponent} from "./category/category.component";
 
 @Component({
   selector: 'app-home',

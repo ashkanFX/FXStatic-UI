@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {DividerModule} from "primeng/divider";
-import {Card} from "../../../shared/interface/card.interface";
-import {rout} from "../../../shared/model/routing.model";
 import {ButtonModule} from "primeng/button";
-import {ShareService} from "../../../shared/structure/share.service";
 import {NgForOf} from "@angular/common";
 import {filter} from "rxjs";
-import {CardComponent} from "../../../core/card/card.component";
+import {CardComponent} from "../../../../core/card/card.component";
+import {Card} from "../../../../shared/interface/card.interface";
+import {rout} from "../../../../shared/model/routing.model";
+import {ShareService} from "../../../../shared/structure/share.service";
 
 @Component({
   selector: 'app-category',
