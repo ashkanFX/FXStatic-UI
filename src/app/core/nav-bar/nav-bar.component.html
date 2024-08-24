@@ -9,7 +9,7 @@
           routerLink="{{item.router.url}}" class=" flex w-full h-2rem align-items-center justify-content-center
       md:w-auto p-2  border-round ">
           <p (click)="clicked(item)"
-            style="text-decoration: none"> {{item.text}} <i [class]="item.icon"></i></p>
+            style="text-decoration: none">  <i [class]="item.icon"></i> {{item.text}}</p>
       </li>
         </ng-container>
     </ul>
@@ -19,7 +19,7 @@
           routerLink="{{item.router.url}}" class=" flex w-full h-2rem align-items-center justify-content-center
       md:w-auto p-2  border-round ">
         <p-button (onClick)="clicked(item)">
-          {{item.text}} <i [class]="item.icon"></i></p-button>
+          <i [class]="item.icon"></i> {{item.text}} </p-button>
       </li>
     </ul>
   </section>

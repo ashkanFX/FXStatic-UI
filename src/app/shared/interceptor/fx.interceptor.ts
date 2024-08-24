@@ -1,25 +1,11 @@
 import {HttpInterceptorFn} from '@angular/common/http';
 
 export const fXInterceptor: HttpInterceptorFn = (req, next) => {
-  let userLogin = JSON.parse(sessionStorage.getItem('userdetails')!)
-  let xsrfToken = getXsrfTokenFromCookie();
+
   let headers = req.headers;
-  if (userLogin?.username) {
-    headers = headers.set('Authorization', `Basic `+window.btoa(userLogin.username + ':' + userLogin.password));
-  }
-  if (xsrfToken) {
-    headers = headers.set('X-XSRF-TOKEN', xsrfToken);
-  }
-  const authReq = req.clone({
-    headers
-  });
+
+  headers = headers.set('Authorization', "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2hrYW5mb3RvaGk4MUBnbWFpbC5jb20iLCJpYXQiOjE3MjUwMDE5NzgsImV4cCI6MTcyNTAwNTU3OH0.uPBiQzFrtG75O1kQhA13cypqutkNh3wVsERQNaEQJ1E")
+
+  const authReq = req.clone({headers});
   return next(authReq);
-
 };
-
-
-
-function getXsrfTokenFromCookie() {
-  const matches = document.cookie.match(/XSRF-TOKEN=([^;]+)/);
-  return matches ? decodeURIComponent(matches[1]) : null;
-}

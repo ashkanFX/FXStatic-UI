@@ -1,16 +1,30 @@
-import {Component} from '@angular/core';
-import {Router, RouterOutlet} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {RouterOutlet} from '@angular/router';
 import {CommonModule} from "@angular/common";
 import {ButtonModule} from "primeng/button";
-import {rout} from "./shared/model/routing.model";
+import {Message, MessageService} from "primeng/api";
+import {ShareService} from "./shared/structure/share/share.service";
+import {ToastModule} from "primeng/toast";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, ButtonModule],
+  imports: [RouterOutlet, CommonModule, ButtonModule, ToastModule],
+  providers: [MessageService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 
 })
 
-export class AppComponent {}
+export class AppComponent implements OnInit {
+  constructor(private share: ShareService,
+              private messageService: MessageService,
+  ) {
+  }
+
+  ngOnInit(): void {
+    this.share.toast.subscribe((res: Message) => {
+      this.messageService.add(res);
+    })
+  }
+}

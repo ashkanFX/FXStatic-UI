@@ -11,6 +11,7 @@ import {FooterComponent} from "../../core/footer/footer.component";
 import {MainPageComponent} from "../../core/pageConfig/main-page/main-page.component";
 import {JsonPipe} from "@angular/common";
 import {footer} from "../../shared/interface/footer.interface";
+import {ToastModule} from "primeng/toast";
 
 @Component({
   selector: 'app-main',
@@ -22,7 +23,8 @@ import {footer} from "../../shared/interface/footer.interface";
     CardModule,
     FooterComponent,
     JsonPipe,
-    MainPageComponent
+    MainPageComponent,
+    ToastModule
   ],
   templateUrl: './base.component.html',
   styleUrl: './base.component.css'
@@ -32,7 +34,6 @@ export class BaseComponent implements OnInit {
   ngOnInit(): void {
 
   }
-
   mainColor: string = 'text-blue-600'
 
   navBarConf: navBar = {

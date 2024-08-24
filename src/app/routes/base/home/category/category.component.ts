@@ -6,7 +6,7 @@ import {filter} from "rxjs";
 import {CardComponent} from "../../../../core/card/card.component";
 import {Card} from "../../../../shared/interface/card.interface";
 import {rout} from "../../../../shared/model/routing.model";
-import {ShareService} from "../../../../shared/structure/share.service";
+import {ShareService} from "../../../../shared/structure/share/share.service";
 
 @Component({
   selector: 'app-category',
@@ -51,15 +51,15 @@ export class CategoryComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    this.share._category.pipe(
-      filter(x => !this.selectedCategory.includes(x))
-    ).subscribe(res => {
-      this.selectedCategory.push(res)
-    })
+    // this.share._category.pipe(
+    //   filter(x => !this.selectedCategory.includes(x))
+    // ).subscribe(res => {
+    //   this.selectedCategory.push(res)
+    // })
 
   }
 
   addCategory(event: string) {
-    this.share._category.next(event)
+    // this.share._category.next(event)
   }
 }

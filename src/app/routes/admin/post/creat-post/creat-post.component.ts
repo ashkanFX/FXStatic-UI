@@ -15,7 +15,7 @@ import {ProfileService} from "../../profile/profile.service";
 import {ReqAddPostDto} from "../req-add-post.dto";
 import {BasicGridComponent} from "../../../../core/grid/basic-grid/basic-grid.component";
 import {ConfigGrid} from "../../../../core/grid/basic-grid/config-grid";
-import {ShareService} from "../../../../shared/structure/share.service";
+import {ShareService} from "../../../../shared/structure/share/share.service";
 
 @Component({
   selector: 'app-creat-post',
