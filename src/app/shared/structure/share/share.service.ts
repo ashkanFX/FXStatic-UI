@@ -29,4 +29,14 @@ export class ShareService {
       throw Error('can not set data for user')
     }
   }
+
+  convertResponseToObj(obj: any): Object {
+    const cloneObj$ = {}
+    Object.keys(obj).forEach(key => {
+        Object.defineProperty(cloneObj$, key, {value: obj[key]})
+      }
+    )
+    return cloneObj$
+  }
+
 }

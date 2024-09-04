@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-
 import {PrimeIcons} from "primeng/api";
 import {ButtonModule} from "primeng/button";
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
@@ -90,6 +89,7 @@ export class LoginComponent implements OnInit {
     this.service.login(loginResDto).subscribe((res) => {
       this.session.setEachKeyOfObject(res)
       this.share.toast.next(new Toast('success', 'Success', 'your are login'));
+      this.getUserByEmail(this.loginForm.get('email')?.value)
       this.router.navigate(['/main']);
     })
   }
@@ -104,10 +104,16 @@ export class LoginComponent implements OnInit {
       this.session.setEachKeyOfObject(res)
       this.router.navigate(['/main']);
     })
-
   }
 
   changeForm(formType: string) {
     this.formType = formType
   }
+
+  getUserByEmail(email: string): void {
+    this.service.getUserByEmail(email).subscribe(user => {
+      this.session.setItemInSessionStorage('user', user)
+    })
+  }
+
 }

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {TieredMenuModule} from "primeng/tieredmenu";
 import {DividerModule} from "primeng/divider";
 import {PrimeIcons} from "primeng/api";
@@ -12,6 +12,7 @@ import {MainPageComponent} from "../../core/pageConfig/main-page/main-page.compo
 import {JsonPipe} from "@angular/common";
 import {footer} from "../../shared/interface/footer.interface";
 import {ToastModule} from "primeng/toast";
+import {SessionService} from "../../shared/structure/session/session.service";
 
 @Component({
   selector: 'app-main',
@@ -34,7 +35,9 @@ export class BaseComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
   mainColor: string = 'text-blue-600'
+  session = inject(SessionService)
 
   navBarConf: navBar = {
     textColor: this.mainColor,
@@ -47,6 +50,7 @@ export class BaseComponent implements OnInit {
         show: true,
         router: rout.Post,
         clicked($even) {
+
         }
       },
       {
@@ -82,9 +86,7 @@ export class BaseComponent implements OnInit {
         show: true,
         router: rout.Home,
         clicked($even) {
-          window.sessionStorage.setItem("Authorization", "");
-          window.sessionStorage.setItem("userdetails", "");
-          window.sessionStorage.setItem("Login", String(false));
+          sessionStorage.clear()
         }
       }
     ]

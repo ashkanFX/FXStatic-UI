@@ -88,7 +88,6 @@ export class CategoryComponent implements OnInit {
   deleteCategory(id: string) {
     this.service.deleteCategory(id).subscribe(() => {
       this.prepareGrid();
-      //TODO add toast
-    })
+     })
   }
 }

@@ -19,7 +19,7 @@ export class NavBarComponent {
   @Input() config: navBar
   onShow: string = "hidden"
 
-  protected ngClick() {
+  ngClick() {
     if (this.onShow === "hidden") {
       this.onShow = "block scalein  animation-duration-90"
     } else {

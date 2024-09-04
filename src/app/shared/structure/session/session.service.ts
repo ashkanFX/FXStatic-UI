@@ -4,8 +4,7 @@ import {Injectable} from '@angular/core';
   providedIn: 'root'
 })
 export class SessionService {
-  constructor() {
-  }
+
 
   setItemInSessionStorage(name: string, data: any): void {
     window.sessionStorage.setItem(name, JSON.stringify(data));
@@ -29,6 +28,8 @@ export class SessionService {
       }
     )
   }
+
+
 }
 
 interface Object {

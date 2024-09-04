@@ -18,4 +18,8 @@ export class LoginService {
   register(registerDto: RegisterDto) {
     return this.http.post<any>(environment.apiUrl + 'api/v1/auth/register', registerDto)
   }
+
+  getUserByEmail(email: string) {
+    return this.http.get<any>(environment.apiUrl + 'user/get/email', {params: {email}})
+  }
 }
