@@ -1,0 +1,237 @@
+[33mcommit 3cd45d6faaf9eeb9c91ae5a4618245248f8ebf3f[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: [1;31mashkan[m <[1;31mashkan[m.fotohi@gmail.com>
+Date:   Fri Sep 20 17:39:31 2024 +0330
+
+    test commit
+
+[33mcommit 8cdf39539911d365c2e47604f3084ba1fdd82fcb[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Fri Sep 20 17:36:42 2024 +0330
+
+    fix auth and interceptor base on new security conf and add logo and fix bug
+
+[33mcommit d722768d0803b74e3d92124d3abccdc6cee55ce8[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Wed Sep 4 14:13:33 2024 +0330
+
+    fix auth and interceptor base on new security conf and add logo and fix bug
+
+[33mcommit 4b0d68ed04c80d3a371bcdbc620d598ad388c2a1[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Fri Aug 30 16:37:40 2024 +0330
+
+    add login auto save and set data in session storage
+
+[33mcommit a90b1ccf8620719e4dfa52e3e2f63c184f702a62[m
+Merge: b89aba0 f9ff9c5
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Fri Aug 30 16:37:30 2024 +0330
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #       src/app/routes/base/login/login.component.css
+    #       src/app/routes/base/login/login.component.html
+    #       src/app/routes/base/login/login.component.ts
+    #       src/app/routes/base/login/service/login.res.dto.ts
+    #       src/app/routes/base/login/service/login.service.ts
+    #       src/app/shared/interceptor/fx.interceptor.ts
+    #       src/app/shared/structure/share/share.service.ts
+
+[33mcommit b89aba0f8869dab120b3f013dfef0e22ffe4c493[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Sun Aug 25 01:31:22 2024 +0330
+
+    add login auto save and set data in session storage
+
+[33mcommit f9ff9c527b23e87908e35c82f43bd9358ebf6715[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Sun Aug 25 01:31:22 2024 +0330
+
+    add login auto save and set data in session storage
+
+[33mcommit 37fc221c01e48690fddbfb0e72ccf3d1c0b6a8c7[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Sat Aug 24 23:58:32 2024 +0330
+
+    fix structure and add login page and auth
+
+[33mcommit de1945ba888b514332973ffbc260ef7126e39988[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Sat Aug 24 23:47:22 2024 +0330
+
+    fix structure and add login page and auth
+
+[33mcommit a0413d8bcfcaaa9ff34c1bba5e55692001194848[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Thu Aug 1 22:00:09 2024 +0330
+
+    add basic security to hande login sing up and add request
+
+[33mcommit c2d96cf85787a0fdda0a293080470c5427ff2274[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Tue Jul 30 23:31:16 2024 +0330
+
+    add basic security to hande login sing up and add request
+
+[33mcommit bf1e97983239cee94793bec8be141410f7110bf9[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Mon Jul 29 00:09:27 2024 +0330
+
+    add login page and auth gard to project
+
+[33mcommit d403ddf08675c300a52506d31ded5508804e28de[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Fri Jul 26 12:13:14 2024 +0330
+
+    add interceptor
+
+[33mcommit 57e7dd5e4db6a31746aee53cfa4bb43062e99c17[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Fri Jul 26 12:12:58 2024 +0330
+
+    add interceptor
+
+[33mcommit aa7aa9d9058e9855915e50731464ea9a370f4b55[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Thu Jul 18 23:56:25 2024 +0330
+
+    add post page  and pure  grid
+
+[33mcommit 73afe3a5652ae133e86e0be71f73eaaa00c80962[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Thu Jul 18 23:55:53 2024 +0330
+
+    add post page  and pure  grid
+
+[33mcommit dadf24d0976af9ce215c9d2cc8aed5480770c7f8[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Tue Apr 2 22:27:41 2024 +0330
+
+    add base of content
+
+[33mcommit 1417d2a4b4560155a13d79c8704c4bc035f0caa1[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Tue Mar 26 20:05:05 2024 +0330
+
+     chane view
+
+[33mcommit 340f8395335315811aad521d9bf8e0a9a32402a6[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Sat Mar 9 23:01:44 2024 +0330
+
+    start change status for mobile
+
+[33mcommit e38d6a7223b0b0e28f3f853ca0a99864b9d18493[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Fri Mar 8 15:08:52 2024 +0330
+
+    start change status for mobile
+
+[33mcommit 30cc8a792c14790c83604a2b16071e569d477ab1[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Thu Mar 7 01:50:26 2024 +0330
+
+    start change status for mobile
+
+[33mcommit 8ffdda94c4cd0baaaa528e82b603c3c4db138944[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Thu Mar 7 01:42:58 2024 +0330
+
+    start change status for mobile
+
+[33mcommit d4d3b092f7e5d417a9f77514249b61316a99fcf3[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Thu Mar 7 01:31:56 2024 +0330
+
+    start change status for mobile
+
+[33mcommit e743105c0ce74cd8575d2c7808646769721e47d2[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Tue Mar 5 22:40:18 2024 +0330
+
+    start change status for mobile
+
+[33mcommit 54d87e974956b2c22cb4074bca2dc9e6c83fde00[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Tue Mar 5 22:38:40 2024 +0330
+
+    start change status for mobile
+
+[33mcommit 2cc4fbec882fc5f145e254c3f74723fa99525121[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Tue Mar 5 22:24:39 2024 +0330
+
+    start change status for mobile
+
+[33mcommit 63d1ec70db02e37bd60210ee5d61e3e323d2aa60[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Tue Mar 5 22:24:22 2024 +0330
+
+    start change status for mobile
+
+[33mcommit 2fedf2cdd6414b0b85332d0e33b239cace26c115[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Mon Mar 4 23:57:50 2024 +0330
+
+    start change status for mobile
+
+[33mcommit 49787d14bf1ddce0e796282b3fa03296b073518c[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Mon Mar 4 00:38:20 2024 +0330
+
+    start change status for mobile
+
+[33mcommit 951e712b77713b86275491b8c8d1758fbae2a6bc[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Mon Mar 4 00:37:55 2024 +0330
+
+    start change status for mobile
+
+[33mcommit 275c1e876d8fec25b6ab79dcde6928a0dc3c57aa[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Mon Mar 4 00:32:50 2024 +0330
+
+    feat: better worded feature
+
+[33mcommit 9e95d1f7ee7333d2933d03c21e2120847275ca45[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Mon Mar 4 00:28:29 2024 +0330
+
+    start change status for mobile
+
+[33mcommit ddd320e08cc68ceb0821463f3404a2fe11188516[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Mon Mar 4 00:27:22 2024 +0330
+
+    start change status for mobile
+
+[33mcommit 1f98af6bed355a0651709032088e6200d6887d30[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Mon Mar 4 00:24:11 2024 +0330
+
+    start change status for mobile
+
+[33mcommit de0072373f9377c0403d94fda9becde3e5182a51[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Mon Mar 4 00:20:04 2024 +0330
+
+    start change status for mobile
+
+[33mcommit 3241f7ae0a8e510779fd8666ac833d3e593cb560[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Mon Mar 4 00:08:31 2024 +0330
+
+    start ptmedia
+
+[33mcommit ff59a4ea040ff18edd77f676700da4226a6e26e9[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Mon Mar 4 00:08:12 2024 +0330
+
+    start ptmedia
+
+[33mcommit 602b478a801ea73c6194ab8d07c694ecd9082a7e[m
+Author: [1;31mashkan[m <askanfotohi81@gmail.com>
+Date:   Fri Feb 23 14:31:48 2024 +0330
+
+    initial commit
