@@ -27,7 +27,7 @@ export class PostService {
   }
 
   getLatestPost(): Observable<any> {
-    return this.http.get<any>(environment.apiUrl + 'post/getAll')
+    return this.http.get<any>(environment.apiUrl + 'post/get/latest')
   }
 
 }
