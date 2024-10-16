@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ChartModule} from "primeng/chart";
-import {DoughnutChartComponent} from "../../../core/chart/doughnut-chart/doughnut-chart.component";
-import {BasicChartComponent} from "../../../core/chart/basic-chart/basic-chart.component";
+
 import {BasicGridComponent} from "../../../core/grid/basic-grid/basic-grid.component";
 import {CreatPostComponent} from "./creat-post/creat-post.component";
 
@@ -10,8 +9,7 @@ import {CreatPostComponent} from "./creat-post/creat-post.component";
   standalone: true,
   imports: [
     ChartModule,
-    DoughnutChartComponent,
-    BasicChartComponent,
+
     BasicGridComponent,
     CreatPostComponent
   ],

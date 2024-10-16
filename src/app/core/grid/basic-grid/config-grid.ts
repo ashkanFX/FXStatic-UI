@@ -2,7 +2,7 @@ import {ReplaySubject} from "rxjs";
 
 export class ConfigGrid {
   configGridUpdate: ReplaySubject<ConfigGrid>
-  name: string;
+   title: string;
   columnName: string[];
   rowBody: any[];
   class: string[]

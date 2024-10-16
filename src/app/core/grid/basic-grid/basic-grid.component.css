@@ -1,39 +1,38 @@
+#header {
+  color: #1b1e23;
+
+}
+
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #ccd7e8;
 }
 
 table {
-  border-collapse: collapse;
+  border-radius: 10px;
+  font-size: small;
   background-color: white;
+  border-collapse: collapse;
   overflow: hidden;
   width: 100%;
-
-}
-
-
-
-th {
-  background-color: #7691ab;
-  color: white;
-}
-tr:nth-of-type(odd) {
-  background: #eee;
 }
 
 th {
-  background: #3498db;
-  color: white;
-  font-weight: bold;
-}
-
-td, th {
-  padding: 5px;
-  border: 1px solid #ccc;
+  background-color: #f6f6f6;
+  color: rgba(27, 30, 35, 0.85);
+  padding: 10px;
+  font-size: medium;
+  font-weight: normal;
+  border-bottom: 3px solid rgba(204, 204, 204, 0.3);
   text-align: left;
-  font-size: 18px;
+}
+
+td {
+  color: rgba(34, 40, 49, 0.73);
+  padding: 10px;
+  border-bottom: 2px solid #F7F7F8;
+  text-align: left;
 }
 

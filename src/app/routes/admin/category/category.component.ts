@@ -37,7 +37,7 @@ export class CategoryComponent implements OnInit {
     class: [],
     columnName: [],
     configGridUpdate: new ReplaySubject<ConfigGrid>(),
-    name: "",
+    title: "",
     rowBody: []
   };
 
@@ -70,7 +70,7 @@ export class CategoryComponent implements OnInit {
         class: [],
         columnName: ['id', 'name'],
         configGridUpdate: new ReplaySubject<ConfigGrid>(),
-        name: "",
+        title: 'category',
         rowBody: response,
         operation: {
           delete: (selectedRow) => {
