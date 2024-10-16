@@ -10,7 +10,7 @@ export class ConfigGrid {
 }
 
 class Operation<add, update, del> {
-  view?: () => add;
-  update?: () => update;
+  view?: (row: any) => add;
+  update?: (row: any) => update;
   delete?: (row: any) => del;
 }

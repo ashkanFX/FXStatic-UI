@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpResponse} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {catchError, Observable, retry, throwError, timeout, TimeoutError, timer} from "rxjs";
 import {Category} from "./Category";
 import {environment} from "../../../../environments/environment.development";
 
@@ -13,16 +13,29 @@ export class CategoryService {
   }
 
   public getAllCategory(): Observable<Category[]> {
-    return this.http.get<Category[]>(environment.apiUrl + 'category/getAll',)
-    // .pipe(catchError())
+    return this.http.get<Category[]>(environment.apiUrl + 'category/getAll').pipe(timeout(1), retry({
+          count: 3,
+          delay: (err, countNum) => {
+            console.error(`can not take data in ${countNum} try`, err)
+            return timer(1000  * countNum)
+          }
+        }
+      ),
+      catchError(this.handelError))
   }
 
-  public addCategory(category: Category): Observable<HttpResponse<Category>> {
-    return this.http.post<Category>(environment.apiUrl + 'category/add', category,
-      {observe: 'response', withCredentials: true})
+  public addCategory(category: Category): Observable<Category> {
+    return this.http.post<Category>(environment.apiUrl + 'category/add', category)
   }
 
   deleteCategory(id: string): Observable<any> {
     return this.http.delete(environment.apiUrl + `category/delete/${id}`, {observe: 'response', withCredentials: true})
+  }
+
+  handelError(error: HttpErrorResponse | TimeoutError) {
+
+    return throwError(() => {
+
+    })
   }
 }

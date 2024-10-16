@@ -1,4 +1,8 @@
 <section class="flex  flex-wrap">
+
+  <section id="body">
+    <app-basic-grid ngSkipHydration [configGrid]="configGrid" #grid></app-basic-grid>
+  </section>
   <form [formGroup]="formGroup" class="col-12">
     <div class="flex flex-column gap-2 col-12">
       <label for="username">title</label>
@@ -36,7 +40,4 @@
 </div>
 <div class=" col-12 h-screen">
 
-<section id="body">
-    <app-basic-grid ngSkipHydration [configGrid]="configGrid" #grid></app-basic-grid>
-  </section>
 </div>

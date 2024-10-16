@@ -51,7 +51,7 @@ export class CreatPostComponent implements OnInit {
   @ViewChild('grid') grid: BasicGridComponent;
   configGrid: ConfigGrid = {
     class: [],
-    columnName: [],
+    columnName:  ['name', 'description', 'category'],
     configGridUpdate: new ReplaySubject<ConfigGrid>(),
     name: "",
     rowBody: []

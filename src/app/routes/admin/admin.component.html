@@ -1,4 +1,44 @@
-<app-nav-bar [config]="navBarConf"></app-nav-bar>
-<app-main-page [config]="configMainPage">
-  <router-outlet></router-outlet>
-</app-main-page>
+<section class="col-12 flex h-full p-0 text-white-alpha-40">
+  <div class="bg-2-color  col-1  h-screen">
+    <div class="w-full h-full p-0  m-0 flex flex-wrap"
+         style=" align-content: space-between; justify-content: space-between">
+      <div class="col-12 h-auto ">
+        <div class="flex w-full m-0 p-0 h-2rem mt-2 border-round-3xl justify-content-center
+      align-items-center ">
+          <a class="m-0 p-0 ">
+            <i class="pi pi-user"></i>
+            user
+          </a>
+        </div>
+        <div class="flex w-full m-0 p-0 h-2rem mt-2 border-round-3xl justify-content-center
+      align-items-center ">
+          <a routerLink="{{rout.Post.url}}" class="m-0 p-0 text-white-alpha-40" style=" text-decoration: none">
+            <i class="pi pi-comment"></i>
+            post
+          </a>
+        </div>
+        <div class="flex w-full m-0 p-0 h-2rem mt-2 border-round-3xl justify-content-center
+      align-items-center ">
+          <a routerLink="{{rout.Category.url}}" class="m-0 p-0 text-white-alpha-40" style="text-decoration: none">
+            <i class="pi pi-tag"></i>
+            category
+          </a>
+        </div>
+      </div>
+      <div class="col-12 h-auto ">
+        <div class="flex w-full m-0 p-0 h-2rem mt-2 border-round-3xl justify-content-center
+      align-items-center ">
+          <a class="m-0 p-0">
+            <i class="pi pi-chevron-left"></i>
+            log out
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-3-color  col-11  h-screen overflow-auto  ">
+    <div class=" p-5 bg-1-color border-round-2xl w-full h-auto">
+    <router-outlet></router-outlet>
+    </div>
+  </div>
+</section>

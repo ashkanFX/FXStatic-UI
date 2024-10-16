@@ -28,6 +28,7 @@ export class BasicGridComponent implements OnInit {
 
   ngOnInit(): void {
     this.configGrid.configGridUpdate.subscribe(res => {
+      debugger
       this.configGrid = res;
     })
   }

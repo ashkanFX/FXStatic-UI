@@ -51,7 +51,6 @@ export class CategoryComponent implements OnInit {
     this.categoryForm = this.fb.group({
       name: new FormControl(null, [Validators.required]),
       active: new FormControl(true, [Validators.required]),
-      color: new FormControl('#72B644', [Validators.required])
     })
     this.prepareGrid()
   }
@@ -59,10 +58,9 @@ export class CategoryComponent implements OnInit {
   public saveCategory() {
     const category = new Category();
     category.name = this.categoryForm.get('name')?.value
-    category.color = this.categoryForm.get('color')?.value
-    category.active = this.categoryForm.get('active')?.value
     this.service.addCategory(category).subscribe(res => {// TODO need toast
       this.prepareGrid();
+      this.categoryForm.reset()
     })
   }
 
@@ -77,8 +75,13 @@ export class CategoryComponent implements OnInit {
         operation: {
           delete: (selectedRow) => {
             this.deleteCategory(selectedRow.id);
-           },
-          update: () => {
+          },
+          update: (selectedRow) => {
+            this.deleteCategory(selectedRow.id);
+          },
+          view: (selectedRow) => {
+            this.deleteCategory(selectedRow.id);
+
           }
         }
       })
