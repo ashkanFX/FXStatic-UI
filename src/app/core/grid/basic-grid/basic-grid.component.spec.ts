@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BasicGridComponent } from './basic-grid.component';
+import {BasicGridComponent} from './basic-grid.component';
 
 describe('BasicGridComponent', () => {
   let component: BasicGridComponent;
@@ -11,7 +11,7 @@ describe('BasicGridComponent', () => {
       imports: [BasicGridComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(BasicGridComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

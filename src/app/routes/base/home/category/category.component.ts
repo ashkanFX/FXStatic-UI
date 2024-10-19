@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {DividerModule} from "primeng/divider";
 import {ButtonModule} from "primeng/button";
 import {NgForOf} from "@angular/common";
-import {filter} from "rxjs";
 import {CardComponent} from "../../../../core/card/card.component";
 import {Card} from "../../../../shared/interface/card.interface";
 import {rout} from "../../../../shared/model/routing.model";

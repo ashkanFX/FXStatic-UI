@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TypeEffectComponent } from './type-effect.component';
+import {TypeEffectComponent} from './type-effect.component';
 
 describe('TypeEffectComponent', () => {
   let component: TypeEffectComponent;
@@ -11,7 +11,7 @@ describe('TypeEffectComponent', () => {
       imports: [TypeEffectComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(TypeEffectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

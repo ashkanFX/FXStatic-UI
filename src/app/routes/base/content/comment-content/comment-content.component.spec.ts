@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CommentContentComponent } from './comment-content.component';
+import {CommentContentComponent} from './comment-content.component';
 
 describe('CommentContentComponent', () => {
   let component: CommentContentComponent;
@@ -11,7 +11,7 @@ describe('CommentContentComponent', () => {
       imports: [CommentContentComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(CommentContentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

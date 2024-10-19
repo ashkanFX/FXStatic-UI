@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { TypeEffectService } from './type-effect.service';
+import {TypeEffectService} from './type-effect.service';
 
 describe('TypeEffectService', () => {
   let service: TypeEffectService;

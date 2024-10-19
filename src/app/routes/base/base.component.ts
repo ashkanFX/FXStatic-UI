@@ -15,7 +15,6 @@ import {ToastModule} from "primeng/toast";
 import {SessionService} from "../../shared/structure/session/session.service";
 import {ShareService} from "../../shared/structure/share/share.service";
 import {severity, Toast} from "../../shared/model/Toast";
-import {authGuard} from "../../shared/auth/auth.guard";
 
 @Component({
   selector: 'app-main',
