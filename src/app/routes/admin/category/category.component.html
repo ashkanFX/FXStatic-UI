@@ -1,29 +1,18 @@
-<section class="flex flex-wrap col-12 h-screen  ">
-  <div id="form" class="col-7">
+<section class="flex flex-wrap col-12 h-auto  justify-content-around  ">
+  <div id="form" class="col-6 g h-auto p-4 bg-4-color border-round-3xl ">
     <form [formGroup]="categoryForm">
-      <div class="flex flex-column gap-2 col-12">
-        <label for="category">category name</label>
-        <input type="text"
-               id="category"
-               class="p-inputtext-sm"
-                formControlName="name"/>
+      <div class="flex flex-column gap-1 mb-4">
+        <label for="name" style="color: #1A1D24">name :</label>
+        <input id="name" class="w-full h-2rem p-2" type="text" pInputText formControlName="name"/>
+        <p *ngIf="categoryForm.get('name')?.dirty && !categoryForm.get('name')?.valid"
+           class="text-red-400 text-sm m-1 font-light">
+          need to fill name
+        </p>
       </div>
-      <div class="h-1rem"></div>
-      <div class="flex-1 flex justify-content-around align-items-center gap-3">
-<!--      <span class="flex align-items-center justify-content-around gap-2">-->
-<!--        <label for="color" class="font-bold block mb-2"> color :</label>-->
-<!--        <p-colorPicker id="color" formControlName="color"/>-->
-<!--      </span>-->
-<!--        <span class="flex align-items-center justify-content-around gap-2">-->
-<!--        <label for="active" class="font-bold block mb-2"> active : </label>-->
-<!--        <p-inputSwitch id="active" formControlName="active"/>-->
-<!--      </span>-->
-      </div>
-      <p-button label="accept" class="mt-2" (onClick)="saveCategory()" [outlined]="true"
-                severity="success"></p-button>
+      <p-button (onClick)="saveCategory()" [disabled]="!categoryForm.get('name')?.valid" label="Submit"></p-button>
     </form>
   </div>
-  <div id="list" class="col-5">
+  <div id="list" class="col-5 h-20rem bg-4-color border-round-3xl">
     <app-basic-grid [configGrid]="configGrid"></app-basic-grid>
   </div>
 </section>

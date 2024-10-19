@@ -5,7 +5,7 @@ import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} fr
 import {InputTextModule} from "primeng/inputtext";
 import {InputSwitchModule} from "primeng/inputswitch";
 import {ColorPickerModule} from "primeng/colorpicker";
-import {JsonPipe} from "@angular/common";
+import {JsonPipe, NgIf} from "@angular/common";
 import {ButtonModule} from "primeng/button";
 import {CategoryService} from "./category.service";
 import {Category} from "./Category";
@@ -25,6 +25,8 @@ import {ReplaySubject} from "rxjs";
     JsonPipe,
     ButtonModule,
     BasicGridComponent,
+    NgIf,
+
   ],
   templateUrl: './category.component.html',
   styleUrl: './category.component.css'
@@ -58,7 +60,7 @@ export class CategoryComponent implements OnInit {
   public saveCategory() {
     const category = new Category();
     category.name = this.categoryForm.get('name')?.value
-    this.service.addCategory(category).subscribe(res => {// TODO need toast
+    this.service.addCategory(category).subscribe(res => {
       this.prepareGrid();
       this.categoryForm.reset()
     })
@@ -91,6 +93,12 @@ export class CategoryComponent implements OnInit {
   deleteCategory(id: string) {
     this.service.deleteCategory(id).subscribe(() => {
       this.prepareGrid();
-     })
+    })
+  }
+
+  updateCategory(id: string) {
+    // this.service.deleteCategory(id).subscribe(() => {
+    //   this.categoryForm.setValue()
+    // })
   }
 }

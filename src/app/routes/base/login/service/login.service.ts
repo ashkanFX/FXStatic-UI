@@ -4,7 +4,7 @@ import {catchError, Observable, retry, throwError, timeout, TimeoutError, timer}
 import {environment} from "../../../../../environments/environment.development";
 import {LoginResDto, RegisterDto} from "./login.res.dto";
 import {ShareService} from "../../../../shared/structure/share/share.service";
-import {Toast} from "../../../../shared/model/Toast";
+import {severity, Toast} from "../../../../shared/model/Toast";
 
 @Injectable({
   providedIn: 'root'
@@ -36,8 +36,7 @@ export class LoginService {
 
   handelError(error: HttpErrorResponse | TimeoutError) {
     return throwError(() => {
-      debugger
-      this.share.toast.next(new Toast('success', 'Success', error.message));
+      this.share.toast.next(new Toast(severity.success, 'Success', error.message));
     })
   }
 }

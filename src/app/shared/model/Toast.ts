@@ -1,4 +1,10 @@
 export class Toast {
-  constructor(private severity :string  , private  summary  :string, private detail :string) {
+  constructor(private severity :severity  , private  summary  :string, private detail :string) {
   }
 }
+export enum severity {
+  success =  'success',
+  info =  'info',
+  Warn =  'warn',
+  Error =  'error',
+ }

@@ -13,6 +13,9 @@ import {JsonPipe} from "@angular/common";
 import {footer} from "../../shared/interface/footer.interface";
 import {ToastModule} from "primeng/toast";
 import {SessionService} from "../../shared/structure/session/session.service";
+import {ShareService} from "../../shared/structure/share/share.service";
+import {severity, Toast} from "../../shared/model/Toast";
+import {authGuard} from "../../shared/auth/auth.guard";
 
 @Component({
   selector: 'app-main',
@@ -38,6 +41,7 @@ export class BaseComponent implements OnInit {
 
   mainColor: string = 'text-blue-600'
   session = inject(SessionService)
+  shared = inject(ShareService)
 
   navBarConf: navBar = {
     textColor: this.mainColor,
@@ -47,9 +51,9 @@ export class BaseComponent implements OnInit {
         text: "admin",
         icon: PrimeIcons.TAG,
         iconStatus: ButtonIcon.right,
-        show: true,
+        show: this.session.getItemInSessionStorage('access_token'),
         router: rout.Post,
-        clicked($even) {
+        clicked: ($even) => {
 
         }
       },
@@ -59,34 +63,38 @@ export class BaseComponent implements OnInit {
         iconStatus: ButtonIcon.right,
         show: true,
         router: rout.Main,
-        clicked($even) {
+        clicked: ($even) => {
+
         }
-      }, {
+      },
+      {
         text: "Content",
         icon: PrimeIcons.ARROW_RIGHT,
         iconStatus: ButtonIcon.right,
         show: true,
         router: rout.Content,
-        clicked($even) {
+        clicked: ($even) => {
+
         }
       },
       {
         text: "Log in",
         icon: PrimeIcons.LOCK,
         iconStatus: ButtonIcon.right,
-        show: true,
+        show: !this.session.getItemInSessionStorage('access_token'),
         router: rout.Login,
-        clicked($even) {
+        clicked: ($even) => {
         }
       },
       {
         text: "Log out",
         icon: PrimeIcons.LOCK_OPEN,
         iconStatus: ButtonIcon.right,
-        show: true,
+        show: this.session.getItemInSessionStorage('access_token'),
         router: rout.Home,
-        clicked($even) {
-          sessionStorage.clear()
+        clicked: ($even) => {
+          this.shared.toast.next(new Toast(severity.Error, 'Warning', 'your are log out'));
+          this.session.clearAllItemInSessionStorage();
         }
       }
     ]

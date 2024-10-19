@@ -16,7 +16,7 @@ import {CommonModule} from "@angular/common";
 import {SessionService} from "../../../shared/structure/session/session.service";
 import {RippleModule} from "primeng/ripple";
 import {ShareService} from "../../../shared/structure/share/share.service";
-import {Toast} from "../../../shared/model/Toast";
+import {severity, Toast} from "../../../shared/model/Toast";
 
 @Component({
   selector: 'app-login',
@@ -87,8 +87,8 @@ export class LoginComponent implements OnInit {
   onSubmitLogin() {
     const loginResDto = new LoginResDto(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value)
     this.service.login(loginResDto).subscribe((res) => {
-      this.session.setEachKeyOfObject(res)
-      this.share.toast.next(new Toast('success', 'Success', 'your are login'));
+      this.session.setEachKeyOfObject(res);
+      this.share.toast.next(new Toast(severity.success, 'Success', 'your are login'));
       this.getUserByEmail(this.loginForm.get('email')?.value)
       this.router.navigate(['/main']);
     })

@@ -21,6 +21,9 @@ body {
 .bg-3-color {
   background-color: #FFFFFF;
 }
+.bg-4-color {
+  background-color: #F5F5F7;
+}
 
 /* width */
 ::-webkit-scrollbar {
