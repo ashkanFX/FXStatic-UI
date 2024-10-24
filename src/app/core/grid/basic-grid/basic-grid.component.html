@@ -1,33 +1,37 @@
-<section id="holder" class="col-12 h-auto ">
+<section id="holder" class="col-12 h-auto">
   <div id="header">
-    <h3 class="my-2 ml-1"> {{configGrid.title | titlecase}} : </h3>
+    <h3 class="my-2 ml-1">{{ configGrid?.title | titlecase }}:</h3>
   </div>
-  <table>
+  <table class="table">
+    <thead>
     <tr>
-      @for (columnName of configGrid.columnName; track configGrid.columnName) {
-      <th>{{ columnName}}</th>
-      }
-      <th *ngIf="configGrid?.operation">operation</th>
+      <th *ngFor="let columnName of configGrid?.columnName;">
+        {{ columnName }}
+      </th>
+      <th *ngIf="configGrid?.operation">Operation</th>
     </tr>
-    <tr *ngFor="let rowBody  of configGrid.rowBody" class="hover:bg-black-alpha-10 ">
-      <ng-container *ngFor="let columnName of configGrid.columnName">
-        <td
-          [ngStyle]="{'background-color': rowBody['color'] ? rowBody['color'] : null }">{{rowBody[columnName]}}</td>
+    </thead>
+    <tbody>
+    <tr *ngFor="let rowBody of configGrid.rowBody; " class="hover:bg-black-alpha-10">
+      <ng-container *ngFor="let columnName of configGrid?.columnName">
+        <td [ngStyle]="{ 'background-color': rowBody['color'] || null }">
+          {{ rowBody[columnName] }}
+        </td>
       </ng-container>
-      <td>
-        <div class="flex gap-1 w-full justify-content-start justify-content-between">
-      <span *ngIf="!!configGrid?.operation?.view">
-        <i class="pi pi-eye " (click)="configGrid.operation?.view(rowBody)"></i>
-      </span>
-          <span *ngIf="!!configGrid?.operation?.update">
-        <i class="pi pi-arrow-circle-up" (click)="configGrid.operation?.update(rowBody)"></i>
-      </span>
-          <span *ngIf="!!configGrid?.operation?.delete">
-        <i class="pi pi-trash" (click)="configGrid.operation?.delete(rowBody)"></i>
-      </span>
+      <td *ngIf="configGrid?.operation">
+        <div class="flex gap-1 w-full justify-content-between">
+            <span *ngIf="configGrid?.operation?.view">
+              <i class="pi pi-eye" (click)="configGrid.operation?.view(rowBody)"></i>
+            </span>
+          <span *ngIf="configGrid?.operation?.update">
+              <i class="pi pi-arrow-circle-up" (click)="configGrid.operation?.update(rowBody)"></i>
+            </span>
+          <span *ngIf="configGrid?.operation?.delete">
+              <i class="pi pi-trash" (click)="configGrid.operation?.delete(rowBody)"></i>
+            </span>
         </div>
       </td>
     </tr>
+    </tbody>
   </table>
-
 </section>

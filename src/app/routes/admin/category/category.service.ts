@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse, HttpParams} from "@angular/common/http";
 import {catchError, Observable, retry, throwError, timeout, TimeoutError, timer} from "rxjs";
 import {Category} from "./Category";
 import {environment} from "../../../../environments/environment.development";
@@ -37,7 +37,7 @@ export class CategoryService {
   }
 
   deleteCategory(id: string): Observable<any> {
-    return this.http.delete(environment.apiUrl + `category/delete/${id}`, {observe: 'response', withCredentials: true}).pipe(timeout(1000), retry({
+    return this.http.delete(environment.apiUrl + `category/delete/${id}`).pipe(timeout(1000), retry({
           count: 3,
           delay: (err, countNum) => {
             console.error(`can not take data in ${countNum} try`, err)
@@ -46,6 +46,36 @@ export class CategoryService {
         }
       ),
       catchError(this.handelError))
+  }
+
+  getCategory(id: string): Observable<any> {
+    return this.http.get(environment.apiUrl + `category/get/${id}`).pipe(timeout(1000), retry({
+          count: 3,
+          delay: (err, countNum) => {
+            console.error(`can not take data in ${countNum} try`, err)
+            return timer(1000 * countNum)
+          }
+        }
+      ),
+      catchError(this.handelError));
+  }
+
+  updateCategory(reqDto: any): Observable<any> {
+    let params = new HttpParams();
+    Object.keys(reqDto).forEach(key => {
+      if (reqDto[key] !== null && reqDto[key] !== undefined) {
+        params = params.set(key, reqDto[key].toString());
+      }
+    });
+    return this.http.post(environment.apiUrl + `category/update`, null, {params}).pipe(timeout(1000), retry({
+          count: 3,
+          delay: (err, countNum) => {
+            console.error(`can not take data in ${countNum} try`, err)
+            return timer(1000 * countNum)
+          }
+        }
+      ),
+      catchError(this.handelError));
   }
 
   handelError(error: HttpErrorResponse | TimeoutError) {

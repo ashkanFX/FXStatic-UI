@@ -20,7 +20,7 @@ import {CategoryComponent} from "./category/category.component";
     CategoryComponent,
     LastActivityComponent,
     ChapterComponent,
-     SliderComponent,
+    SliderComponent,
     TypeEffectComponent,
     ReactiveFormsModule,
     FileUploadModule
@@ -34,17 +34,17 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-     this.typeEffectService.state.next({
+    this.typeEffectService.state.next({
       strings: ['welcome', 'This is FX ', 'that help you to understand about ', "everything new"],
-       startDelay: 1000,
-       typeSpeed: 50,
-       backSpeed: 30,
-       fadeOut: true,
-       showCursor: true,
-       cursorChar: "!",
-       loop: true,
-       smartBackspace: false
-     })
+      startDelay: 1000,
+      typeSpeed: 50,
+      backSpeed: 30,
+      fadeOut: true,
+      showCursor: true,
+      cursorChar: "!",
+      loop: true,
+      smartBackspace: false
+    })
     this.typeEffectService.state.complete()
     this.prepareCard()
   }
@@ -54,14 +54,14 @@ export class HomeComponent implements OnInit {
     {
       text: 'test',
       isShow: true,
-      haveProfile : true,
+      haveProfile: true,
       router: rout.Main,
       subText: 'testSubtext',
       description: '    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, iste laudantium non' +
         '      odit perferendis quas quos sit?  exercitationem, quasi suscipit?'
     }, {
       text: 'test',
-      haveProfile : true,
+      haveProfile: true,
       isShow: true,
       router: rout.Main,
       subText: 'testSubtext',
@@ -69,11 +69,8 @@ export class HomeComponent implements OnInit {
         '      odit perferendis quas quos sit?  exercitationem, quasi suscipit?'
     }
   ];
-  prepareCard(){
-    this.postService.getLatestPost().subscribe(res => {
-    })
 
+  prepareCard() {
   }
-
 }
 

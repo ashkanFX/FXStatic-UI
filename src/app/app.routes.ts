@@ -22,10 +22,12 @@ export const routes: Routes = [
     children: [
       {
         path: "post",
-        loadComponent: () => import('./routes/admin/post/post.component').then(m => m.PostComponent)
+        loadComponent: () => import('./routes/admin/post/post.component').then(m => m.PostComponent),
+        canActivate: [authGuard],
       }, {
         path: "category",
-        loadComponent: () => import('./routes/admin/category/category.component').then(m => m.CategoryComponent)
+        loadComponent: () => import('./routes/admin/category/category.component').then(m => m.CategoryComponent),
+        canActivate: [authGuard],
       }
 
     ]

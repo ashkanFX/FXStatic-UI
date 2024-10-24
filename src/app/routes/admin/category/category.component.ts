@@ -1,4 +1,4 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MainPageComponent} from "../../../core/pageConfig/main-page/main-page.component";
 import {MainPageInterface} from "../../../shared/interface/mainPage.interface";
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
@@ -34,7 +34,6 @@ import {ReplaySubject} from "rxjs";
 export class CategoryComponent implements OnInit {
   config: MainPageInterface;
   categoryForm: FormGroup;
-  service = inject(CategoryService)
   configGrid: ConfigGrid = {
     class: [],
     columnName: [],
@@ -43,7 +42,7 @@ export class CategoryComponent implements OnInit {
     rowBody: []
   };
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private service: CategoryService) {
   }
 
   ngOnInit(): void {
@@ -51,7 +50,8 @@ export class CategoryComponent implements OnInit {
       bgColor: 'bg-3-color'
     }
     this.categoryForm = this.fb.group({
-      name: new FormControl(null, [Validators.required]),
+      id: new FormControl(null),
+      name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
       active: new FormControl(true, [Validators.required]),
     })
     this.prepareGrid()
@@ -60,10 +60,18 @@ export class CategoryComponent implements OnInit {
   public saveCategory() {
     const category = new Category();
     category.name = this.categoryForm.get('name')?.value
-    this.service.addCategory(category).subscribe(res => {
-      this.prepareGrid();
-      this.categoryForm.reset()
-    })
+    if (this.categoryForm.get('id')?.value) {
+      category.id = this.categoryForm.get('id')?.value
+      this.service.updateCategory(category).subscribe(res => {
+        this.prepareGrid();
+        this.categoryForm.reset()
+      })
+    } else {
+      this.service.addCategory(category).subscribe(res => {
+        this.prepareGrid();
+        this.categoryForm.reset()
+      })
+    }
   }
 
   public prepareGrid() {
@@ -79,11 +87,7 @@ export class CategoryComponent implements OnInit {
             this.deleteCategory(selectedRow.id);
           },
           update: (selectedRow) => {
-            this.deleteCategory(selectedRow.id);
-          },
-          view: (selectedRow) => {
-            this.deleteCategory(selectedRow.id);
-
+            this.updateCategory(selectedRow.id);
           }
         }
       })
@@ -97,8 +101,12 @@ export class CategoryComponent implements OnInit {
   }
 
   updateCategory(id: string) {
-    // this.service.deleteCategory(id).subscribe(() => {
-    //   this.categoryForm.setValue()
-    // })
+    this.service.getCategory(id).subscribe((res) => {
+      this.categoryForm.patchValue({
+        id: res.id,
+        name: res.name,
+      });
+    });
   }
+
 }

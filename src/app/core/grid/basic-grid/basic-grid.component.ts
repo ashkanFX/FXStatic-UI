@@ -24,7 +24,9 @@ import {JsonPipe, NgFor, NgForOf, NgIf, NgStyle, TitleCasePipe, UpperCasePipe} f
 export class BasicGridComponent implements OnInit {
   @Input() configGrid: ConfigGrid = new ConfigGrid();
   header: string[] = []
-  constructor() {}
+   constructor() {
+   }
+
   ngOnInit(): void {
     this.configGrid.configGridUpdate.subscribe(res => {
       this.configGrid = res;

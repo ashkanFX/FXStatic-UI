@@ -11,7 +11,9 @@ export const fXInterceptor: HttpInterceptorFn = (req, next) => {
   const authReq = req.clone({headers});
   return next(authReq).pipe(
     catchError((error: HttpErrorResponse) => {
-      // session.clearAllItemInSessionStorage();
+      if (error.status === 403) {
+        session.clearAllItemInSessionStorage();
+      }
       let errorMessage = '';
       const share = inject(ShareService)
       if (error.error instanceof ErrorEvent) {
