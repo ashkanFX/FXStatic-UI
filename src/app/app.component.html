@@ -1,3 +1,6 @@
 <p-toast/>
+<div *ngIf="loading$ | async" class="loading-spinner">
+  Loading...
+</div>
 <router-outlet></router-outlet>
 

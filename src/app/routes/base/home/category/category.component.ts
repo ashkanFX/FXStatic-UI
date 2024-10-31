@@ -6,6 +6,7 @@ import {CardComponent} from "../../../../core/card/card.component";
 import {Card} from "../../../../shared/interface/card.interface";
 import {rout} from "../../../../shared/model/routing.model";
 import {ShareService} from "../../../../shared/structure/share/share.service";
+import {CategoryService} from "../../../admin/category/category.service";
 
 @Component({
   selector: 'app-category',
@@ -20,10 +21,10 @@ import {ShareService} from "../../../../shared/structure/share/share.service";
   styleUrl: './category.component.css'
 })
 export class CategoryComponent implements OnInit {
-  constructor(private share: ShareService) {
+  constructor(private share: ShareService, private category: CategoryService) {
   }
 
-  selectedCategory = <any>[ ]
+  selectedCategory = <any>[]
   cards: Card[] = [
     {
       isShow: true,
@@ -50,6 +51,9 @@ export class CategoryComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+    this.category.getAllCategory().subscribe(res => {
+      console.log(res);
+    })
     // this.share._category.pipe(
     //   filter(x => !this.selectedCategory.includes(x))
     // ).subscribe(res => {

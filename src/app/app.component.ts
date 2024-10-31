@@ -5,6 +5,7 @@ import {ButtonModule} from "primeng/button";
 import {Message, MessageService} from "primeng/api";
 import {ShareService} from "./shared/structure/share/share.service";
 import {ToastModule} from "primeng/toast";
+import {LoadingService} from "./shared/structure/loading/loading/loading.service";
 
 @Component({
   selector: 'app-root',
@@ -19,8 +20,11 @@ import {ToastModule} from "primeng/toast";
 export class AppComponent implements OnInit {
   constructor(private share: ShareService,
               private messageService: MessageService,
+              private loadingService: LoadingService
   ) {
   }
+  loading$ = this.loadingService.loading$;
+
 
   ngOnInit(): void {
     this.share.toast.subscribe((res: Message) => {

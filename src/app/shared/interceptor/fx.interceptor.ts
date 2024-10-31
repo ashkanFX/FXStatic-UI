@@ -3,13 +3,17 @@ import {catchError, throwError} from "rxjs";
 import {inject} from "@angular/core";
 import {ShareService} from "../structure/share/share.service";
 import {SessionService} from "../structure/session/session.service";
+import {LoadingService} from "../structure/loading/loading/loading.service";
 
 export const fXInterceptor: HttpInterceptorFn = (req, next) => {
   const session = inject(SessionService);
+  const loading = inject(LoadingService);
   let headers = req.headers;
   headers = headers.set('Authorization', "Bearer " + removeQuotationOfStatEnd(window.sessionStorage.getItem('access_token')))
   const authReq = req.clone({headers});
+  // loading.show();
   return next(authReq).pipe(
+    // finalize(() => loading.hide()),
     catchError((error: HttpErrorResponse) => {
       if (error.status === 403) {
         session.clearAllItemInSessionStorage();
