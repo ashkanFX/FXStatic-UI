@@ -1,9 +1,9 @@
 export class singUpReqDto {
-  public username: string
-  public email: string
-  public password: string
-  public role: string[]
+  constructor(private email: string, private username: string, private password: string) {
+  }
+}
 
-  constructor(private role: string, private email: string, private firstName: string, private password: string) {
+export class SingInReqDto {
+  constructor(private username: string, private password: string) {
   }
 }

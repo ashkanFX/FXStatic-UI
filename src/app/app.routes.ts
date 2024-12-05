@@ -24,7 +24,13 @@ export const routes: Routes = [
         path: "post",
         loadComponent: () => import('./routes/admin/post/post.component').then(m => m.PostComponent),
         canActivate: [authGuard],
-      }, {
+      },
+      {
+        path: "user",
+        loadComponent: () => import('./routes/admin/user/user.component').then(m => m.UserComponent),
+        canActivate: [authGuard],
+      },
+      {
         path: "category",
         loadComponent: () => import('./routes/admin/category/category.component').then(m => m.CategoryComponent),
         canActivate: [authGuard],

@@ -15,6 +15,7 @@ import {ToastModule} from "primeng/toast";
 import {SessionService} from "../../shared/structure/session/session.service";
 import {ShareService} from "../../shared/structure/share/share.service";
 import {severity, Toast} from "../../shared/model/Toast";
+import {ReplaySubject} from "rxjs";
 
 @Component({
   selector: 'app-main',
@@ -44,17 +45,16 @@ export class BaseComponent implements OnInit {
 
   navBarConf: navBar = {
     textColor: this.mainColor,
+    upDateNavBar: new ReplaySubject<navBar>(),
     rightButton: [],
     leftButton: [
       {
         text: "admin",
         icon: PrimeIcons.TAG,
         iconStatus: ButtonIcon.right,
-        show: this.session.getItemInSessionStorage('access_token'),
-        router: rout.Post,
-        clicked: ($even) => {
-
-        }
+        show: this.session.getItemInSessionStorage('jwtToken') ,
+        router: rout.User,
+        clicked: ($even) => {}
       },
       {
         text: "Home",
@@ -62,9 +62,7 @@ export class BaseComponent implements OnInit {
         iconStatus: ButtonIcon.right,
         show: true,
         router: rout.Main,
-        clicked: ($even) => {
-
-        }
+        clicked: ($even) => {}
       },
       {
         text: "Content",
@@ -72,15 +70,13 @@ export class BaseComponent implements OnInit {
         iconStatus: ButtonIcon.right,
         show: true,
         router: rout.Content,
-        clicked: ($even) => {
-
-        }
+        clicked: ($even) => {}
       },
       {
         text: "Log in",
         icon: PrimeIcons.LOCK,
         iconStatus: ButtonIcon.right,
-        show: !this.session.getItemInSessionStorage('access_token'),
+        show: !this.session.getItemInSessionStorage('jwtToken'),
         router: rout.Login,
         clicked: ($even) => {
         }
@@ -89,15 +85,17 @@ export class BaseComponent implements OnInit {
         text: "Log out",
         icon: PrimeIcons.LOCK_OPEN,
         iconStatus: ButtonIcon.right,
-        show: this.session.getItemInSessionStorage('access_token'),
+        show: this.session.getItemInSessionStorage('jwtToken'),
         router: rout.Home,
         clicked: ($even) => {
-          this.shared.toast.next(new Toast(severity.Error, 'Warning', 'your are log out'));
           this.session.clearAllItemInSessionStorage();
+          this.navBarConf.upDateNavBar.next(this.navBarConf)
+          this.shared.toast.next(new Toast(severity.Error, 'Warning', 'your are log out'));
         }
       }
     ]
   };
+
   footerConf: footer = {
     text: "made with love by ashkan",
     icon: PrimeIcons.HEART_FILL,

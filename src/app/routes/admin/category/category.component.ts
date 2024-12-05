@@ -76,21 +76,21 @@ export class CategoryComponent implements OnInit {
 
   public prepareGrid() {
     // this.service.getAllCategory().subscribe(response => {
-    //   this.configGrid.configGridUpdate.next({
-    //     class: [],
-    //     columnName: ['id', 'name'],
-    //     configGridUpdate: new ReplaySubject<ConfigGrid>(),
-    //     title: 'category',
-    //     rowBody: response,
-    //     operation: {
-    //       delete: (selectedRow) => {
-    //         this.deleteCategory(selectedRow.id);
-    //       },
-    //       update: (selectedRow) => {
-    //         this.updateCategory(selectedRow.id);
-    //       }
-    //     }
-    //   })
+      this.configGrid.configGridUpdate.next({
+        class: [],
+        columnName: ['id', 'name'],
+        configGridUpdate: new ReplaySubject<ConfigGrid>(),
+        title: 'category',
+        rowBody: [],
+        operation: {
+          delete: (selectedRow) => {
+            this.deleteCategory(selectedRow.id);
+          },
+          update: (selectedRow) => {
+            this.updateCategory(selectedRow.id);
+          }
+        }
+      })
     // })
   }
 

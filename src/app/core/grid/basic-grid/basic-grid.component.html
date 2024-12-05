@@ -5,9 +5,16 @@
   <table class="table">
     <thead>
     <tr>
-      <th *ngFor="let columnName of configGrid?.columnName;">
-        {{ columnName }}
-      </th>
+      <ng-container *ngIf="configGrid?.columnNameAlias!?.length === 0">
+        <th *ngFor="let columnName of configGrid?.columnName">
+          {{ columnName }}
+        </th>
+      </ng-container>
+      <ng-container *ngIf="configGrid?.columnNameAlias?.length! > 0">
+        <th *ngFor="let alias of configGrid?.columnNameAlias">
+          {{ alias }}
+        </th>
+      </ng-container>
       <th *ngIf="configGrid?.operation">Operation</th>
     </tr>
     </thead>

@@ -10,13 +10,15 @@ import {rout} from "../../../shared/model/routing.model";
 import {ButtonIcon} from "../../../shared/enums/public.enum";
 import {MainPageInterface} from "../../../shared/interface/mainPage.interface";
 import {navBar} from "../../../shared/interface/nav.interface";
-import {LoginResDto, RegisterDto} from "./service/login.res.dto";
 import {FooterComponent} from "../../../core/footer/footer.component";
 import {CommonModule} from "@angular/common";
 import {SessionService} from "../../../shared/structure/session/session.service";
 import {RippleModule} from "primeng/ripple";
 import {ShareService} from "../../../shared/structure/share/share.service";
 import {severity, Toast} from "../../../shared/model/Toast";
+import {SingInReqDto, singUpReqDto} from "./login.req.dto";
+import {SingUpResDto, SinIinResDto} from "./login.res.dto";
+import {ReplaySubject} from "rxjs";
 
 @Component({
   selector: 'app-login',
@@ -54,6 +56,7 @@ export class LoginComponent implements OnInit {
 
   navBarConf: navBar = {
     textColor: 'text-blue-600',
+    upDateNavBar: new ReplaySubject<navBar>(),
     rightButton: [],
     leftButton: [
       {
@@ -70,53 +73,49 @@ export class LoginComponent implements OnInit {
 
   buildFormGroupRegister() {
     this.registerForm = this.fb.group({
-      firstName: new FormControl(null, [Validators.required]),
+      username: new FormControl(null, [Validators.required]),
       email: new FormControl(null, [Validators.required]),
       password: new FormControl(null, [Validators.required]),
-      role: new FormControl('user', [Validators.required]),
     })
   }
 
   buildFormGroupLogin() {
     this.loginForm = this.fb.group({
-      email: new FormControl(null, [Validators.required, Validators.email]),
+      username: new FormControl(null, [Validators.required]),
       password: new FormControl(null, [Validators.required]),
     })
   }
 
   onSubmitLogin() {
-    // const loginResDto = new LoginResDto(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value)
-    // this.service.login(loginResDto).subscribe((res) => {
-    //   // this.session.setEachKeyOfObject(res);
-    //   // this.share.toast.next(new Toast(severity.success, 'Success', 'your are login'));
-    //   // this.getUserByEmail(this.loginForm.get('email')?.value)
-    //   // this.router.navigate(['/main']);
-    // })
+    const singInReqDto = new SingInReqDto(this.loginForm.get('username')?.value, this.loginForm.get('password')?.value)
+    this.service.singIn(singInReqDto).subscribe({
+      next: (res: SinIinResDto) => {
+        this.session.setEachKeyOfObject(res);
+        this.share.toast.next(new Toast(severity.success, 'Success', 'your are login'));
+        this.router.navigate(['/main']);
+      },
+      error: (err) => {
+        this.share.toast.next(new Toast(severity.Error, '', err.error.message))
+      }
+    })
   }
 
   onSubmitRegister() {
-    // const registerDto = new RegisterDto(
-    //   [this.registerForm.get('role')?.value],
-    //   this.registerForm.get('email')?.value,
-    //   this.registerForm.get('firstName')?.value,
-    //   this.registerForm.get('password')?.value)
-    // this.service.register({
-    //   "username": "ali1", "email": "aliw1@gmail.com", "password": "123456", "role": ["admin"]
-    // }).subscribe((res) => {
-    //   this.share.toast.next(new Toast(severity.success, 'user add', ''))
-    //   this.session.setEachKeyOfObject(res)
-    //   // this.router.navigate(['/main']);
-    // })
+    const singUpReq = new singUpReqDto(
+      this.registerForm.get('email')?.value,
+      this.registerForm.get('username')?.value,
+      this.registerForm.get('password')?.value)
+    this.service.singUp(singUpReq).subscribe({
+      next: (res: SingUpResDto) => {
+        this.share.toast.next(new Toast(severity.success, 'success', res.massage))
+        this.router.navigate(['/main']);
+      }, error: (err) => {
+        this.share.toast.next(new Toast(severity.Error, '', err.error.message))
+      }
+    })
   }
 
   changeForm(formType: string) {
     this.formType = formType
   }
-
-  getUserByEmail(email: string): void {
-    // this.service.getUserByEmail(email).subscribe(user => {
-    //   this.session.setItemInSessionStorage('user', user)
-    // })
-  }
-
 }

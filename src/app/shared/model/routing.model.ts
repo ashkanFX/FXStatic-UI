@@ -4,6 +4,7 @@ import {PostComponent} from "../../routes/admin/post/post.component";
 import {ContentComponent} from "../../routes/base/content/content.component";
 import {LoginComponent} from "../../routes/base/login/login.component";
 import {BaseComponent} from "../../routes/base/base.component";
+import {UserComponent} from "../../routes/admin/user/user.component";
 
 export abstract class rout {
   static Main: Routing = {
@@ -30,8 +31,13 @@ export abstract class rout {
     url: '/admin/category',
     component: PostComponent
   }
+  static User: Routing = {
+    url: '/admin/user',
+    component: UserComponent
+  }
   static Login: Routing = {
     url: '/login',
     component: LoginComponent
   }
+
 }

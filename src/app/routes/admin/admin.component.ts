@@ -25,8 +25,7 @@ import {rout} from "../../shared/model/routing.model";
 export class AdminComponent implements OnInit {
   rout = rout;
 
-  constructor(private router: Router) {
-  }
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
    }

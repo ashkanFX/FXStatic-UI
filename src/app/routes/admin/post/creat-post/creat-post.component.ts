@@ -9,7 +9,6 @@ import {PostService} from "./post.service";
 import {ReplaySubject} from "rxjs";
 import {CardComponent} from "../../../../core/card/card.component";
 import {CategoryService} from "../../category/category.service";
-import {ProfileService} from "../../profile/profile.service";
 import {ReqAddPostDto} from "../req-add-post.dto";
 import {BasicGridComponent} from "../../../../core/grid/basic-grid/basic-grid.component";
 import {ConfigGrid} from "../../../../core/grid/basic-grid/config-grid";
@@ -36,7 +35,6 @@ import {ShareService} from "../../../../shared/structure/share/share.service";
 export class CreatPostComponent implements OnInit {
   constructor(private fb: FormBuilder, private post: PostService,
               private categoryService: CategoryService,
-              private profileService: ProfileService,
               private share: ShareService,
               private service: PostService) {
 

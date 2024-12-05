@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MenubarModule} from "primeng/menubar";
 import {ButtonModule} from "primeng/button";
 import {RippleModule} from "primeng/ripple";
@@ -8,16 +8,23 @@ import {navBar} from "../../shared/interface/nav.interface";
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [MenubarModule, ButtonModule, RippleModule, NgClass ,CommonModule],
+  imports: [MenubarModule, ButtonModule, RippleModule, NgClass, CommonModule],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
-export class NavBarComponent {
+export class NavBarComponent implements OnInit {
+
+  @Input() config: navBar = new navBar()
+  onShow: string = "hidden"
+
   constructor() {
   }
 
-  @Input() config: navBar
-  onShow: string = "hidden"
+  ngOnInit(): void {
+    this.config.upDateNavBar?.subscribe(res => {
+      this.config = res
+    })
+  }
 
   ngClick() {
     if (this.onShow === "hidden") {
@@ -27,8 +34,8 @@ export class NavBarComponent {
     }
   }
 
-
   clicked(item: any) {
     item.clicked()
   }
+
 }

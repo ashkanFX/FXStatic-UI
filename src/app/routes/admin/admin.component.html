@@ -3,13 +3,13 @@
     <div class="w-full h-full p-0   m-0 flex flex-wrap"
          style=" align-content: space-between; justify-content: space-between">
       <div class="col-12 ">
-        <div class="flex w-full m-0 p-0 h-2rem mt-2 border-round justify-content-start cursor-pointer hover:bg-white-alpha-30 p-3 font-light text-50
+        <a class="  text-white-alpha-40" routerLink="{{rout.User.url}}" style=" text-decoration: none">
+          <div class="flex w-full m-0 p-0 h-2rem mt-2 border-round justify-content-start cursor-pointer hover:bg-white-alpha-30 p-3 font-light text-50
       align-items-center ">
-          <a class="m-0 p-0 ">
             <i class="pi pi-user"></i>
             user
-          </a>
-        </div>
+          </div>
+        </a>
         <a routerLink="{{rout.Post.url}}" class="  text-white-alpha-40" style=" text-decoration: none">
           <div class="flex w-full  h-2rem mt-2 border-round justify-content-start cursor-pointer hover:bg-white-alpha-30 p-3 font-light text-50
       align-items-center ">
@@ -37,7 +37,12 @@
     </div>
   </div>
   <div class="   h-screen overflow-auto m-auto p-2 " style="width: 90% ; background-color: #FCFCFC ">
-    <div class="  0 p-5  border-round w-full h-auto">
+    <section class="w-full h-3rem bg-1-color p-0 border-round ">
+      <div class="gap-6 text-white flex col-12 h-full align-items-center">
+        <p> name : ashkan</p>
+       </div>
+    </section>
+    <div class=" p-2  border-round w-full h-auto">
       <router-outlet></router-outlet>
     </div>
   </div>

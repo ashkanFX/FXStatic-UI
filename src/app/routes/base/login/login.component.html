@@ -8,7 +8,7 @@
         Register </h2>
       <form *ngIf="formType === 'login'" [formGroup]="loginForm" class="flex flex-wrap" (ngSubmit)="onSubmitLogin()"
             autocomplete="on">
-        <input type="text" id="username" name="username" formControlName="email" placeholder="Enter your email">
+        <input type="text" id="username" name="username" formControlName="username" placeholder="Enter your username">
         <input type="password" id="password" name="password" formControlName="password"
                placeholder="Enter your password">
         <button class="button">submit</button>
@@ -16,7 +16,7 @@
       <form *ngIf="formType === 'register'" [formGroup]="registerForm" class=" flex flex-wrap"
             (ngSubmit)="onSubmitRegister()">
         <input type="text" formControlName="email" placeholder="Enter your email">
-        <input type="text" formControlName="firstName" placeholder="Enter your user Name">
+        <input type="text" formControlName="username" placeholder="Enter your user Name">
         <input type="password" formControlName="password" placeholder="Enter your password">
         <button class="button">submit</button>
       </form>
