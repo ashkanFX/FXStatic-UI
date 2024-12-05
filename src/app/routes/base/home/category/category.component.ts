@@ -51,9 +51,9 @@ export class CategoryComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    this.category.getAllCategory().subscribe(res => {
-      console.log(res);
-    })
+    // this.category.getAllCategory().subscribe(res => {
+    //   console.log(res);
+    // })
     // this.share._category.pipe(
     //   filter(x => !this.selectedCategory.includes(x))
     // ).subscribe(res => {

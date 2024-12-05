@@ -14,29 +14,29 @@ export class LoginService {
   }
 
   login(loginResDto: LoginResDto): Observable<any> {
-    return this.http.post<any>(environment.apiUrl + 'api/v1/auth/authenticate', loginResDto).pipe(timeout(1000),
-      retry({
-          count: 3,
-          delay: (err, countNum) => {
-            console.error(`can not take data in ${countNum} try`, err)
-            return timer(1000 * countNum)
-          }
-        }
-      ),
-      catchError(this.handelError))
+    return this.http.post<any>(environment.apiUrl + 'auth/public/signin', {
+      "username":"ali1",
+      "password":"123456"
+    })
+      // .pipe(timeout(1000),
+      // retry({
+      //     count: 3,
+      //     delay: (err, countNum) => {
+      //       console.error(`can not take data in ${countNum} try`, err)
+      //       return timer(1000 * countNum)
+      //     }
+      //   }
+      // ),
+      // catchError(this.handelError))
   }
 
-  register(registerDto: RegisterDto) {
-    return this.http.post<any>(environment.apiUrl + 'api/v1/auth/register', registerDto)
+  register(registerDto: any) {
+    return this.http.post<any>(environment.apiUrl + 'auth/public/signup', registerDto)
   }
 
   getUserByEmail(email: string) {
     return this.http.get<any>(environment.apiUrl + 'user/get/email', {params: {email}})
   }
 
-  handelError(error: HttpErrorResponse | TimeoutError) {
-    return throwError(() => {
-      this.share.toast.next(new Toast(severity.success, 'Success', error.message));
-    })
-  }
+
 }

@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {SessionService} from "../session/session.service";
 import {Subject} from "rxjs";
+import {Toast} from "../../model/Toast";
 
 @Injectable({
   providedIn: 'root'

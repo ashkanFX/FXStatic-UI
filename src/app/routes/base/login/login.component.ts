@@ -73,7 +73,7 @@ export class LoginComponent implements OnInit {
       firstName: new FormControl(null, [Validators.required]),
       email: new FormControl(null, [Validators.required]),
       password: new FormControl(null, [Validators.required]),
-      role: new FormControl('ADMIN', [Validators.required]),
+      role: new FormControl('user', [Validators.required]),
     })
   }
 
@@ -85,25 +85,28 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmitLogin() {
-    const loginResDto = new LoginResDto(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value)
-    this.service.login(loginResDto).subscribe((res) => {
-      this.session.setEachKeyOfObject(res);
-      this.share.toast.next(new Toast(severity.success, 'Success', 'your are login'));
-      this.getUserByEmail(this.loginForm.get('email')?.value)
-      this.router.navigate(['/main']);
-    })
+    // const loginResDto = new LoginResDto(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value)
+    // this.service.login(loginResDto).subscribe((res) => {
+    //   // this.session.setEachKeyOfObject(res);
+    //   // this.share.toast.next(new Toast(severity.success, 'Success', 'your are login'));
+    //   // this.getUserByEmail(this.loginForm.get('email')?.value)
+    //   // this.router.navigate(['/main']);
+    // })
   }
 
   onSubmitRegister() {
-    const registerDto = new RegisterDto(
-      this.registerForm.get('role')?.value,
-      this.registerForm.get('email')?.value,
-      this.registerForm.get('firstName')?.value,
-      this.registerForm.get('password')?.value)
-    this.service.register(registerDto).subscribe((res) => {
-      this.session.setEachKeyOfObject(res)
-      this.router.navigate(['/main']);
-    })
+    // const registerDto = new RegisterDto(
+    //   [this.registerForm.get('role')?.value],
+    //   this.registerForm.get('email')?.value,
+    //   this.registerForm.get('firstName')?.value,
+    //   this.registerForm.get('password')?.value)
+    // this.service.register({
+    //   "username": "ali1", "email": "aliw1@gmail.com", "password": "123456", "role": ["admin"]
+    // }).subscribe((res) => {
+    //   this.share.toast.next(new Toast(severity.success, 'user add', ''))
+    //   this.session.setEachKeyOfObject(res)
+    //   // this.router.navigate(['/main']);
+    // })
   }
 
   changeForm(formType: string) {
@@ -111,9 +114,9 @@ export class LoginComponent implements OnInit {
   }
 
   getUserByEmail(email: string): void {
-    this.service.getUserByEmail(email).subscribe(user => {
-      this.session.setItemInSessionStorage('user', user)
-    })
+    // this.service.getUserByEmail(email).subscribe(user => {
+    //   this.session.setItemInSessionStorage('user', user)
+    // })
   }
 
 }

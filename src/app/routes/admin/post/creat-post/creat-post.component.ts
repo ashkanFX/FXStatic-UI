@@ -55,9 +55,9 @@ export class CreatPostComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.categoryService.getAllCategory().subscribe(res => {
-      this.category = res;
-    })
+    // this.categoryService.getAllCategory().subscribe(res => {
+    //   this.category = res;
+    // })
     this.formGroup = this.fb.group({
       title: new FormControl(null, [Validators.required, Validators.min(10)]),
       description: new FormControl(null, [Validators.required]),
