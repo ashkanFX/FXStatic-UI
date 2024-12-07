@@ -10,7 +10,7 @@
             user
           </div>
         </a>
-        <a routerLink="{{rout.Post.url}}" class="  text-white-alpha-40" style=" text-decoration: none">
+        <a class="  text-white-alpha-40" style=" text-decoration: none">
           <div class="flex w-full  h-2rem mt-2 border-round justify-content-start cursor-pointer hover:bg-white-alpha-30 p-3 font-light text-50
       align-items-center ">
             <i class="pi pi-comment"></i>
@@ -26,24 +26,33 @@
         </a>
       </div>
       <div class="col-12 h-auto ">
-        <div class="flex w-full m-0 p-0 h-2rem mt-2 border-round justify-content-start cursor-pointer hover:bg-white-alpha-30 p-3 font-light text-50
+        <a routerLink="{{rout.Home.url}}" class="  text-white-alpha-40" style=" text-decoration: none">
+          <div class="flex w-full  h-2rem mt-2 border-round justify-content-start cursor-pointer hover:bg-white-alpha-30 p-3 font-light text-50
       align-items-center ">
-          <a class="m-0 p-0">
             <i class="pi pi-chevron-left"></i>
-            log out
-          </a>
-        </div>
+            back
+          </div>
+        </a>
+
       </div>
     </div>
   </div>
   <div class="   h-screen overflow-auto m-auto p-2 " style="width: 90% ; background-color: #FCFCFC ">
-    <section class="w-full h-3rem bg-1-color p-0 border-round ">
-      <div class="gap-6 text-white flex col-12 h-full align-items-center">
-        <p> name : ashkan</p>
-       </div>
+    <section class="text-white w-full h-3rem bg-2-color p-0 border-round flex ">
+      <div class="gap-6  flex col-6 h-full align-items-center">
+        <p> name : {{currentUser.username}}</p>
+        <p> email : {{currentUser.email}}</p>
+        <p> role: {{currentUser.roles[0]}}</p>
+      </div>
+      <div class="gap-6  flex col-6 h-full align-items-center justify-content-end">
+        <a routerLink="{{rout.Category.url}}" class="  text-white" style="text-decoration: none">
+          <i class="pi pi-power-off"></i>
+          Log out
+        </a>
+      </div>
     </section>
     <div class=" p-2  border-round w-full h-auto">
-      <router-outlet></router-outlet>
+      <router-outlet/>
     </div>
   </div>
 </section>

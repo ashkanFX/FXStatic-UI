@@ -13,7 +13,18 @@ export class UserResDto {
   signUpMethod: string;
   createdDate: string;
   updatedDate: string;
-
-  constructor() {
-  }
+  constructor() {}
+}
+export class CurrentUserResDto {
+  id: number
+  username: string
+  email: string
+  accountNonLocked:boolean
+  accountNonExpired: boolean
+  credentialsNonExpired: boolean
+  enabled:boolean
+  credentialsExpiryDate: string
+  accountExpiryDate: string
+  roles: string[]
+  twoFactorEnabled: boolean
 }
