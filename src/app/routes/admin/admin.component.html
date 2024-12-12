@@ -10,7 +10,7 @@
             user
           </div>
         </a>
-        <a class="  text-white-alpha-40" style=" text-decoration: none">
+        <a routerLink="{{rout.Post.url}}" class="  text-white-alpha-40" style=" text-decoration: none">
           <div class="flex w-full  h-2rem mt-2 border-round justify-content-start cursor-pointer hover:bg-white-alpha-30 p-3 font-light text-50
       align-items-center ">
             <i class="pi pi-comment"></i>
@@ -40,8 +40,8 @@
   <div class="   h-screen overflow-auto m-auto p-2 " style="width: 90% ; background-color: #FCFCFC ">
     <section class="text-white w-full h-3rem bg-2-color p-0 border-round flex ">
       <div class="gap-6  flex col-6 h-full align-items-center">
-        <p> name : {{currentUser.username}}</p>
-        <p> email : {{currentUser.email}}</p>
+        <p> name : {{currentUser?.username}}</p>
+        <p> email : {{currentUser?.email}}</p>
         <p> role: {{currentUser.roles[0]}}</p>
       </div>
       <div class="gap-6  flex col-6 h-full align-items-center justify-content-end">

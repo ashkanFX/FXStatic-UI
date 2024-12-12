@@ -9,7 +9,7 @@ import {Button} from "primeng/button";
 import {CardComponent} from "../../../core/card/card.component";
 import {Card} from "../../../shared/interface/card.interface";
 import {rout} from "../../../shared/model/routing.model";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {InputTextModule} from "primeng/inputtext";
 import {CheckboxModule} from "primeng/checkbox";
 import {DropdownModule} from "primeng/dropdown";
@@ -32,9 +32,10 @@ import {TitleCasePipe} from "@angular/common";
   styleUrl: './user.component.css'
 })
 export class UserComponent implements OnInit {
-  constructor(private service: UserService) {
+  constructor(private fb: FormBuilder, private service: UserService) {
   }
 
+  userForm: FormGroup;
   config: MainPageInterface;
   cards: Card[] = [
     {
@@ -71,6 +72,7 @@ export class UserComponent implements OnInit {
   role: string[];
 
   ngOnInit() {
+    this.prepareFormGroup()
     this.prepareGrid();
   }
 
@@ -93,4 +95,17 @@ export class UserComponent implements OnInit {
     })
   }
 
+  private prepareFormGroup() {
+    this.userForm = this.fb.group({
+      email: new FormControl(null),
+      name: new FormControl(null),
+      role: new FormControl(true),
+      status: new FormControl(true),
+      creatTime: new FormControl(true),
+    })
+  }
+
+  getUserDetail() {
+
+  }
 }

@@ -1,4 +1,4 @@
-export class ReqAddPostDto {
+ export class ReqAddPostDto {
   title: string;
   description: string;
   profileId: number;

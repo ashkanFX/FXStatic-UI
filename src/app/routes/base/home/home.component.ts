@@ -7,8 +7,7 @@ import {TypeEffectComponent} from "../../../core/type-effect/type-effect.compone
 import {TypeEffectService} from "../../../core/type-effect/type-effect.service";
 import {ReactiveFormsModule} from "@angular/forms";
 import {FileUploadModule} from "primeng/fileupload";
-import {PostService} from "../../admin/post/creat-post/post.service";
-import {ChapterComponent} from "./chapter/chapter.component";
+ import {ChapterComponent} from "./chapter/chapter.component";
 import {LastActivityComponent} from "./last-activity/last-activity.component";
 import {CategoryComponent} from "./category/category.component";
 
@@ -30,7 +29,7 @@ import {CategoryComponent} from "./category/category.component";
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private readonly typeEffectService: TypeEffectService, private postService: PostService) {
+  constructor(private readonly typeEffectService: TypeEffectService) {
   }
 
   ngOnInit(): void {
