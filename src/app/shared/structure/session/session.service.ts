@@ -31,7 +31,6 @@ export class SessionService {
 
 
 }
-
 interface Object {
   [key: string]: any;
 }
