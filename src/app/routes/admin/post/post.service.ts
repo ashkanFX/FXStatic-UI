@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {UserResDto} from "../user/user.res.dto";
 import {environment} from "../../../../environments/environment.development";
 import {PostReqDto} from "./post-req.dto";
 
@@ -18,6 +17,9 @@ export class PostService {
   }
   public getAll(): Observable<PostReqDto> {
     return this.http.get<PostReqDto>(environment.apiUrl + 'post/get/all')
+  }
+  public getLatestPost(): Observable<any> {
+    return this.http.get<any>(environment.apiUrl + 'post/public/get/latest')
   }
 
 

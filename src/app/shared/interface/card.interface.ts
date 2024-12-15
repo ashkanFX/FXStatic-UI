@@ -2,7 +2,7 @@ import {Routing} from "./routing.interface";
 
 export interface Card{
   img?: string,
-  text?: string,
+  title?: string,
   subText?: string,
   router?: Routing
   description?: string,

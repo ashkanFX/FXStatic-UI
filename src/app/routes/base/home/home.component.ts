@@ -1,15 +1,17 @@
 import {Component, OnInit} from '@angular/core';
 import {Card} from "../../../shared/interface/card.interface";
-import {rout} from "../../../shared/model/routing.model";
 import {CardComponent} from "../../../core/card/card.component";
 import {SliderComponent} from "../../../core/slider/slider.component";
 import {TypeEffectComponent} from "../../../core/type-effect/type-effect.component";
 import {TypeEffectService} from "../../../core/type-effect/type-effect.service";
 import {ReactiveFormsModule} from "@angular/forms";
 import {FileUploadModule} from "primeng/fileupload";
- import {ChapterComponent} from "./chapter/chapter.component";
+import {ChapterComponent} from "./chapter/chapter.component";
 import {LastActivityComponent} from "./last-activity/last-activity.component";
 import {CategoryComponent} from "./category/category.component";
+import {PostService} from "../../admin/post/post.service";
+import {AsyncPipe, JsonPipe, NgFor} from "@angular/common";
+import {Subject} from "rxjs";
 
 @Component({
   selector: 'app-home',
@@ -20,17 +22,22 @@ import {CategoryComponent} from "./category/category.component";
     LastActivityComponent,
     ChapterComponent,
     SliderComponent,
+    NgFor,
     TypeEffectComponent,
     ReactiveFormsModule,
-    FileUploadModule
+    FileUploadModule,
+    JsonPipe,
+    AsyncPipe
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private readonly typeEffectService: TypeEffectService) {
+  constructor(private readonly typeEffectService: TypeEffectService, private readonly postService: PostService) {
   }
+
+  cards: Subject<Card[]> = new Subject();
 
   ngOnInit(): void {
     this.typeEffectService.state.next({
@@ -49,27 +56,12 @@ export class HomeComponent implements OnInit {
   }
 
 
-  cards: Card[] = [
-    {
-      text: 'test',
-      isShow: true,
-      haveProfile: true,
-      router: rout.Main,
-      subText: 'testSubtext',
-      description: '    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, iste laudantium non' +
-        '      odit perferendis quas quos sit?  exercitationem, quasi suscipit?'
-    }, {
-      text: 'test',
-      haveProfile: true,
-      isShow: true,
-      router: rout.Main,
-      subText: 'testSubtext',
-      description: '    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, iste laudantium non' +
-        '      odit perferendis quas quos sit?  exercitationem, quasi suscipit?'
-    }
-  ];
 
   prepareCard() {
+    this.postService.getLatestPost().subscribe(res => {
+      this.cards.next(res)
+      console.log(res);
+    })
   }
 }
 

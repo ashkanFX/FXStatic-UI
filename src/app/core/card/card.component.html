@@ -1,7 +1,7 @@
 <div *ngIf="config?.isShow" class="bg-3-color  border-round">
-  <div class="flex col-12 " *ngIf="config.text || config.haveProfile">
-    <section class="col-6 p-0" *ngIf="config?.text">
-      <h2 class="m-1">{{config?.text}}</h2>
+  <div class="flex col-12 " *ngIf="config.title || config.haveProfile">
+    <section class="col-6 p-0" *ngIf="config?.title">
+      <h2 class="m-1">{{config?.title}}</h2>
       <span class="m-1"> {{config?.subText}}</span>
     </section>
     <section *ngIf="config.haveProfile" class="col-6 disableSelect p-0 flex justify-content-end align-items-center">
