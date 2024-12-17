@@ -28,6 +28,10 @@ export class PostService {
     return this.http.get<any>(environment.apiUrl + `post/get/${id}`)
   }
 
+  public deletePost(id: string): Observable<any> {
+    return this.http.delete<any>(environment.apiUrl + `post/${id}`)
+  }
+
   public getLatestPost(): Observable<any> {
     return this.http.get<any>(environment.apiUrl + 'post/public/get/latest')
   }

@@ -49,12 +49,6 @@ export class PostComponent implements OnInit {
     configGridUpdate: new ReplaySubject<ConfigGrid>(),
     title: 'user',
     rowBody: new Array(new UserResDto()),
-    operation: {
-      view: (row) => {
-      },
-      update: (selectedRow) => {
-      }
-    }
   };
   formGroup: FormGroup;
   text: string | undefined;
@@ -65,7 +59,8 @@ export class PostComponent implements OnInit {
       [{list: 'ordered'}, {list: 'bullet'}],
       [{header: [1, 2, 3, 4, 5, 6, false]}],
       [{color: []}, {background: []}],
-      ['link', 'image']
+      ['link', 'image'],
+      [{'align': []}]
     ]
   };
 
@@ -88,6 +83,10 @@ export class PostComponent implements OnInit {
             this.getPost(row.id)
           },
           update: (selectedRow) => {
+
+          },
+          delete: (row) => {
+            this.deletePost(row.id)
           }
         }
       })
@@ -105,6 +104,13 @@ export class PostComponent implements OnInit {
   getPost(id: string) {
     this.service.getById(id).subscribe((res) => {
       this.formGroup.patchValue(res)
+    })
+  }
+
+  deletePost(id: string) {
+    this.service.deletePost(id).subscribe((res) => {
+      this.share.toast.next(new Toast(severity.success, 'success', 'post deleted'));
+      this.preparePost()
     })
   }
 

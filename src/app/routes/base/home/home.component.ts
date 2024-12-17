@@ -60,8 +60,7 @@ export class HomeComponent implements OnInit {
   prepareCard() {
     this.postService.getLatestPost().subscribe(res => {
       this.cards.next(res)
-      console.log(res);
-    })
+     })
   }
 }
 
