@@ -6,13 +6,15 @@ import {DropdownModule} from "primeng/dropdown";
 import {ConfigGrid} from "../../../core/grid/basic-grid/config-grid";
 import {ReplaySubject} from "rxjs";
 import {UserResDto} from "../user/user.res.dto";
-import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {EditorModule} from "primeng/editor";
 import {TitleCasePipe} from "@angular/common";
 import {QuillModule} from 'ngx-quill';
 import {InputTextModule} from "primeng/inputtext";
 import {Button} from "primeng/button";
 import {PostService} from "./post.service";
+import {ShareService} from "../../../shared/structure/share/share.service";
+import {severity, Toast} from "../../../shared/model/Toast";
 
 @Component({
   selector: 'app-post',
@@ -34,8 +36,9 @@ import {PostService} from "./post.service";
 export class PostComponent implements OnInit {
 
   constructor(
-    private fb: FormBuilder ,
-    private service : PostService
+    private fb: FormBuilder,
+    private share: ShareService,
+    private service: PostService
   ) {
   }
 
@@ -46,6 +49,12 @@ export class PostComponent implements OnInit {
     configGridUpdate: new ReplaySubject<ConfigGrid>(),
     title: 'user',
     rowBody: new Array(new UserResDto()),
+    operation: {
+      view: (row) => {
+      },
+      update: (selectedRow) => {
+      }
+    }
   };
   formGroup: FormGroup;
   text: string | undefined;
@@ -62,18 +71,63 @@ export class PostComponent implements OnInit {
 
   ngOnInit(): void {
     this.prepareFormGroup()
+    this.preparePost()
+  }
+
+  preparePost() {
+    this.service.getAll().subscribe(res => {
+      this.configGrid.configGridUpdate.next({
+        class: [],
+        columnName: ['id', 'title', 'description'],
+        columnNameAlias: ['id', 'title', 'description'],
+        configGridUpdate: new ReplaySubject<ConfigGrid>(),
+        title: 'user',
+        rowBody: res,
+        operation: {
+          view: (row) => {
+            this.getPost(row.id)
+          },
+          update: (selectedRow) => {
+          }
+        }
+      })
+    })
   }
 
   private prepareFormGroup() {
     this.formGroup = this.fb.group({
-      title: new FormControl(null),
-      description: new FormControl(null),
+      id: new FormControl(null),
+      title: new FormControl(null, [Validators.required]),
+      description: new FormControl(null, [Validators.required]),
+    })
+  }
+
+  getPost(id: string) {
+    this.service.getById(id).subscribe((res) => {
+      this.formGroup.patchValue(res)
     })
   }
 
   saveChanges() {
-    this.service.addPost(this.formGroup.getRawValue()).subscribe(res=>{
+    debugger
+    if (this.formGroup.valid) {
+      if (this.formGroup.value.id) {
+        this.service.updatePost(this.formGroup.getRawValue(), this.formGroup.value.id).subscribe(() => {
+          this.share.toast.next(new Toast(severity.success, 'success', 'post is created'));
+          this.formGroup.reset()
+          this.preparePost()
+        })
+      } else {
+        this.service.addPost(this.formGroup.getRawValue()).subscribe(() => {
+          this.share.toast.next(new Toast(severity.success, 'success', 'post is created'));
+          this.formGroup.reset()
+          this.preparePost()
+        })
+      }
+    } else {
+      this.share.toast.next(new Toast(severity.Error, 'error', 'form kamel nis'));
+    }
 
-    })
+
   }
 }

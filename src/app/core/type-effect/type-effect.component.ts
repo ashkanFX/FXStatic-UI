@@ -8,7 +8,6 @@ import {TypeEffectService} from "./type-effect.service";
   imports: [],
   template: `
     <div class=" col-12 text-white text-4xl disableSelect " style="">
-      hi
       <span id="element"></span>
     </div>
   `,

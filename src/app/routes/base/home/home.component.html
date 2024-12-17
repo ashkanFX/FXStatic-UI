@@ -5,13 +5,13 @@
   <div class="col-12 p-3   text-3xl text-white-alpha-80">
     <span>new 📌 : </span>
   </div>
-  <ng-container *ngFor="let card of cards | async">
-    <div class="col-12 flex h-auto flex-wrap">
+  <div class="col-12 flex h-auto flex-wrap">
+    <ng-container *ngFor="let card of cards | async">
       <div class="xl:col-6 col-12 ">
         <app-card [config]="card"/>
       </div>
-    </div>
-  </ng-container>
+    </ng-container>
+  </div>
   <app-slider/>
   <app-category/>
   <div class="relative col-12 flex">

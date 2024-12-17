@@ -27,8 +27,6 @@ export class CardComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // Access the native element
-    console.log(this.context.nativeElement);
     this.context.nativeElement.innerHTML = this.config.description;
   }
 

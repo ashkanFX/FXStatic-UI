@@ -8,7 +8,7 @@ import {Toast} from "../../model/Toast";
 })
 export class ShareService {
 
-  constructor(private session: SessionService) {
+  constructor(private session: SessionService ) {
   }
 
   toast = new Subject<any>();
