@@ -73,8 +73,8 @@ export class PostComponent implements OnInit {
     this.service.getAll().subscribe(res => {
       this.configGrid.configGridUpdate.next({
         class: [],
-        columnName: ['id', 'title', 'description'],
-        columnNameAlias: ['id', 'title', 'description'],
+        columnName: ['id', 'title', 'description', 'context'],
+        columnNameAlias: ['id', 'title', 'description', 'context'],
         configGridUpdate: new ReplaySubject<ConfigGrid>(),
         title: 'user',
         rowBody: res,
@@ -98,6 +98,7 @@ export class PostComponent implements OnInit {
       id: new FormControl(null),
       title: new FormControl(null, [Validators.required]),
       description: new FormControl(null, [Validators.required]),
+      context: new FormControl(null, [Validators.required ,Validators.maxLength(200)]),
     })
   }
 

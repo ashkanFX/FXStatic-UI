@@ -13,6 +13,10 @@
           <label for="title" style="color: #1A1D24">title :</label>
           <input id="title" class="w-full h-2rem p-2" type="text" pInputText formControlName="title"/>
         </div>
+        <div class="flex flex-column gap-1 mb-4">
+          <label for="context" style="color: #1A1D24">context :</label>
+          <textarea rows="5" cols="30" pTextarea id="context" pInputText formControlName="context"></textarea>
+        </div>
         <quill-editor
           formControlName="description"
           [modules]="editorModules"

@@ -7,6 +7,7 @@ export interface Card {
   subText?: string,
   router?: Routing
   description?: string,
+  context?: string,
   isShow?: boolean;
   user?: UserResDto;
   haveProfile: boolean;
