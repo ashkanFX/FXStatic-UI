@@ -18,8 +18,9 @@
 
       </div>
       <div class="m-3  flex justify-content-end">
-        <span class="m-1" routerLink="{{config?.router?.url}}"> <a class="linkStyle" href="">more-></a></span>
+        <span class="m-1"> <a (click)="redirect(config?.router?.url! , config.id)" class="linkStyle">more-></a></span>
       </div>
     </div>
   </section>
 </div>
+

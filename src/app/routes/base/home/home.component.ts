@@ -12,6 +12,7 @@ import {CategoryComponent} from "./category/category.component";
 import {PostService} from "../../admin/post/post.service";
 import {AsyncPipe, JsonPipe, NgFor} from "@angular/common";
 import {Subject} from "rxjs";
+import {rout} from "../../../shared/model/routing.model";
 
 @Component({
   selector: 'app-home',
@@ -59,8 +60,11 @@ export class HomeComponent implements OnInit {
 
   prepareCard() {
     this.postService.getLatestPost().subscribe(res => {
+      res.map((item: any) => {
+        item.router = rout.Content
+      })
       this.cards.next(res)
-     })
+    })
   }
 }
 
