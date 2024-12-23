@@ -1,5 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ButtonModule} from "primeng/button";
+import {ActivatedRoute} from "@angular/router";
+import {PostService} from "../../../admin/post/post.service";
 
 @Component({
   selector: 'app-comment-content',
@@ -10,6 +12,6 @@ import {ButtonModule} from "primeng/button";
   templateUrl: './comment-content.component.html',
   styleUrl: './comment-content.component.css'
 })
-export class CommentContentComponent {
+export class CommentContentComponent{
 
 }

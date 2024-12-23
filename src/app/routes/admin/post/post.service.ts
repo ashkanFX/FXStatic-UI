@@ -24,8 +24,8 @@ export class PostService {
     return this.http.get<any>(environment.apiUrl + 'post/get/all')
   }
 
-  public getById(id: string): Observable<any> {
-    return this.http.get<any>(environment.apiUrl + `post/get/${id}`)
+  public getById(id: string | null): Observable<any> {
+    return this.http.get<any>(environment.apiUrl + `post/public/get/${id}`)
   }
 
   public deletePost(id: string): Observable<any> {

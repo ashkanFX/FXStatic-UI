@@ -16,10 +16,5 @@ import {ActivatedRoute} from "@angular/router";
   styleUrl: './content.component.css'
 })
 export class ContentComponent {
-  constructor(private route: ActivatedRoute) {
-    this.route.paramMap.subscribe(params => {
-      const id = params.get('id');
-      console.log(id);
-    });
-  }
+
 }

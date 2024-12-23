@@ -20,9 +20,23 @@
 .bg-3-color {
   background-color: #FFFFFF;
 }
+
 .bg-4-color {
   background-color: #F5F5F7;
 }
+
+.bg-5-color {
+  background-color: #474B4F;
+}
+
+.text-1-color {
+  color: #61892F !important
+}
+
+.text-2-color {
+  color: #86C232 !important
+}
+
 
 /* width */
 ::-webkit-scrollbar {
