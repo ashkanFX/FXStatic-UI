@@ -1,9 +1,6 @@
 
 /* BASIC */
 
-html {
-  background-color: #56baed;
-}
 
 body {
   font-family: "Poppins", sans-serif;
@@ -11,7 +8,7 @@ body {
 }
 
 a {
-  color: #92badd;
+  color: #86C232;
   display:inline-block;
   text-decoration: none;
   font-weight: 400;
@@ -75,13 +72,13 @@ h2.inactive {
 
 h2.active {
   color: #ffffff;
-  border-bottom: 2px solid #5fbae9;
+  border-bottom: 2px solid #86C232;
 }
 
 
 /* CSS */
 .button {
-  background-color: #fff000;
+  background-color: #86C232;
   border-radius: 12px;
   color: #000;
   cursor: pointer;
@@ -101,7 +98,7 @@ h2.active {
 .button:hover  {
   outline: 0;
   color: rgba(44, 43, 43, 0.81);
-  background: #938c41;
+  background: #86C232;
   box-shadow: 0 0 0 2px rgba(0, 0, 0, .2), 0 3px 8px 0 rgba(0, 0, 0, .15);
 }
 
@@ -239,7 +236,7 @@ input[type=text]::placeholder , [type=password]::placeholder {
   bottom: -10px;
   width: 0;
   height: 2px;
-  background-color: #56baed;
+  background-color: #86C232;
   content: "";
   transition: width 0.2s;
 }

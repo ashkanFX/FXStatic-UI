@@ -4,6 +4,8 @@ import {ButtonModule} from "primeng/button";
 import {RippleModule} from "primeng/ripple";
 import {CommonModule, NgClass} from "@angular/common";
 import {navBar} from "../../shared/interface/nav.interface";
+import {ImgModel} from "../../shared/model/img.model";
+import {ImgIconEnum} from "../../shared/enums/imgIcon.enum";
 
 @Component({
   selector: 'app-nav-bar',
@@ -16,6 +18,7 @@ export class NavBarComponent implements OnInit {
 
   @Input() config: navBar = new navBar()
   onShow: string = "hidden"
+  icon = new ImgModel(ImgIconEnum.logoBgWithe, 90, 50, "test")
 
   constructor() {
   }
@@ -33,7 +36,6 @@ export class NavBarComponent implements OnInit {
       this.onShow = "hidden"
     }
   }
-
   clicked(item: any) {
     item.clicked()
   }

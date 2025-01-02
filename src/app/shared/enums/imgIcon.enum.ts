@@ -12,5 +12,7 @@ export enum ImgIconEnum {
   python = '../assets/img/python.svg',
   react = '../assets/img/react.svg',
   springBoot = '../assets/img/spring-boot.svg',
+  logo = '../assets/logo/svg/logo-no-background.svg',
+  logoBgWithe = '../assets/logo/png/logo-no-background.png',
   typescript = '../assets/img/typescript.svg',
 }

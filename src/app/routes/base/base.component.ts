@@ -89,6 +89,10 @@ export class BaseComponent implements OnInit {
         router: rout.Home,
         clicked: ($even) => {
           this.session.clearAllItemInSessionStorage();
+          if (this.navBarConf.leftButton) {
+            this.navBarConf.leftButton[3].show = !this.session.getItemInSessionStorage('jwtToken');
+            this.navBarConf.leftButton = [this.navBarConf.leftButton[1], this.navBarConf.leftButton[2], this.navBarConf.leftButton[3]]
+          }
           this.navBarConf.upDateNavBar.next(this.navBarConf)
           this.shared.toast.next(new Toast(severity.Error, 'Warning', 'your are log out'));
         }
