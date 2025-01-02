@@ -1,26 +1,19 @@
-<div class="bg-3-color  border-round">
-  <div class="flex col-12 " *ngIf="config.title || config.haveProfile">
-    <section class="col-6 p-0 text-2-color" *ngIf="config?.title">
-      <h2 class="m-1">{{config?.title | titlecase}}</h2>
-      <span class="m-1"> {{config?.subText}}</span>
-    </section>
-    <section class="col-6 disableSelect p-0  flex justify-content-end align-items-center">
-<!--      <p-avatar label="V" styleClass="mr-2" size="large" shape="circle"></p-avatar>-->
-      <h5 class="p-1">{{config?.user?.userName}} </h5>
-    </section>
-  </div>
-  <section class="col-12 p-0 flex  ">
-    <div class="col-6 p-0  ">
-      <img style="object-fit: cover " class="col-12 h-full p-0 border-round"
-           [src]="config?.img ? config?.img :  './assets/img/usercard.png' " alt=""></div>
-    <div class="col-6 flex flex-column justify-content-between p-2">
-      <div class="m-0 ql-editor " #context>
-
+<div class="bg-3-color p-0  flex border-round bg-5-color prevent-select
+ justify-content-between " (click)="redirect(config?.router?.url! , config.id)" style="cursor: pointer">
+  <section class="col-1 p-0  ">
+    <img class="col-12 min-h-full p-0 border-round" style="object-fit: cover"
+         [src]="config?.img ? config?.img : './assets/img/javascript.svg' " alt="">
+  </section>
+  <section class="col-11  w-full  " *ngIf="config.title || config.haveProfile">
+    <section class="col-11 p-0 text-2-color" *ngIf="config.title">
+      <div>
+        <h2 class="m-1  flex justify-content-between ">
+          <p class="p-0 font-light text-lg m-0">{{config.title | titlecase}}</p>
+          <p class="p-0  text-xs m-0">{{config?.user?.userName}} </p>
+        </h2>
+        <div class="m-0 ql-editor  text-sm text-white-alpha-80" #context></div>
       </div>
-      <div class="m-3  flex justify-content-end">
-        <span class="m-1 "> <a (click)="redirect(config?.router?.url! , config.id)" class="linkStyle text-1-color">more... </a></span>
-      </div>
-    </div>
+    </section>
   </section>
 </div>
 

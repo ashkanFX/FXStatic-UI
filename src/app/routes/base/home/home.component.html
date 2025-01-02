@@ -7,15 +7,15 @@
   </div>
   <div class="col-12 flex h-auto flex-wrap">
     <ng-container *ngFor="let card of cards | async">
-      <div class="xl:col-6 col-12 ">
+      <div class=" col-12 ">
         <app-card [config]="card"/>
       </div>
     </ng-container>
   </div>
   <app-slider/>
   <app-category/>
-<!--  <div class="relative col-12 flex">-->
-<!--    <app-chapter class="col-8"/>-->
-<!--    <app-last-activity class="col-4"/>-->
-<!--  </div>-->
+  <div class="relative col-12 flex">
+    <app-chapter class="col-8"/>
+    <app-last-activity class="col-4"/>
+  </div>
 </section>

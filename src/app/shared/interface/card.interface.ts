@@ -4,7 +4,7 @@ import {UserResDto} from "../../routes/admin/user/user.res.dto";
 export interface Card {
   id?: string;
   img?: string,
-  title?: string,
+  title: string,
   subText?: string,
   router?: Routing
   description?: string,

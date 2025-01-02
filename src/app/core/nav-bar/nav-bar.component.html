@@ -1,6 +1,6 @@
 <header class="flex justify-content-center   align-items-center p-0 bg-2-color fixed z-1 w-full">
   <section>
-    <i [innerHTML]="icon._imageTag.outerHTML" ></i>
+    <i [innerHTML]="icon._imageTag.outerHTML"></i>
   </section>
   <section class="col-9 p-0 flex justify-content-between ">
     <p-button icon="pi-align-justify pi " class="md:hidden" size="small"
@@ -13,8 +13,7 @@
       md:w-auto p-2  border-round ">
           <p (click)="clicked(item)"
              style="text-decoration: none">
-<!--            <i [class]="item.icon"></i>-->
-            {{item.text}}</p>
+            {{item.text | titlecase}}</p>
         </li>
       </ng-container>
     </ul>

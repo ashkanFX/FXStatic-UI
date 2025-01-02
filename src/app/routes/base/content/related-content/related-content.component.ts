@@ -22,7 +22,6 @@ export class RelatedContentComponent implements OnInit {
 
   ngOnInit(): void {
     this.postService.getById(this.postId).subscribe(res => {
-      console.log(res);
       this.context.nativeElement.innerHTML = res.description;
     })
   }

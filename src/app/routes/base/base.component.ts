@@ -52,9 +52,10 @@ export class BaseComponent implements OnInit {
         text: "admin",
         icon: PrimeIcons.TAG,
         iconStatus: ButtonIcon.right,
-        show: this.session.getItemInSessionStorage('jwtToken') ,
+        show: this.session.getItemInSessionStorage('jwtToken'),
         router: rout.User,
-        clicked: ($even) => {}
+        clicked: ($even) => {
+        }
       },
       {
         text: "Home",
@@ -62,7 +63,8 @@ export class BaseComponent implements OnInit {
         iconStatus: ButtonIcon.right,
         show: true,
         router: rout.Main,
-        clicked: ($even) => {}
+        clicked: ($even) => {
+        }
       },
       {
         text: "Content",
@@ -70,7 +72,8 @@ export class BaseComponent implements OnInit {
         iconStatus: ButtonIcon.right,
         show: true,
         router: rout.Content,
-        clicked: ($even) => {}
+        clicked: ($even) => {
+        }
       },
       {
         text: "Log in",

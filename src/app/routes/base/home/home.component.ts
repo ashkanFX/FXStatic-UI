@@ -42,13 +42,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.typeEffectService.state.next({
-      strings: ['welcome', 'This is FX ', 'that help you to understand about ', "everything new"],
+      strings: ['rxjs and angular tutorials', 'that help you to understand about ', "everything new"],
       startDelay: 1000,
       typeSpeed: 50,
       backSpeed: 30,
       fadeOut: true,
       showCursor: true,
-      cursorChar: "!",
+      cursorChar: "",
       loop: true,
       smartBackspace: false
     })
