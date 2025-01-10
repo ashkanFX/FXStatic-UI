@@ -116,7 +116,6 @@ export class PostComponent implements OnInit {
   }
 
   saveChanges() {
-    debugger
     if (this.formGroup.valid) {
       if (this.formGroup.value.id) {
         this.service.updatePost(this.formGroup.getRawValue(), this.formGroup.value.id).subscribe(() => {

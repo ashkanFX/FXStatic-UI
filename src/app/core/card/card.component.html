@@ -2,7 +2,8 @@
  justify-content-between " (click)="redirect(config?.router?.url! , config.id)" style="cursor: pointer">
   <section class="col-1 p-0  ">
     <img class="col-12 min-h-full p-0 border-round" style="object-fit: cover"
-         [src]="config?.img ? config?.img : './assets/img/javascript.svg' " alt="">
+         [src]="config?.img ? blobUrl : './assets/img/javascript.svg' " alt="">
+
   </section>
   <section class="col-11  w-full  " *ngIf="config.title || config.haveProfile">
     <section class="col-11 p-0 text-2-color" *ngIf="config.title">
