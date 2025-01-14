@@ -13,7 +13,7 @@ export class CategoryService {
   }
 
   public getAllCategory(): Observable<Category[]> {
-    return this.http.get<Category[]>(environment.apiUrl + 'category/getAll').pipe(timeout(1000), retry({
+    return this.http.get<Category[]>(environment.apiUrl + 'category/public/get/all').pipe(timeout(5000), retry({
           count: 3,
           delay: (err, countNum) => {
             console.error(`can not take data in ${countNum} try`, err)

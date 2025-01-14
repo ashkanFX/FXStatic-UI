@@ -1,5 +1,8 @@
 export class Category {
-  constructor() {}
-   id :number;
-   name :string;
+  id: number;
+  name: string;
+  active: string;
+
+  constructor() {
+  }
 }

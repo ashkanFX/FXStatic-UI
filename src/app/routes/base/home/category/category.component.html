@@ -4,41 +4,36 @@
   </div>
   <section class="justify-content-between   flex flex-wrap  ">
     <div class="col-12 xl:col-4 min-h-0 xl:m-3 m-0  p-0 relative ">
-      <!--            <div class="w-5rem h-5rem  text-7xl     absolute" style="    border-radius: 100%;-->
-      <!--          top: 15px;-->
-      <!--          left: -30px;-->
-      <!--          transform: rotate(329deg);">💵-->
-      <!--            </div>-->
-      <!--            <div class="w-5rem h-5rem  text-7xl     absolute" style="      border-radius: 100%;-->
-      <!--          right: -5px;-->
-      <!--          transform: rotate(357deg);-->
-      <!--          top: 90px;">🤩-->
-      <!--            </div>-->
-      <div class="align-content-start p-4 w-full overflow-auto gap glass align-content-start flex flex-wrap gap-2 h-15rem bg-2-color ">
-        <button (click)="addCategory('angular')" class="border-none bg-red-600  cursor-pointer h-auto p-3  h-3rem border-round-3xl ">angular  </button>
-        <button (click)="addCategory('ts')" class="border-none bg-blue-600 cursor-pointer h-auto p-3  h-3rem border-round-3xl ">ts</button>
-        <button  class="border-none bg-purple-500 cursor-pointer h-auto p-3  h-3rem border-round-3xl ">php</button>
-        <button class="border-none bg-green-600  cursor-pointer h-auto p-3  h-3rem border-round-3xl ">python</button>
-        <button class="border-none bg-yellow-400 cursor-pointer h-auto p-3  h-3rem border-round-3xl ">js</button>
-        <button class="border-none bg-pink-400 cursor-pointer h-auto p-3  h-3rem border-round-3xl ">laravel</button>
+      <!--                  <div class="w-5rem h-5rem  text-7xl     absolute" style="    border-radius: 100%;-->
+      <!--                top: 15px;-->
+      <!--                left: -30px;-->
+      <!--                transform: rotate(329deg);">💵-->
+      <!--                  </div>-->
+      <!--                  <div class="w-5rem h-5rem  text-7xl     absolute" style="      border-radius: 100%;-->
+      <!--                right: -5px;-->
+      <!--                transform: rotate(357deg);-->
+      <!--                top: 90px;">🤩-->
+      <!--                  </div>-->
+      <div
+        class="align-content-start p-4 w-full overflow-auto gap glass align-content-start flex flex-wrap gap-2 h-15rem bg-2-color ">
+        <ng-container *ngFor=" let item of categoryList ; ">
+          <button
+            class="border-none text-1-color cursor-pointer h-auto p-3  h-3rem border-round-3xl ">{{item.name}}</button>
+        </ng-container>
+
       </div>
       <p-divider></p-divider>
 
       <div class="w-full h-30rem p-3 bg-2-color">
-<!--        <div class="w-full flex align-items-center h-2rem p-1 border-round scalein-->
-<!--        animation-duration-500 animation-iteration-1-->
-<!--          justify-content-between m-1  bg-3-color" *ngFor="let item of selectedCategory ; track ngOnInit">-->
-<!--          {{item}} <i class="pi pi-times"></i></div>-->
+        <!--        <div class="w-full flex align-items-center h-2rem p-1 border-round scalein-->
+        <!--        animation-duration-500 animation-iteration-1-->
+        <!--          justify-content-between m-1  bg-3-color" *ngFor="let item of selectedCategory ; track ngOnInit">-->
+        <!--          {{item}} <i class="pi pi-times"></i></div>-->
       </div>
     </div>
 
     <div class="col-12 xl:col-7    border-round    bg-2-color my-4  xl:m-3 overflow-auto " style="max-height: 47rem">
 
-      <app-card [config]="cards[0]"></app-card>
-      <p-divider></p-divider>
-      <app-card [config]="cards[1]"></app-card>
-      <p-divider></p-divider>
-      <app-card [config]="cards[2]"></app-card>
     </div>
   </section>
 
