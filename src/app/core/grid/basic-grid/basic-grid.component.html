@@ -19,22 +19,22 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let rowBody of configGrid.rowBody; " class="hover:bg-black-alpha-10">
+    <tr *ngFor="let RowBody of configGrid.rowBody; let i  " class="max-w-0 hover:bg-black-alpha-10">
       <ng-container *ngFor="let columnName of configGrid?.columnName">
-        <td [ngStyle]="{ 'background-color': rowBody['color'] || null }">
-          {{ rowBody[columnName] }}
+        <td [ngStyle]="{ 'background-color': RowBody['color'] || null }">
+          {{ RowBody[columnName] }}
         </td>
       </ng-container>
       <td *ngIf="configGrid?.operation">
         <div class="flex gap-1 w-full justify-content-between">
             <span *ngIf="configGrid?.operation?.view">
-              <i class="pi pi-eye" (click)="configGrid.operation?.view(rowBody)"></i>
+              <i class="pi pi-eye" (click)="configGrid.operation?.view(RowBody)"></i>
             </span>
           <span *ngIf="configGrid?.operation?.update">
-              <i class="pi pi-arrow-circle-up" (click)="configGrid.operation?.update(rowBody)"></i>
+              <i class="pi pi-arrow-circle-up" (click)="configGrid.operation?.update(RowBody)"></i>
             </span>
           <span *ngIf="configGrid?.operation?.delete">
-              <i class="pi pi-trash" (click)="configGrid.operation?.delete(rowBody)"></i>
+              <i class="pi pi-trash" (click)="configGrid.operation?.delete(RowBody)"></i>
             </span>
         </div>
       </td>

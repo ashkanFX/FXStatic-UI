@@ -6,11 +6,12 @@ import {Message, MessageService} from "primeng/api";
 import {ShareService} from "./shared/structure/share/share.service";
 import {ToastModule} from "primeng/toast";
 import {LoadingService} from "./shared/structure/loading/loading/loading.service";
+import {FileUploadModule} from "primeng/fileupload";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, ButtonModule, ToastModule],
+  imports: [FileUploadModule ,RouterOutlet, CommonModule, ButtonModule, ToastModule],
   providers: [MessageService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

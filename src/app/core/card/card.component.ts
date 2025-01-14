@@ -37,8 +37,7 @@ export class CardComponent implements AfterViewInit {
     if (this.config.img) {
       let blob = new Blob([], {type: 'image/png'}); // Example blob
       this.blobUrl = `data:image/png;base64,${this.config.img}`;
-      console.log(this.blobUrl);
-    }
+     }
   }
 
   ngOnDestroy() {

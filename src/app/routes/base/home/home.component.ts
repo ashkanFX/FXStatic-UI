@@ -62,7 +62,7 @@ export class HomeComponent implements OnInit {
     this.postService.getLatestPost().subscribe(res => {
       res.map((item: any) => {
         item.router = rout.Content
-        item.img = item?.document[0]?.content
+        item.img = item?.document[item?.document.length - 1]?.content
       })
       this.cards.next(res)
     })

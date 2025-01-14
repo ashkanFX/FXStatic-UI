@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {TableModule} from "primeng/table";
 import {ConfigGrid} from "./config-grid";
-import {JsonPipe, NgFor, NgForOf, NgIf, NgStyle, TitleCasePipe, UpperCasePipe} from "@angular/common";
+import {JsonPipe, NgClass, NgFor, NgForOf, NgIf, NgStyle, TitleCasePipe, UpperCasePipe} from "@angular/common";
 
 @Component({
   selector: 'app-basic-grid',
@@ -14,7 +14,8 @@ import {JsonPipe, NgFor, NgForOf, NgIf, NgStyle, TitleCasePipe, UpperCasePipe} f
     JsonPipe,
     NgStyle,
     UpperCasePipe,
-    TitleCasePipe
+    TitleCasePipe,
+    NgClass
   ],
   templateUrl: './basic-grid.component.html',
   styleUrl: './basic-grid.component.css',

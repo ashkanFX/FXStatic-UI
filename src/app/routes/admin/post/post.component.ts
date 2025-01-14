@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, CUSTOM_ELEMENTS_SCHEMA, OnInit} from '@angular/core';
 import {ChartModule} from "primeng/chart";
 
 import {BasicGridComponent} from "../../../core/grid/basic-grid/basic-grid.component";
@@ -8,7 +8,7 @@ import {ReplaySubject} from "rxjs";
 import {UserResDto} from "../user/user.res.dto";
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {EditorModule} from "primeng/editor";
-import {TitleCasePipe} from "@angular/common";
+import {AsyncPipe, TitleCasePipe} from "@angular/common";
 import {QuillModule} from 'ngx-quill';
 import {InputTextModule} from "primeng/inputtext";
 import {Button} from "primeng/button";
@@ -29,7 +29,9 @@ import {severity, Toast} from "../../../shared/model/Toast";
     EditorModule,
     InputTextModule,
     Button,
+    AsyncPipe,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './post.component.html',
   styleUrl: './post.component.css'
 })
@@ -38,8 +40,7 @@ export class PostComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private share: ShareService,
-    private service: PostService
-  ) {
+    private service: PostService) {
   }
 
   configGrid: ConfigGrid = {
@@ -50,6 +51,7 @@ export class PostComponent implements OnInit {
     title: 'user',
     rowBody: new Array(new UserResDto()),
   };
+  selectedFile: File | null = null;
   formGroup: FormGroup;
   text: string | undefined;
   editorModules = {
@@ -83,7 +85,6 @@ export class PostComponent implements OnInit {
             this.getPost(row.id)
           },
           update: (selectedRow) => {
-
           },
           delete: (row) => {
             this.deletePost(row.id)
@@ -98,8 +99,10 @@ export class PostComponent implements OnInit {
       id: new FormControl(null),
       title: new FormControl(null, [Validators.required]),
       description: new FormControl(null, [Validators.required]),
+      file: new FormControl(null),
       context: new FormControl(null, [Validators.required, Validators.maxLength(200)]),
     })
+
   }
 
   getPost(id: string) {
@@ -133,7 +136,24 @@ export class PostComponent implements OnInit {
     } else {
       this.share.toast.next(new Toast(severity.Error, 'error', 'form kamel nis'));
     }
+  }
 
 
+  onFileSelected(event: any): void {
+    const file: File = event.target.files[0];
+    if (file) {
+      this.selectedFile = file;
+      const formData = new FormData();
+      formData.append('file', file, file.name);
+      formData.append('postId', this.formGroup.getRawValue().id);
+      this.uploadFile(formData);
+    }
+  }
+
+  uploadFile(formData: FormData): void {
+    this.service.uploadPostImg(formData).subscribe(() => {
+      this.share.toast.next(new Toast(severity.success, 'success', 'post is created'));
+      this.formGroup.reset()
+    })
   }
 }

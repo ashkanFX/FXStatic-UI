@@ -36,5 +36,9 @@ export class PostService {
     return this.http.get<any>(environment.apiUrl + 'post/public/get/latest')
   }
 
+  public uploadPostImg(FormData: FormData): Observable<any> {
+    return this.http.post<any>(environment.apiUrl + 'document/upload', FormData)
+  }
+
 
 }

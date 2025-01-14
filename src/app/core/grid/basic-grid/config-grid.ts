@@ -7,6 +7,7 @@ export class ConfigGrid {
   columnNameAlias ?: string[];
   rowBody: any[];
   class: string[]
+  columnWeight?: string[]
   operation?: Operation<any, any, any>
 }
 

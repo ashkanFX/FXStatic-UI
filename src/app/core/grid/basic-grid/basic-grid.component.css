@@ -34,5 +34,7 @@ td {
   padding: 10px;
   border-bottom: 2px solid #F7F7F8;
   text-align: left;
+  max-width: 0;
+  overflow: hidden;
 }
 

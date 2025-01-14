@@ -23,6 +23,9 @@
           class="w-full h-20rem"
           [placeholder]="'Compose your text here...'">
         </quill-editor>
+         <input  name="file-upload-field" type="file" formControlName="file"     maxFileSize="900000"
+
+                 (change)="onFileSelected($event)">
         <p-button label="Submit" (onClick)="saveChanges()"/>
 
       </form>
