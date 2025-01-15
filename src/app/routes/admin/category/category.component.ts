@@ -75,23 +75,27 @@ export class CategoryComponent implements OnInit {
   }
 
   public prepareGrid() {
-    // this.service.getAllCategory().subscribe(response => {
+    this.service.getAllCategory().subscribe(response => {
       this.configGrid.configGridUpdate.next({
         class: [],
         columnName: ['id', 'name'],
+        columnNameAlias: ['id', 'name'],
         configGridUpdate: new ReplaySubject<ConfigGrid>(),
         title: 'category',
-        rowBody: [],
+        rowBody: response,
         operation: {
           delete: (selectedRow) => {
             this.deleteCategory(selectedRow.id);
+          },
+          view: (selectedRow) => {
+            this.getCategory(selectedRow.id)
           },
           update: (selectedRow) => {
             this.updateCategory(selectedRow.id);
           }
         }
       })
-    // })
+    })
   }
 
   deleteCategory(id: string) {
@@ -101,6 +105,15 @@ export class CategoryComponent implements OnInit {
   }
 
   updateCategory(id: string) {
+    this.service.getCategory(id).subscribe((res) => {
+      this.categoryForm.patchValue({
+        id: res.id,
+        name: res.name,
+      });
+    });
+  }
+
+  getCategory(id: string) {
     this.service.getCategory(id).subscribe((res) => {
       this.categoryForm.patchValue({
         id: res.id,

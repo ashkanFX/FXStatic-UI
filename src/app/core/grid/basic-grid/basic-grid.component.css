@@ -26,14 +26,14 @@ th {
   font-size: medium;
   font-weight: normal;
   border-bottom: 3px solid rgba(204, 204, 204, 0.42);
-  text-align: left;
+  text-align: center;
 }
 
 td {
   color: rgba(34, 40, 49, 0.73);
   padding: 10px;
   border-bottom: 2px solid #F7F7F8;
-  text-align: left;
+  text-align: center;
   max-width: 0;
   overflow: hidden;
 }
