@@ -41,6 +41,13 @@ export class CategoryComponent implements OnInit {
     title: "",
     rowBody: []
   };
+  relatedPost: ConfigGrid = {
+    class: [],
+    columnName: [],
+    configGridUpdate: new ReplaySubject<ConfigGrid>(),
+    title: "related post",
+    rowBody: []
+  };
 
   constructor(private fb: FormBuilder, private service: CategoryService) {
   }
@@ -51,7 +58,7 @@ export class CategoryComponent implements OnInit {
     }
     this.categoryForm = this.fb.group({
       id: new FormControl(null),
-      name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
+      name: new FormControl(null, [Validators.required]),
       active: new FormControl(true, [Validators.required]),
     })
     this.prepareGrid()

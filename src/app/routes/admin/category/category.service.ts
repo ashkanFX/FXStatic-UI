@@ -25,7 +25,7 @@ export class CategoryService {
   }
 
   public addCategory(category: Category): Observable<Category> {
-    return this.http.post<Category>(environment.apiUrl + 'category/add', category).pipe(timeout(1000), retry({
+    return this.http.post<Category>(environment.apiUrl + 'category', category).pipe(timeout(1000), retry({
           count: 3,
           delay: (err, countNum) => {
             console.error(`can not take data in ${countNum} try`, err)
