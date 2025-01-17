@@ -15,6 +15,9 @@ import {Button} from "primeng/button";
 import {PostService} from "./post.service";
 import {ShareService} from "../../../shared/structure/share/share.service";
 import {severity, Toast} from "../../../shared/model/Toast";
+import {MultiSelectModule} from "primeng/multiselect";
+import {Category} from "../category/Category";
+import {CategoryService} from "../category/category.service";
 
 @Component({
   selector: 'app-post',
@@ -23,6 +26,7 @@ import {severity, Toast} from "../../../shared/model/Toast";
     ChartModule,
     BasicGridComponent,
     DropdownModule,
+    MultiSelectModule,
     ReactiveFormsModule,
     QuillModule,
     TitleCasePipe,
@@ -39,6 +43,7 @@ export class PostComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private categoryService: CategoryService,
     private share: ShareService,
     private service: PostService) {
   }
@@ -54,6 +59,7 @@ export class PostComponent implements OnInit {
   selectedFile: File | null = null;
   formGroup: FormGroup;
   text: string | undefined;
+  category: Category[];
   editorModules = {
     toolbar: [
       ['bold', 'italic', 'underline'],
@@ -69,6 +75,7 @@ export class PostComponent implements OnInit {
   ngOnInit(): void {
     this.prepareFormGroup()
     this.preparePost()
+    this.prepareCategory()
   }
 
   preparePost() {
@@ -94,12 +101,19 @@ export class PostComponent implements OnInit {
     })
   }
 
+  prepareCategory() {
+    this.categoryService.getAllCategory().subscribe(res => {
+      this.category = res;
+    });
+  }
+
   private prepareFormGroup() {
     this.formGroup = this.fb.group({
       id: new FormControl(null),
       title: new FormControl(null, [Validators.required]),
       description: new FormControl(null, [Validators.required]),
       file: new FormControl(null),
+      category: new FormControl<Category[]>([]),
       context: new FormControl(null, [Validators.required, Validators.maxLength(200)]),
     })
 
@@ -122,17 +136,16 @@ export class PostComponent implements OnInit {
     if (this.formGroup.valid) {
       if (this.formGroup.value.id) {
         this.service.updatePost(this.formGroup.getRawValue(), this.formGroup.value.id).subscribe(() => {
-          this.share.toast.next(new Toast(severity.success, 'success', 'post is created'));
           this.formGroup.reset()
           this.preparePost()
         })
       } else {
         this.service.addPost(this.formGroup.getRawValue()).subscribe(() => {
-          this.share.toast.next(new Toast(severity.success, 'success', 'post is created'));
           this.formGroup.reset()
           this.preparePost()
         })
       }
+      this.share.toast.next(new Toast(severity.success, 'success', ''));
     } else {
       this.share.toast.next(new Toast(severity.Error, 'error', 'form kamel nis'));
     }
@@ -152,7 +165,7 @@ export class PostComponent implements OnInit {
 
   uploadFile(formData: FormData): void {
     this.service.uploadPostImg(formData).subscribe(() => {
-      this.share.toast.next(new Toast(severity.success, 'success', 'post is created'));
+      this.share.toast.next(new Toast(severity.success, 'success', 'file is upload'));
       this.formGroup.reset()
     })
   }

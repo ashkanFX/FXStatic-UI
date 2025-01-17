@@ -12,6 +12,11 @@
         <div class="flex flex-column gap-1 mb-4">
           <label for="title" style="color: #1A1D24">title :</label>
           <input id="title" class="w-full h-2rem p-2" type="text" pInputText formControlName="title"/>
+          <p-multiSelect
+            [options]="category"
+            formControlName="category"
+            optionLabel="name"
+            placeholder="Select Cities"/>
         </div>
         <div class="flex flex-column gap-1 mb-4">
           <label for="context" style="color: #1A1D24">context :</label>
@@ -23,9 +28,9 @@
           class="w-full h-screen"
           [placeholder]="'Compose your text here...'">
         </quill-editor>
-         <input  name="file-upload-field" type="file" formControlName="file"     maxFileSize="900000"
+        <input name="file-upload-field" type="file" formControlName="file" maxFileSize="900000"
+               (change)="onFileSelected($event)">
 
-                 (change)="onFileSelected($event)">
         <p-button label="Submit" (onClick)="saveChanges()"/>
 
       </form>
