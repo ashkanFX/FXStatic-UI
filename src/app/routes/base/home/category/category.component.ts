@@ -3,7 +3,6 @@ import {DividerModule} from "primeng/divider";
 import {ButtonModule} from "primeng/button";
 import {NgForOf} from "@angular/common";
 import {CardComponent} from "../../../../core/card/card.component";
-import {Card} from "../../../../shared/interface/card.interface";
 import {ShareService} from "../../../../shared/structure/share/share.service";
 import {CategoryService} from "../../../admin/category/category.service";
 import {Category} from "../../../admin/category/Category";
@@ -24,8 +23,10 @@ export class CategoryComponent implements OnInit {
   constructor(private share: ShareService, private category: CategoryService) {
   }
 
-  categoryList: Category[]
-  cards: Card[]
+  categoryList: Category[];
+  selectedCategoryIdes: number[] = [];
+  selectedCategory: Category[] = [];
+  cards: any[]
 
   ngOnInit(): void {
     this.category.getAllCategory().subscribe(res => {
@@ -35,7 +36,14 @@ export class CategoryComponent implements OnInit {
 
   }
 
-  addCategory(event: string) {
-    // this.share._category.next(event)
+
+  getPostOfCategory(item: Category) {
+    if (!this.selectedCategoryIdes.includes(item.id)) {
+      this.selectedCategoryIdes.push(item.id)
+      this.selectedCategory.push(item)
+    }
+    this.category.getCategoryPosts(this.selectedCategoryIdes).subscribe(res => {
+      this.cards = res;
+    })
   }
 }

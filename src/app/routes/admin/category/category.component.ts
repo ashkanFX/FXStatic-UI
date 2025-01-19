@@ -49,8 +49,8 @@ export class CategoryComponent implements OnInit {
     rowBody: []
   };
 
-  constructor(private fb: FormBuilder, private service: CategoryService) {
-  }
+    constructor(private fb: FormBuilder, private service: CategoryService) {
+    }
 
   ngOnInit(): void {
     this.config = {

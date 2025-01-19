@@ -37,7 +37,7 @@ export class CategoryService {
   }
 
   deleteCategory(id: string): Observable<any> {
-    return this.http.delete(environment.apiUrl + `category/delete/${id}`).pipe(timeout(1000), retry({
+    return this.http.delete(environment.apiUrl + `category/${id}`).pipe(timeout(1000), retry({
           count: 3,
           delay: (err, countNum) => {
             console.error(`can not take data in ${countNum} try`, err)
@@ -50,6 +50,18 @@ export class CategoryService {
 
   getCategory(id: string): Observable<any> {
     return this.http.get(environment.apiUrl + `category/get/${id}`).pipe(timeout(1000), retry({
+          count: 3,
+          delay: (err, countNum) => {
+            console.error(`can not take data in ${countNum} try`, err)
+            return timer(1000 * countNum)
+          }
+        }
+      ),
+      catchError(this.handelError));
+  }
+
+  getCategoryPosts(ids: number[]): Observable<any> {
+    return this.http.post(environment.apiUrl + `category/public/get/post`, {id: ids}).pipe(timeout(1000), retry({
           count: 3,
           delay: (err, countNum) => {
             console.error(`can not take data in ${countNum} try`, err)
