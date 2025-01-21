@@ -4,6 +4,7 @@ import {Router, RouterLink} from "@angular/router";
 import {CommonModule, NgIf} from "@angular/common";
 import {Card} from "../../shared/interface/card.interface";
 import {AvatarModule} from "primeng/avatar";
+import {ChipModule} from "primeng/chip";
 
 @Component({
   selector: 'app-card',
@@ -13,7 +14,8 @@ import {AvatarModule} from "primeng/avatar";
     RouterLink,
     CommonModule,
     NgIf,
-    AvatarModule
+    AvatarModule,
+    ChipModule
   ],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
