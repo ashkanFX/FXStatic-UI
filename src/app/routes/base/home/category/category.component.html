@@ -15,14 +15,18 @@
       <p-divider></p-divider>
       <div class="w-full h-30rem p-3 bg-2-color border-round-3xl">
         <ng-container *ngFor=" let item of selectedCategory ; ">
-          <p
-            class="border-none text-2-color bg-5-color cursor-pointer h-auto p-3  h-3rem border-round-3xl ">{{item.name}}</p>
+          <p class="border-none flex justify-content-between fadein animation-duration-1000
+           align-items-center  text-2-color bg-5-color cursor-pointer h-auto p-3  h-3rem border-round-3xl ">
+            {{item.name}}
+            <i class="pi pi-times" (click)="removeIem(item)"></i>
+          </p>
         </ng-container>
       </div>
     </div>
     <div class="col-12 xl:col-7    border-round    bg-2-color my-4  xl:m-3 overflow-auto " style="max-height: 47rem">
       <ng-container *ngFor=" let item of  cards ; ">
-        <p  class="border-none text-2-color bg-5-color cursor-pointer h-auto p-3  h-3rem border-round-3xl ">
+        <p
+          class="border-none text-2-color bg-5-color cursor-pointer h-auto p-3 zoomin  animation-duration-100  h-3rem border-round-3xl ">
           {{item.title}}
         </p>
       </ng-container>

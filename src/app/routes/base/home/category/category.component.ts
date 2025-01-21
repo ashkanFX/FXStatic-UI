@@ -24,7 +24,7 @@ export class CategoryComponent implements OnInit {
   }
 
   categoryList: Category[];
-  selectedCategoryIdes: number[] = [];
+  selectedCategoryIdes: any[] = [];
   selectedCategory: Category[] = [];
   cards: any[]
 
@@ -37,13 +37,25 @@ export class CategoryComponent implements OnInit {
   }
 
 
-  getPostOfCategory(item: Category) {
-    if (!this.selectedCategoryIdes.includes(item.id)) {
+  getPostOfCategory(item: Category ) {
+    if (!this.selectedCategoryIdes.includes(item.id) && item) {
       this.selectedCategoryIdes.push(item.id)
       this.selectedCategory.push(item)
     }
     this.category.getCategoryPosts(this.selectedCategoryIdes).subscribe(res => {
       this.cards = res;
+    })
+  }
+
+  removeIem(item: Category) {
+    this.selectedCategory.forEach((category, index) => {
+      if (item?.id! === category.id) {
+        this.selectedCategory.splice(index, 1)
+        this.selectedCategoryIdes.splice(index, 1)
+        this.category.getCategoryPosts(this.selectedCategoryIdes).subscribe(res => {
+          this.cards = res;
+        })
+      }
     })
   }
 }
