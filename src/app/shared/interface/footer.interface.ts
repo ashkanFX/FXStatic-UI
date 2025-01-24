@@ -5,5 +5,6 @@ export interface footer {
   show ?:boolean,
   img?: string,
   textColor?:string,
+  bgColor:string,
   icon?: PrimeIcons
 }

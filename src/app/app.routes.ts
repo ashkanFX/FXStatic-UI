@@ -4,15 +4,15 @@ import {authGuard} from "./shared/auth/auth.guard";
 export const routes: Routes = [
   {
     path: 'main',
-    loadComponent: () => import('./routes/base/base.component').then(m => m.BaseComponent),
+    loadComponent: () => import('./routes/layout/layout.component').then(m => m.LayoutComponent),
     children: [
       {
         path: "",
-        loadComponent: () => import('./routes/base/home/home.component').then(m => m.HomeComponent)
+        loadComponent: () => import('./routes/layout/home/home.component').then(m => m.HomeComponent)
       },
       {
         path: "content/:id",
-        loadComponent: () => import('./routes/base/content/content.component').then(m => m.ContentComponent),
+        loadComponent: () => import('./routes/layout/content/content.component').then(m => m.ContentComponent),
 
       }
     ]
@@ -40,7 +40,7 @@ export const routes: Routes = [
     ]
   },
   {
-    path: 'login', loadComponent: () => import ('./routes/base/login/login.component').then(m => m.LoginComponent)
+    path: 'login', loadComponent: () => import ('./routes/layout/login/login.component').then(m => m.LoginComponent)
   },
   {
     path: '', redirectTo: 'main', pathMatch: 'full'

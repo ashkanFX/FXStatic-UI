@@ -18,6 +18,7 @@ import {severity, Toast} from "../../../shared/model/Toast";
 import {MultiSelectModule} from "primeng/multiselect";
 import {Category} from "../category/Category";
 import {CategoryService} from "../category/category.service";
+import {FileUploadModule} from "primeng/fileupload";
 
 @Component({
   selector: 'app-post',
@@ -34,6 +35,7 @@ import {CategoryService} from "../category/category.service";
     InputTextModule,
     Button,
     AsyncPipe,
+    FileUploadModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './post.component.html',
@@ -113,7 +115,7 @@ export class PostComponent implements OnInit {
       title: new FormControl(null, [Validators.required]),
       description: new FormControl(null, [Validators.required]),
       file: new FormControl(null),
-      category: new FormControl<Category[]>([]),
+      categories: new FormControl<number[]>([]),
       context: new FormControl(null, [Validators.required, Validators.maxLength(200)]),
     })
 
@@ -133,6 +135,7 @@ export class PostComponent implements OnInit {
   }
 
   saveChanges() {
+    this.formGroup.get('categories')?.setValue([5])
     if (this.formGroup.valid) {
       if (this.formGroup.value.id) {
         this.service.updatePost(this.formGroup.getRawValue(), this.formGroup.value.id).subscribe(() => {

@@ -7,4 +7,5 @@ export enum severity {
   info =  'info',
   Warn =  'warn',
   Error =  'error',
+  secondary =  'secondary',
  }

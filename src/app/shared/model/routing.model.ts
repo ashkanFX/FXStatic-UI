@@ -1,15 +1,16 @@
 import {Routing} from "../interface/routing.interface";
 import {AdminComponent} from "../../routes/admin/admin.component";
 import {PostComponent} from "../../routes/admin/post/post.component";
-import {ContentComponent} from "../../routes/base/content/content.component";
-import {LoginComponent} from "../../routes/base/login/login.component";
-import {BaseComponent} from "../../routes/base/base.component";
+
 import {UserComponent} from "../../routes/admin/user/user.component";
+import {ContentComponent} from "../../routes/layout/content/content.component";
+import {LayoutComponent} from "../../routes/layout/layout.component";
+import {LoginComponent} from "../../routes/layout/login/login.component";
 
 export abstract class rout {
   static Main: Routing = {
     url: '/main',
-    component: BaseComponent
+    component: LayoutComponent
   }
   static Home: Routing = {
     url: '/main/',

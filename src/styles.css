@@ -18,11 +18,11 @@
 }
 
 .bg-3-color {
-  background-color: #FFFFFF;
+  background-color: #F5F5F5;
 }
 
 .bg-4-color {
-  background-color: #F5F5F7;
+  background-color: #ffffff;
 }
 
 .bg-5-color {
@@ -35,6 +35,12 @@
 
 .text-2-color {
   color: #86C232 !important
+}
+.border-1-color {
+  border: #61892F solid 3px
+}
+.border-2-color {
+  border:#F9F9F9 solid 2px
 }
 
 
@@ -64,4 +70,8 @@
 
 .linkStyle {
   color: var(--blue-500) !important;
+}
+
+.text-decoration-none {
+  text-decoration: none !important;
 }
