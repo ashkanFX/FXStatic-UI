@@ -18,7 +18,7 @@
 }
 
 .bg-3-color {
-  background-color: #F5F5F5;
+  background-color: #F4F4F4;
 }
 
 .bg-4-color {
@@ -40,7 +40,7 @@
   border: #61892F solid 3px
 }
 .border-2-color {
-  border:#F9F9F9 solid 2px
+  border: rgba(218, 218, 218, 0.5) solid 2px
 }
 
 
@@ -68,9 +68,7 @@
   user-select: none
 }
 
-.linkStyle {
-  color: var(--blue-500) !important;
-}
+
 
 .text-decoration-none {
   text-decoration: none !important;

@@ -1,4 +1,4 @@
-<section class="col-12 flex h-full p-0 text-white-alpha-40 ">
+<section class="col-12 flex h-full p-0 text-white-alpha-40 bg-3-color ">
   <div class="  p-1 h-screen " style="width: 10vw">
     <div class="w-full h-full border-round-2xl  bg-2-color border-1-color flex flex-wrap"
          style=" align-content: space-between; justify-content: space-between ; ">
@@ -37,22 +37,23 @@
       </div>
     </div>
   </div>
-  <div class="w-full   h-screen overflow-auto m-auto p-2  " style="background-color: #FCFCFC ">
+  <div class="w-full  bg-3-color h-screen overflow-auto m-auto p-2  " >
     <section
-      class="text-white w-full h-3rem bg-2-color border-1-color p-1 justify-content-between border-round-2xl flex ">
+      class="text-black-alpha-90  w-full h-3rem  bg-3-color   p-1 justify-content-between border-round-2xl flex ">
       <div class="gap-6  flex col-6 h-full align-items-center">
+        <p> <i class="pi pi-align-justify">  </i> </p>
         <p> Name : {{currentUser?.username}}</p>
         <p> Email : {{currentUser?.email}}</p>
       </div>
       <a (click)="logOut()" class=" m-0 text-white-alpha-40 text-decoration-none">
         <div
-          class="flex w-full gap-2 h-2rem  border-round justify-content-start cursor-pointer hover:bg-white-alpha-30 p-3 font-light text-50  align-items-center ">
+          class="flex text-black-alpha-90 w-full gap-2 h-2rem  border-round justify-content-start cursor-pointer  p-3 font-light text-50  align-items-center ">
           <i class="pi pi-power-off"></i>
           Log out
         </div>
       </a>
     </section>
-    <div class=" p-2  border-round w-full h-auto">
+    <div class=" p-2   border-round w-full h-auto">
       <router-outlet/>
     </div>
     <app-footer [config]="footerConf"/>

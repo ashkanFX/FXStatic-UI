@@ -55,7 +55,7 @@ export class PostComponent implements OnInit {
     columnName: [],
     columnNameAlias: ['id', 'name', 'email'],
     configGridUpdate: new ReplaySubject<ConfigGrid>(),
-    title: 'user',
+    title: 'post',
     rowBody: new Array(new UserResDto()),
   };
   selectedFile: File | null = null;

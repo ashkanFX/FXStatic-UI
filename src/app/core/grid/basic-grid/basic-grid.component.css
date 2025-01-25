@@ -1,17 +1,9 @@
 #header {
   color: #1b1e23;
-
 }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
 
 table {
-
   border-collapse: collapse;
   overflow: hidden;
   width: 100%;

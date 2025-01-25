@@ -14,6 +14,7 @@ import {ShareService} from "../../shared/structure/share/share.service";
 import {FooterComponent} from "../../core/footer/footer.component";
 import {footer} from "../../shared/interface/footer.interface";
 import {PrimeIcons} from "primeng/api";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-admin',
@@ -37,6 +38,7 @@ import {PrimeIcons} from "primeng/api";
 export class AdminComponent implements OnInit {
   rout = rout;
   currentUser: CurrentUserResDto
+  obs=  new Observable()
   footerConf: footer = {
     text: "made with love by ashkan",
     icon: PrimeIcons.HEART_FILL,
@@ -51,6 +53,9 @@ export class AdminComponent implements OnInit {
     this.userService.getCurrentUSer().subscribe(res => {
       this.currentUser = res;
     })
+    this.obs.subscribe()
+    this.obs.subscribe()
+    this.obs.subscribe()
   }
 
 

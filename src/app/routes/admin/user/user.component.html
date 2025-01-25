@@ -1,14 +1,13 @@
 <section class="flex flex-wrap col-12 h-full  gap-3 justify-content-around ">
-
-  <div id="list" class="col-12 bg-4-color border-round-3xl" style="height: 70% ">
+  <div id="list" class="col-12 bg-4-color p-2 shadow-1 border-round-3xl" style="min-height: 70% ">
     <app-basic-grid [configGrid]="configGrid"/>
   </div>
-  <div class="col-12  flex gap-3">
-    <div id="form" class="col-8 p-3 bg-4-color border-round-3xl " style="height: max-content">
+  <div class="col-12 p-0 flex gap-3">
+    <div id="form" class="col-12 p-3 bg-4-color shadow-3 border-round-3xl " style="height: max-content">
       <div id="header">
         <h3 class="my-2 ml-1"> {{"user detail:"| titlecase}}</h3>
       </div>
-      <form>
+      <form [formGroup]="userForm">
         <div class="flex flex-column gap-1 mb-4">
           <label for="name" style="color: #1A1D24">name :</label>
           <input id="name" class="w-full h-2rem p-2" type="text" pInputText formControlName="name"/>
@@ -28,7 +27,7 @@
           </div>
           <div class="col-4">
             <p-dropdown
-              formControlName="selectedCity"
+              formControlName="role"
               [options]="role"
               optionLabel="role"
               placeholder="Select role"/>
@@ -41,17 +40,7 @@
         <p-button label="Submit"/>
       </form>
     </div>
-    <div
-      class="col-4 p-4 bg-4-color border-round-3xl max-h-30rem overflow-scroll flex gap-3 flex-wrap text-black-alpha-90"
-      style="height: max-content">
-      latest Upload
-      <app-card [config]="cards[0]"/>
-      <app-card [config]="cards[1]"/>
-      <app-card [config]="cards[2]"/>
-      <app-card [config]="cards[2]"/>
-      <app-card [config]="cards[2]"/>
-      <app-card [config]="cards[2]"/>
-    </div>
+
   </div>
 </section>
 

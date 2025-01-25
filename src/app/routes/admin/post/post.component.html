@@ -1,28 +1,34 @@
 <section class="flex  flex-row-reverse col-12 h-full p-0  gap-1 justify-content-around ">
   <div class="col-7  flex gap-3">
-    <div id="list" class="col-12 bg-4-color border-round-3xl border-2-color shadow-5 ">
+    <div id="list" class="col-12 bg-4-color border-round-3xl border-2-color shadow-5 " style="max-height: max-content">
       <app-basic-grid [configGrid]="configGrid"/>
     </div>
   </div>
   <div class="col-5  flex gap-3">
-    <div id="form" class="col-12 shadow-5 p-3 border-2-color bg-4-color border-round-3xl text-black-alpha-90 "
+    <div id="form" class="col-12 shadow-5 p-3  border-2-color bg-4-color border-round-3xl text-black-alpha-90 "
          style="height: max-content">
       <div id="header">
-        <h3 class="my-2 ml-1"> {{"user detail:"| titlecase}}</h3>
+        <h3 class="my-2 ml-1">Post detail:</h3>
       </div>
       <form [formGroup]="formGroup">
-        <div class="flex flex-column gap-1 mb-4">
-          <label for="title" style="color: #1A1D24">title :</label>
-          <input id="title" class="w-full h-2rem p-2" type="text" pInputText formControlName="title"/>
-          <p-multiSelect
-            [options]="category"
-            formControlName="categories "
-            optionLabel="name"
-            placeholder="Select Cities"/>
+        <div class="flex justify-content-between gap-1 mb-2">
+          <div class="flex col-9 flex-column p-0">
+            <label for="title" class="pb-2">title :</label>
+            <input id="title" class=" h-full  p-2" type="text" pInputText formControlName="title"/>
+          </div>
+          <div class="flex col-3 flex-column p-0">
+            <label for="category" class="pb-2">category :</label>
+            <p-multiSelect
+              [options]="category"
+              formControlName="categories"
+              optionLabel="name"
+              id="category"
+              placeholder="Select Cities"/>
+          </div>
         </div>
-        <div class="flex flex-column gap-1 mb-4">
-          <label for="context" style="color: #1A1D24">context :</label>
-          <textarea rows="5" cols="30" pTextarea id="context" pInputText formControlName="context"></textarea>
+        <div class="flex flex-column gap-1 mb-2">
+          <label for="context">context :</label>
+          <textarea rows="9" cols="40" pTextarea id="context" pTextarea  style="resize: none" formControlName="context"></textarea>
         </div>
         <quill-editor
           formControlName="description"
@@ -30,6 +36,7 @@
           class="w-full h-screen"
           [placeholder]="'Compose your text here...'">
         </quill-editor>
+        <div class="flex justify-content-between pt-3">
         <p-fileUpload
           mode="basic"
           chooseLabel="Choose"
@@ -39,6 +46,7 @@
           maxFileSize="900000"/>
 
         <p-button label="Submit" (onClick)="saveChanges()"/>
+        </div>
 
       </form>
     </div>
