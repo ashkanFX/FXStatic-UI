@@ -12,18 +12,19 @@
       </div>
       <form [formGroup]="formGroup">
         <div class="flex justify-content-between gap-1 mb-2">
-          <div class="flex col-9 flex-column p-0">
+          <div class="flex col-7 flex-column p-0">
             <label for="title" class="pb-2">title :</label>
             <input id="title" class=" h-full  p-2" type="text" pInputText formControlName="title"/>
           </div>
-          <div class="flex col-3 flex-column p-0">
+          <div class="flex col-5 flex-column p-0">
             <label for="category" class="pb-2">category :</label>
             <p-multiSelect
               [options]="category"
               formControlName="categories"
               optionLabel="name"
               id="category"
-              placeholder="Select Cities"/>
+
+              placeholder="Select category"/>
           </div>
         </div>
         <div class="flex flex-column gap-1 mb-2">

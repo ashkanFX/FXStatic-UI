@@ -114,9 +114,9 @@ export class PostComponent implements OnInit {
       id: new FormControl(null),
       title: new FormControl(null, [Validators.required]),
       description: new FormControl(null, [Validators.required]),
-      file: new FormControl(null),
-      categories: new FormControl<number[]>([]),
+      categories: new FormControl([], [Validators.required]),
       context: new FormControl(null, [Validators.required, Validators.maxLength(200)]),
+      file: new FormControl(null),
     })
 
   }
@@ -135,7 +135,11 @@ export class PostComponent implements OnInit {
   }
 
   saveChanges() {
-    this.formGroup.get('categories')?.setValue([5])
+    let listOfCategoryId = [];
+    (this.formGroup.get('categories')?.value as Array<any>).forEach((item) => {
+      listOfCategoryId.push(item.id)
+    })
+    this.formGroup.get('categories').setValue(listOfCategoryId)
     if (this.formGroup.valid) {
       if (this.formGroup.value.id) {
         this.service.updatePost(this.formGroup.getRawValue(), this.formGroup.value.id).subscribe(() => {
