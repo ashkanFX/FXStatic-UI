@@ -10,7 +10,16 @@
       <div>
         <h2 class="m-1  flex justify-content-between ">
           <p class="p-0 font-light text-lg m-0">{{config.title | titlecase}}</p>
-          <p class="p-0  text-xs m-0">{{config?.user?.userName}} </p>
+          <div class="flex gap-2">
+            <ng-container *ngIf="config.categories?.length > 0">
+              <p class="p-0  text-xs m-0" *ngFor="let category of config.categories">
+                <p-chip styleClass="pl-0 pr-3">
+                  <span class="ml-2 font-medium">{{category.name |titlecase}}</span>
+                </p-chip>
+              </p>
+            </ng-container>
+            <p class="p-0  text-xs m-0">{{config?.user?.userName}} </p>
+          </div>
         </h2>
         <div class="m-0 ql-editor  text-sm text-white-alpha-80" #context></div>
       </div>

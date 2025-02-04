@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, ElementRef, Input, ViewChild} from '@angular/core';
 import {CardModule} from "primeng/card";
 import {Router, RouterLink} from "@angular/router";
-import {CommonModule, NgIf} from "@angular/common";
+import {CommonModule, NgFor, NgIf} from "@angular/common";
 import {Card} from "../../shared/interface/card.interface";
 import {AvatarModule} from "primeng/avatar";
 import {ChipModule} from "primeng/chip";
@@ -14,8 +14,10 @@ import {ChipModule} from "primeng/chip";
     RouterLink,
     CommonModule,
     NgIf,
+    NgFor,
     AvatarModule,
-    ChipModule
+    ChipModule,
+
   ],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
@@ -23,7 +25,6 @@ import {ChipModule} from "primeng/chip";
 export class CardComponent implements AfterViewInit {
   @ViewChild('context') context: ElementRef
   @Input() config: Card
-  imageBlobUrl: string | ArrayBuffer | null;
 
   constructor(private router: Router) {
   }
