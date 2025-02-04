@@ -160,7 +160,8 @@ export class PostComponent implements OnInit {
 
 
   onFileSelected(event: any): void {
-    const file: File = event.target.files[0];
+      debugger
+    const file: File = event.currentFiles;
     if (file) {
       this.selectedFile = file;
       const formData = new FormData();

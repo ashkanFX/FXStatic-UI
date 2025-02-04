@@ -38,13 +38,7 @@
           [placeholder]="'Compose your text here...'">
         </quill-editor>
         <div class="flex justify-content-between pt-3">
-        <p-fileUpload
-          mode="basic"
-          chooseLabel="Choose"
-          chooseIcon="pi pi-upload"
-          name="demo[]"
-          accept="image/*"
-          maxFileSize="900000"/>
+          <input  name="file-upload-field" type="file" formControlName="file"     maxFileSize="900000" (change)="onFileSelected($event)">
 
         <p-button label="Submit" (onClick)="saveChanges()"/>
         </div>
