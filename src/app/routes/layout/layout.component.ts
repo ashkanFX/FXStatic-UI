@@ -39,7 +39,7 @@ export class LayoutComponent implements OnInit {
 
   }
 
-   session = inject(SessionService)
+  session = inject(SessionService)
   shared = inject(ShareService)
 
   navBarConf: navBar = {
@@ -106,7 +106,7 @@ export class LayoutComponent implements OnInit {
     text: "made with love by ashkan",
     icon: PrimeIcons.HEART_FILL,
     textColor: 'text-2-color',
-    bgColor:'bg-2-color'
+    bgColor: 'bg-2-color'
   }
 
 

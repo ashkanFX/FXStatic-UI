@@ -28,7 +28,6 @@ export const fXInterceptor: HttpInterceptorFn = (req, next) => {
       }
       switch (error.status) {
         case 401 :
-          session.clearAllItemInSessionStorage();
           authGuard
           break
         default:

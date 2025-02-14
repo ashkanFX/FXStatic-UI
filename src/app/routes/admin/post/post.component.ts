@@ -123,6 +123,7 @@ export class PostComponent implements OnInit {
 
   getPost(id: string) {
     this.service.getById(id).subscribe((res) => {
+      debugger
       this.formGroup.patchValue(res)
     })
   }
@@ -160,7 +161,7 @@ export class PostComponent implements OnInit {
 
 
   onFileSelected(event: any): void {
-      debugger
+    debugger
     const file: File = event.currentFiles;
     if (file) {
       this.selectedFile = file;

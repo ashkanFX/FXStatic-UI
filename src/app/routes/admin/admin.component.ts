@@ -54,8 +54,6 @@ export class AdminComponent implements OnInit {
       this.currentUser = res;
     })
     this.obs.subscribe()
-    this.obs.subscribe()
-    this.obs.subscribe()
   }
 
 
