@@ -41,13 +41,7 @@ export class CategoryComponent implements OnInit {
     title: "",
     rowBody: []
   };
-  relatedPost: ConfigGrid = {
-    class: [],
-    columnName: [],
-    configGridUpdate: new ReplaySubject<ConfigGrid>(),
-    title: "related post",
-    rowBody: []
-  };
+
 
     constructor(private fb: FormBuilder, private service: CategoryService) {
     }
