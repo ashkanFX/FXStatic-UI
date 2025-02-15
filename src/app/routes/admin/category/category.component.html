@@ -1,5 +1,5 @@
-<section class="flex flex-wrap col-12 h-full  justify-content-between  ">
-  <div id="form" class="col-6 p-4 bg-4-color border-round-3xl " style="height: max-content">
+<section class="flex  col-12 h-full p-0  gap-1 justify-content-around ">
+  <div id="form" appContentHolder [appFlexClass]="'col-6'" style="height: max-content">
     <form [formGroup]="categoryForm">
       <div class="flex flex-column gap-1 mb-4">
         <label for="name" style="color: #1A1D24">name :</label>
@@ -12,7 +12,7 @@
       <p-button (onClick)="saveCategory()" [disabled]="!categoryForm.get('name')?.valid" label="Submit"></p-button>
     </form>
   </div>
-  <div id="list" class="col-5   bg-4-color border-round-3xl" style="height: 70% ">
+  <div id="list" appContentHolder [appFlexClass]="'col-6'" style="height: 70% ">
     <app-basic-grid [configGrid]="configGrid"></app-basic-grid>
   </div>
 </section>

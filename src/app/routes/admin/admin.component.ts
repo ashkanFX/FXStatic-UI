@@ -15,6 +15,8 @@ import {FooterComponent} from "../../core/footer/footer.component";
 import {footer} from "../../shared/interface/footer.interface";
 import {PrimeIcons} from "primeng/api";
 import {Observable} from "rxjs";
+import {ImgModel} from "../../shared/model/img.model";
+import {ImgIconEnum} from "../../shared/enums/imgIcon.enum";
 
 @Component({
   selector: 'app-admin',
@@ -45,6 +47,8 @@ export class AdminComponent implements OnInit {
     textColor: 'text-2-color',
     bgColor: 'text-white-alpha-40'
   }
+
+  icon = new ImgModel(ImgIconEnum.logoBgWithe, 90, 50, "test")
 
   constructor(private router: Router, private userService: UserService, private shared: ShareService) {
   }

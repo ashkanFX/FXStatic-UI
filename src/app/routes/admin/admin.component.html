@@ -4,11 +4,7 @@
          style=" align-content: space-between; justify-content: space-between ; ">
       <div class="col-12 ">
         <a routerLink="{{rout.Home.url}}" class="  text-white-alpha-40 text-decoration-none">
-          <div
-            class="flex w-full gap-2 h-2rem  border-round justify-content-start cursor-pointer hover:bg-white-alpha-30 p-3 font-light text-50 align-items-center ">
-            <i class="pi pi-chevron-left"></i>
-            Back
-          </div>
+          <i [innerHTML]="icon._imageTag.outerHTML"></i>
         </a>
         <p-divider class=""/>
         <a class="  text-white-alpha-40 text-decoration-none" routerLink="{{rout.User.url}}">

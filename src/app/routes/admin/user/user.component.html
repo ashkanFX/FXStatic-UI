@@ -1,9 +1,9 @@
 <section class="flex flex-wrap col-12 h-full  gap-3 justify-content-around ">
-  <div id="list" class="col-12 bg-4-color p-2 shadow-1 border-round-3xl" style="min-height: 70% ">
+  <div id="list" appContentHolder style="min-height: 70% ">
     <app-basic-grid [configGrid]="configGrid"/>
   </div>
   <div class="col-12 p-0 flex gap-3">
-    <div id="form" class="col-12 p-3 bg-4-color shadow-3 border-round-3xl " style="height: max-content">
+    <div id="form" appContentHolder style="height: max-content">
       <div id="header">
         <h3 class="my-2 ml-1"> {{"user detail:"| titlecase}}</h3>
       </div>

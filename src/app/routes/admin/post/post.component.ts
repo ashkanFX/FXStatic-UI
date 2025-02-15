@@ -19,6 +19,7 @@ import {MultiSelectModule} from "primeng/multiselect";
 import {Category} from "../category/Category";
 import {CategoryService} from "../category/category.service";
 import {FileUploadModule} from "primeng/fileupload";
+import {ContentHolderDirective} from "../../../shared/directive/content-holder.directive";
 
 @Component({
   selector: 'app-post',
@@ -36,6 +37,7 @@ import {FileUploadModule} from "primeng/fileupload";
     Button,
     AsyncPipe,
     FileUploadModule,
+    ContentHolderDirective,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './post.component.html',

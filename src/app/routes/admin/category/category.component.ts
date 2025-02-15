@@ -12,6 +12,7 @@ import {Category} from "./Category";
 import {BasicGridComponent} from "../../../core/grid/basic-grid/basic-grid.component";
 import {ConfigGrid} from "../../../core/grid/basic-grid/config-grid";
 import {ReplaySubject} from "rxjs";
+import {ContentHolderDirective} from "../../../shared/directive/content-holder.directive";
 
 @Component({
   selector: 'app-category',
@@ -26,6 +27,7 @@ import {ReplaySubject} from "rxjs";
     ButtonModule,
     BasicGridComponent,
     NgIf,
+    ContentHolderDirective,
 
   ],
   templateUrl: './category.component.html',

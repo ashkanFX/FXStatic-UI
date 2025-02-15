@@ -1,11 +1,11 @@
 <section class="flex  flex-row-reverse col-12 h-full p-0  gap-1 justify-content-around ">
   <div class="col-7  flex gap-3">
-    <div id="list" class="col-12 bg-4-color border-round-3xl border-2-color shadow-5 " style="max-height: max-content">
+    <div id="list" appContentHolder style="max-height: max-content">
       <app-basic-grid [configGrid]="configGrid"/>
     </div>
   </div>
   <div class="col-5  flex gap-3">
-    <div id="form" class="col-12 shadow-5 p-3  border-2-color bg-4-color border-round-3xl text-black-alpha-90 "
+    <div id="form" appContentHolder
          style="height: max-content">
       <div id="header">
         <h3 class="my-2 ml-1">Post detail:</h3>
@@ -29,7 +29,8 @@
         </div>
         <div class="flex flex-column gap-1 mb-2">
           <label for="context">context :</label>
-          <textarea rows="9" cols="40" pTextarea id="context" pTextarea  style="resize: none" formControlName="context"></textarea>
+          <textarea rows="9" cols="40" pTextarea id="context" pTextarea style="resize: none"
+                    formControlName="context"></textarea>
         </div>
         <quill-editor
           formControlName="description"
@@ -38,9 +39,10 @@
           [placeholder]="'Compose your text here...'">
         </quill-editor>
         <div class="flex justify-content-between pt-3">
-          <input  name="file-upload-field" type="file" formControlName="file"     maxFileSize="900000" (change)="onFileSelected($event)">
+          <input name="file-upload-field" type="file" formControlName="file" maxFileSize="900000"
+                 (change)="onFileSelected($event)">
 
-        <p-button label="Submit" (onClick)="saveChanges()"/>
+          <p-button label="Submit" (onClick)="saveChanges()"/>
         </div>
 
       </form>

@@ -14,20 +14,22 @@ import {InputTextModule} from "primeng/inputtext";
 import {CheckboxModule} from "primeng/checkbox";
 import {DropdownModule} from "primeng/dropdown";
 import {TitleCasePipe} from "@angular/common";
+import {ContentHolderDirective} from "../../../shared/directive/content-holder.directive";
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [
-    BasicGridComponent,
-    ReactiveFormsModule,
-    TitleCasePipe,
-    Button,
-    CardComponent,
-    InputTextModule,
-    CheckboxModule,
-    DropdownModule
-  ],
+    imports: [
+        BasicGridComponent,
+        ReactiveFormsModule,
+        TitleCasePipe,
+        Button,
+        CardComponent,
+        InputTextModule,
+        CheckboxModule,
+        DropdownModule,
+        ContentHolderDirective
+    ],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })
