@@ -13,6 +13,8 @@ import {PostService} from "../../admin/post/post.service";
 import {AsyncPipe, JsonPipe, NgFor} from "@angular/common";
 import {Subject} from "rxjs";
 import {rout} from "../../../shared/model/routing.model";
+import {DividerModule} from "primeng/divider";
+import {PanelModule} from "primeng/panel";
 
 @Component({
   selector: 'app-home',
@@ -28,7 +30,9 @@ import {rout} from "../../../shared/model/routing.model";
     ReactiveFormsModule,
     FileUploadModule,
     JsonPipe,
-    AsyncPipe
+    AsyncPipe,
+    DividerModule,
+    PanelModule
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
