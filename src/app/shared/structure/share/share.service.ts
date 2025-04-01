@@ -2,16 +2,18 @@ import {Injectable} from '@angular/core';
 import {SessionService} from "../session/session.service";
 import {Subject} from "rxjs";
 import {Toast} from "../../model/Toast";
+import {UserAuthService} from "../../auth/user-auth.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShareService {
 
-  constructor(private session: SessionService ) {
+  constructor(private session: SessionService , private userAuthService :UserAuthService ) {
   }
 
   toast = new Subject<any>();
+  UserAuthService = this.userAuthService;
   private _user: any
 
   get GetUserDetail() {

@@ -16,6 +16,7 @@ import { SessionService } from '../../shared/structure/session/session.service';
 import { ShareService } from '../../shared/structure/share/share.service';
 import { severity, Toast } from '../../shared/model/Toast';
 import { ReplaySubject } from 'rxjs';
+import {authGuard} from "../../shared/auth/auth.guard";
 
 @Component({
   selector: 'app-main',
@@ -46,7 +47,7 @@ export class LayoutComponent implements OnInit {
         text: 'admin',
         icon: PrimeIcons.TAG,
         iconStatus: ButtonIcon.right,
-        show: this.session.getItemInSessionStorage('jwtToken'),
+        show: this.shared.UserAuthService.checkIsAdmin(JSON.parse(this.session.getItemInSessionStorage('roles')))  &&  this.session.getItemInSessionStorage('jwtToken'),
         router: rout.User,
         clicked: () => {}
       },
@@ -104,5 +105,7 @@ export class LayoutComponent implements OnInit {
     bgColor: 'bg-2-color'
   };
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
 }
