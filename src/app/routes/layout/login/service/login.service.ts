@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {environment} from "../../../../../environments/environment.development";
+import {environment} from "../../../../../environments/environment";
 import {ShareService} from "../../../../shared/structure/share/share.service";
 import {SingInReqDto, singUpReqDto} from "../login.req.dto";
 import {SingUpResDto, SinIinResDto} from "../login.res.dto";
