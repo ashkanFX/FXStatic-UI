@@ -52,6 +52,7 @@ export class HomeComponent implements OnInit {
       backSpeed: 30,
       fadeOut: true,
       showCursor: true,
+
       cursorChar: "",
       loop: true,
       smartBackspace: false

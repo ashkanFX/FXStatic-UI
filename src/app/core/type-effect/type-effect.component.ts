@@ -7,7 +7,7 @@ import {TypeEffectService} from "./type-effect.service";
   standalone: true,
   imports: [],
   template: `
-    <div class=" col-12 text-white text-4xl disableSelect " style="">
+    <div class=" col-12 text-white text-4xl p-0 disableSelect " style="">
       <span id="element"></span>
     </div>
   `,

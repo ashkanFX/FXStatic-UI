@@ -13,51 +13,55 @@ export class CategoryService {
   }
 
   public getAllCategory(): Observable<Category[]> {
-    return this.http.get<Category[]>(environment.apiUrl + 'category/public/get/all').pipe(timeout(5000), retry({
-          count: 3,
-          delay: (err, countNum) => {
-            console.error(`can not take data in ${countNum} try`, err)
-            return timer(1000 * countNum)
-          }
-        }
-      ),
-      catchError(this.handelError))
+    return this.http.get<Category[]>(environment.apiUrl + 'category/public/get/all')
+      // .pipe(timeout(5000), retry({
+      //     count: 3,
+      //     delay: (err, countNum) => {
+      //       console.error(`can not take data in ${countNum} try`, err)
+      //       return timer(1000 * countNum)
+      //     }
+      //   }
+      // ),
+      // catchError(this.handelError))
   }
 
   public addCategory(category: Category): Observable<Category> {
-    return this.http.post<Category>(environment.apiUrl + 'category', category).pipe(timeout(1000), retry({
-          count: 3,
-          delay: (err, countNum) => {
-            console.error(`can not take data in ${countNum} try`, err)
-            return timer(1000 * countNum)
-          }
-        }
-      ),
-      catchError(this.handelError))
+    return this.http.post<Category>(environment.apiUrl + 'category', category)
+      // .pipe(timeout(1000), retry({
+      //     count: 3,
+      //     delay: (err, countNum) => {
+      //       console.error(`can not take data in ${countNum} try`, err)
+      //       return timer(1000 * countNum)
+      //     }
+      //   }
+      // ),
+      // catchError(this.handelError))
   }
 
   deleteCategory(id: string): Observable<any> {
-    return this.http.delete(environment.apiUrl + `category/${id}`).pipe(timeout(1000), retry({
-          count: 3,
-          delay: (err, countNum) => {
-            console.error(`can not take data in ${countNum} try`, err)
-            return timer(1000 * countNum)
-          }
-        }
-      ),
-      catchError(this.handelError))
+    return this.http.delete(environment.apiUrl + `category/${id}`)
+      // .pipe(timeout(1000), retry({
+      //     count: 3,
+      //     delay: (err, countNum) => {
+      //       console.error(`can not take data in ${countNum} try`, err)
+      //       return timer(1000 * countNum)
+      //     }
+      //   }
+      // ),
+      // catchError(this.handelError))
   }
 
   getCategory(id: string): Observable<any> {
-    return this.http.get(environment.apiUrl + `category/get/${id}`).pipe(timeout(1000), retry({
-          count: 3,
-          delay: (err, countNum) => {
-            console.error(`can not take data in ${countNum} try`, err)
-            return timer(1000 * countNum)
-          }
-        }
-      ),
-      catchError(this.handelError));
+    return this.http.get(environment.apiUrl + `category/get/${id}`)
+      // .pipe(timeout(1000), retry({
+      //     count: 3,
+      //     delay: (err, countNum) => {
+      //       console.error(`can not take data in ${countNum} try`, err)
+      //       return timer(1000 * countNum)
+      //     }
+      //   }
+      // ),
+      // catchError(this.handelError));
   }
 
   getCategoryPosts(ids: number[]): Observable<any> {
@@ -79,15 +83,16 @@ export class CategoryService {
         params = params.set(key, reqDto[key].toString());
       }
     });
-    return this.http.post(environment.apiUrl + `category/update`, null, {params}).pipe(timeout(1000), retry({
-          count: 3,
-          delay: (err, countNum) => {
-            console.error(`can not take data in ${countNum} try`, err)
-            return timer(1000 * countNum)
-          }
-        }
-      ),
-      catchError(this.handelError));
+    return this.http.post(environment.apiUrl + `category/update`, null, {params})
+      // .pipe(timeout(1000), retry({
+      //     count: 3,
+      //     delay: (err, countNum) => {
+      //       console.error(`can not take data in ${countNum} try`, err)
+      //       return timer(1000 * countNum)
+      //     }
+      //   }
+      // ),
+      // catchError(this.handelError));
   }
 
   handelError(error: HttpErrorResponse | TimeoutError) {

@@ -73,3 +73,11 @@
 .text-decoration-none {
   text-decoration: none !important;
 }
+@font-face {
+  font-family: 'WinkySans';
+  src: url('assets/font/static/WinkySans-Regular.ttf') format('truetype');
+}
+
+.font-WinkySans {
+  font-family: 'WinkySans', sans-serif;
+}

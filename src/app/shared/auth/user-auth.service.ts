@@ -11,7 +11,7 @@ export class UserAuthService {
 
   checkIsAdmin(roles: Roles[]): boolean {
     let isContain = false
-    roles.forEach((role) => {
+    roles?.forEach((role) => {
       switch (role) {
         case Roles.ROLE_ADMIN:
           isContain = true

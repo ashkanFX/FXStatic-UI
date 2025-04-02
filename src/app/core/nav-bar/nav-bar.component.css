@@ -2,6 +2,7 @@
 .navbar {
   position: absolute;
   width: 100%;
+  z-index: 5;
 }
 
 .main-nav {
@@ -15,7 +16,7 @@
 .navbar-toggle {
   position: absolute;
   top: 10px;
-  right: 20px;
+  right: 10%;
   cursor: pointer;
   color: rgba(255, 255, 255, 0.8);
   font-size: 24px;
@@ -45,6 +46,7 @@
   }
 
   .main-nav {
+    padding: 0;
     display: flex;
     margin-right: 10%;
     flex-direction: row;

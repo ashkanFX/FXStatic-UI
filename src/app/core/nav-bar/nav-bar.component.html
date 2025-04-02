@@ -1,41 +1,18 @@
-<!--<header class="flex justify-content-center   align-items-center p-0 bg-2-color fixed z-1 w-full">-->
-<!--  <section>-->
-<!--  </section>-->
-<!--   -->
-<!--    <section class="col-9 p-0  justify-content-between md:flex-column lg:flex ">-->
-<!--      <p-button icon="pi-align-justify pi " class="md:hidden" size="small"-->
-<!--                (onClick)="ngClick()" [rounded]="true" [link]="true"></p-button>-->
-
-<!--  </section>-->
-
-
-<!--  &lt;!&ndash;    <ul&ndash;&gt;-->
-<!--  &lt;!&ndash;      class="list-none    {{onShow}}  md:flex min-h-0 p-2 {{config.textColor}}  flex-wrap align-items-center  m-0 border-round ">&ndash;&gt;-->
-<!--  &lt;!&ndash;      <li *ngFor="let item  of config.rightButton" style="cursor: pointer"&ndash;&gt;-->
-<!--  &lt;!&ndash;          routerLink="{{item.router.url}}" class=" flex w-full h-2rem align-items-center justify-content-center&ndash;&gt;-->
-<!--  &lt;!&ndash;      md:w-auto p-2  border-round  text-1-color">&ndash;&gt;-->
-<!--  &lt;!&ndash;        <p-button (onClick)="clicked(item)">&ndash;&gt;-->
-<!--  &lt;!&ndash;          <i [class]="item.icon"></i> {{item.text}} </p-button>&ndash;&gt;-->
-<!--  &lt;!&ndash;      </li>&ndash;&gt;-->
-<!--  &lt;!&ndash;    </ul>&ndash;&gt;-->
-<!--</header>-->
-
-<nav class="navbar bg-2-color">
+<nav class="navbar bg-2-color ">
   <label class="navbar-toggle" id="js-navbar-toggle" for="chkToggle">
-    <i class="fa fa-bars"></i>
+    <i class="pi-align-justify pi"></i>
   </label>
   <i style="margin-left: 10%" [innerHTML]="icon._imageTag.outerHTML"></i>
   <input type="checkbox" id="chkToggle">
-  <ul class="main-nav" id="js-menu">
-            <ng-container *ngFor="let item  of config.leftButton">
-              <li *ngIf="item.show" style="cursor: pointer"
-                  routerLink="{{item.router.url}}" class=" flex w-full h-3rem text-2-color align-items-center justify-content-center
-          md:w-auto p-2  border-round ">
-                <p (click)="clicked(item)" class="nav-links"
-                   style="text-decoration: none">
-                  {{item.text | titlecase}}</p>
-              </li>
-            </ng-container>
-
+  <ul class="main-nav " id="js-menu" style="padding: 0">
+    <ng-container *ngFor="let item  of config.leftButton">
+      <li *ngIf="item.show" style="cursor: pointer"
+          routerLink="{{item.router.url}}" class=" flex w-full h-3rem text-2-color align-items-center justify-content-center
+          md:w-auto p-3  border-round ">
+        <p (click)="clicked(item)" class="nav-links"
+           style="text-decoration: none ;  margin: 0">
+          {{item.text | titlecase}}</p>
+      </li>
+    </ng-container>
   </ul>
 </nav>
