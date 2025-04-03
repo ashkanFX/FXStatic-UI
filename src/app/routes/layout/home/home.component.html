@@ -1,25 +1,34 @@
 <section class="min-h-screen overflow-x-hidden">
-  <section class="col-12  bg-1-color  border-round-4xl pt-4 ">
+  <section class="col-12  bg-1-color  border-round-4xl pt-4  ">
     <div class="flex justify-content-between">
-      <div class="font-WinkySans md:col-7">
-        <p class="font-bold te text-white-alpha-60 text-4xl font-WinkySans">
-          <span class="text-2-color">  java and JavaScript </span> tutorials delivered to you
+      <div class="font-WinkySans md:col-6 col-7 flex flex-column justify-content-center gap-3">
+        <p class="font-bold te text-white-alpha-60 text-4xl mb-0 font-WinkySans">
+          Learn faster. Code smarter.
+          <span class="text-2-color">  Master Java & JavaScript </span> with real-world tutorials.
         </p>
         <p class="text-1xl text-white-alpha-40 font-WinkySans">
-          Join over 1,000 developers who receive my tutorials via email.
+          Delivered straight to your inbox. No fluff, just code.
         </p>
-        <div style="height: 25% ;">
+        <div class=" h-20p  ">
           <app-type-effect/>
         </div>
+        <!--        <div class="relative">-->
+        <!--          <div class="circle absolute z-1">-->
+        <!--            <div class="circle-1"></div>-->
+        <!--          </div>-->
+        <!--          <div class="card-info absolute z-2">-->
+        <!--          </div>-->
+        <!--        </div>-->
       </div>
-      <div class="col-6 md:col-5 ">
+      <div class="col-6 md:col-6 col-5">
         <img src="assets/img/uuundulate.svg" alt="" width="700" height="700">
       </div>
     </div>
 
+
   </section>
   <div class="col-12 p-2   text-3xl text-white-alpha-80">
-    <span>Latest articles 📌 : </span>
+    <span>New Post 📌 : </span>
   </div>
   <div class="col-12 flex h-auto flex-wrap">
     <ng-container *ngFor="let card of cards | async">
@@ -28,23 +37,26 @@
       </div>
     </ng-container>
   </div>
-  <div class="col-12 p-2   text-3xl text-white-alpha-80">
-    <span> most view   : </span>
-  </div>
-  <div class="card flex flex-column justify-center">
-    <p-divider/>
-    <div class="card flex ">
-      <ng-container *ngFor="let card of  cards[0],cards[1],cards[2]  | async">
-        <div class=" col-12 ">
-          <app-card [config]="card"/>
-        </div>
-        <p-divider layout="vertical"/>
-      </ng-container>
-    </div>
+<!--  <div class="col-12 p-2   text-3xl text-white-alpha-80">-->
+<!--    <span> most view   : </span>-->
+<!--  </div>-->
+<!--  <div class="card flex flex-column justify-center">-->
+<!--    <p-divider/>-->
+<!--    <div class="card flex ">-->
+<!--      <ng-container *ngFor="let card of  cards[0],cards[1],cards[2]  | async">-->
+<!--        <div class=" col-12 ">-->
+<!--          <app-card [config]="card"/>-->
+<!--        </div>-->
+<!--        <p-divider layout="vertical"/>-->
+<!--      </ng-container>-->
+<!--    </div>-->
 
-    <p-divider/>
-  </div>
+<!--    <p-divider/>-->
+<!--  </div>-->
   <!--  <app-slider/>-->
+  <div class="col-12 p-2 text-3xl text-white-alpha-80">
+    <span> category 🚥 : </span>
+  </div>
   <app-category/>
   <div class="relative col-12 flex">
     <!--    <app-chapter class="col-8"/>-->

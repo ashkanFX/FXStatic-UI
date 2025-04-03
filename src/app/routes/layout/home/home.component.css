@@ -2,14 +2,13 @@
 .circle {
   border-radius: 50%;
   background: linear-gradient(120deg, #1D976C, #2c3e50);
+  top: 61px;
+  left: 206px;
 }
 
 .circle-1 {
   height: 300px;
   width: 300px;
-  position: absolute;
-  left: 416px;
-  top: 310px;
   opacity: 0.8;
   animation-timing-function: cubic-bezier(0.54, 0.085, 0.5, 0.92);
   animation-iteration-count: infinite;
@@ -26,7 +25,7 @@
 
 .card-info {
   height: 260px;
-  width: 420px;
+  width: 100%;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(35px);
@@ -38,3 +37,9 @@
 }
 
 
+.h-20p{
+  height: 20%;
+}
+.h-8p{
+  height: 8%;
+}

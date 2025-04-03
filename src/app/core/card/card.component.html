@@ -1,12 +1,12 @@
-<div class="bg-3-color p-0  flex border-round bg-5-color prevent-select
+<div class="bg-3-color p-0 flex-column md:flex-row flex border-round bg-5-color prevent-select
  justify-content-between " (click)="redirect(config?.router?.url! , config.id)" style="cursor: pointer">
-  <section class="col-1 p-0  ">
-    <img class="col-12 min-h-full p-0 border-round" style="object-fit: cover"
+  <section class="col-1 p-0  w-full md:w-8rem" >
+    <img class="col-12   max-h-9rem md:max-h-full p-0 border-round" style="object-fit: cover"
          [src]="config?.img ? blobUrl : './assets/logo/png/logo-color.png' " alt="">
 
   </section>
-  <section class="col-11  w-full  " *ngIf="config.title || config.haveProfile">
-    <section class="col-11 p-0 text-2-color" *ngIf="config.title">
+  <section class="col-12     " *ngIf="config.title || config.haveProfile">
+    <section class="col-12 md:col-9 lg:col-9 xl:col-10 p-0 text-2-color" *ngIf="config.title">
       <div>
         <h2 class="m-1  flex justify-content-between ">
           <p class="p-0 font-light text-lg m-0">{{config.title | titlecase}}</p>
