@@ -1,7 +1,7 @@
 <app-nav-bar [config]="navBarConf"/>
 <app-main-page [config]="configMainPage">
-  <div class="wrapper   fadeInDown  ">
-    <div id="formContent " class="p-2 col-8">
+  <div class="wrapper   fadeInDown  p-0">
+    <div id="formContent " class="p-2 md:col-8 col-11 p-0">
       <h2 [class]=" formType === 'login' ? 'active' :' inactive underlineHover'" (click)="changeForm('login')"> Log
         In </h2>
       <h2 [class]=" formType === 'register' ? 'active' :' inactive underlineHover'" (click)="changeForm('register')">
