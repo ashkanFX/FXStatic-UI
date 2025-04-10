@@ -1,18 +1,22 @@
-import {ImgIconEnum} from "../enums/imgIcon.enum";
+import { ImgIconEnum } from "../enums/imgIcon.enum";
 
 export class ImgModel {
+  _imageTag?: HTMLImageElement;
+
   constructor(src: ImgIconEnum, width: number, height: number, alt: string | null = null) {
-     this.makeImgTag(src, width, height, alt)
+    if (typeof document !== 'undefined') {
+      this._imageTag = this.makeImgTag(src, width, height, alt);
+    }
   }
 
-  _imageTag: HTMLImageElement = document.createElement("img")
-
-  private makeImgTag(src: ImgIconEnum, width: number, height: number, alt: null | string) : void {
-    this._imageTag.setAttribute('src', src)
+  private makeImgTag(src: ImgIconEnum, width: number, height: number, alt: null | string): HTMLImageElement {
+    const img = document.createElement("img");
+    img.setAttribute('src', src);
     if (typeof alt === "string") {
-      this._imageTag.setAttribute('alt', alt);
+      img.setAttribute('alt', alt);
     }
-    this._imageTag.setAttribute('height', String(height));
-    this._imageTag.setAttribute('width', String(width));
+    img.setAttribute('height', String(height));
+    img.setAttribute('width', String(width));
+    return img;
   }
 }

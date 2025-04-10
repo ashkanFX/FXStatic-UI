@@ -30,7 +30,7 @@ export class CardComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.context.nativeElement.innerHTML = this.config.context;
+    this.context.nativeElement.innerHTML = this.config.context.trim();
 
   }
 

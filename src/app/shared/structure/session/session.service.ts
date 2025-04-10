@@ -1,36 +1,46 @@
-import {Injectable} from '@angular/core';
+import {Injectable, Inject, PLATFORM_ID} from '@angular/core';
+import {isPlatformBrowser} from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SessionService {
+  private isBrowser: boolean;
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    this.isBrowser = isPlatformBrowser(platformId);
+  }
 
   setItemInSessionStorage(name: string, data: any): void {
-    window.sessionStorage.setItem(name, JSON.stringify(data));
+    if (this.isBrowser) {
+      window.sessionStorage.setItem(name, JSON.stringify(data));
+    }
   }
 
   getItemInSessionStorage(name: string): any {
-    return window.sessionStorage.getItem(name);
+    if (this.isBrowser) {
+      return window.sessionStorage.getItem(name);
+    }
+    return null;
   }
 
   clearAllItemInSessionStorage(): void {
-    window.sessionStorage.clear()
+    if (this.isBrowser) {
+      window.sessionStorage.clear();
+    }
   }
 
   removeItemInSessionStorage(name: string): void {
-    window.sessionStorage.removeItem(name)
+    if (this.isBrowser) {
+      window.sessionStorage.removeItem(name);
+    }
   }
 
-  setEachKeyOfObject(object: Object) {
-    Object.keys(object).forEach(key => {
-        this.setItemInSessionStorage(key, object[key])
-      }
-    )
+  setEachKeyOfObject(object: {[key: string]: any}) {
+    if (this.isBrowser) {
+      Object.keys(object).forEach(key => {
+        this.setItemInSessionStorage(key, object[key]);
+      });
+    }
   }
-
-
-}
-interface Object {
-  [key: string]: any;
 }

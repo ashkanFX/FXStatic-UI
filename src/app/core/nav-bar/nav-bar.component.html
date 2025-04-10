@@ -2,7 +2,7 @@
   <label class="navbar-toggle" id="js-navbar-toggle" for="chkToggle">
     <i class="pi-align-justify pi"></i>
   </label>
-  <i style="margin-left: 10%" [innerHTML]="icon._imageTag.outerHTML"></i>
+  <i *ngIf="icon._imageTag" style="margin-left: 10%" [innerHTML]="icon._imageTag.outerHTML"></i>
   <input type="checkbox" id="chkToggle">
   <ul class="main-nav " id="js-menu" style="padding: 0">
     <ng-container *ngFor="let item  of config.leftButton">
