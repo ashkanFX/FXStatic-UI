@@ -1,4 +1,4 @@
-import { ContentHolderDirective } from './content-holder.directive';
+import {ContentHolderDirective} from './content-holder.directive';
 
 describe('ContentHolderDirective', () => {
   it('should create an instance', () => {

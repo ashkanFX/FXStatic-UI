@@ -1,25 +1,25 @@
 import {Component, CUSTOM_ELEMENTS_SCHEMA, OnInit} from '@angular/core';
-import {ChartModule} from "primeng/chart";
+import {ChartModule} from 'primeng/chart';
 
-import {BasicGridComponent} from "../../../core/grid/basic-grid/basic-grid.component";
-import {DropdownModule} from "primeng/dropdown";
-import {ConfigGrid} from "../../../core/grid/basic-grid/config-grid";
-import {ReplaySubject} from "rxjs";
-import {UserResDto} from "../user/user.res.dto";
-import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {EditorModule} from "primeng/editor";
-import {AsyncPipe, TitleCasePipe} from "@angular/common";
+import {BasicGridComponent} from '../../../core/grid/basic-grid/basic-grid.component';
+import {DropdownModule} from 'primeng/dropdown';
+import {ConfigGrid} from '../../../core/grid/basic-grid/config-grid';
+import {ReplaySubject} from 'rxjs';
+import {UserResDto} from '../user/user.res.dto';
+import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {EditorModule} from 'primeng/editor';
+import {AsyncPipe, TitleCasePipe} from '@angular/common';
 import {QuillModule} from 'ngx-quill';
-import {InputTextModule} from "primeng/inputtext";
-import {Button} from "primeng/button";
-import {PostService} from "./post.service";
-import {ShareService} from "../../../shared/structure/share/share.service";
-import {severity, Toast} from "../../../shared/model/Toast";
-import {MultiSelectModule} from "primeng/multiselect";
-import {Category} from "../category/Category";
-import {CategoryService} from "../category/category.service";
-import {FileUploadModule} from "primeng/fileupload";
-import {ContentHolderDirective} from "../../../shared/directive/content-holder.directive";
+import {InputTextModule} from 'primeng/inputtext';
+import {Button} from 'primeng/button';
+import {PostService} from './post.service';
+import {ShareService} from '../../../shared/structure/share/share.service';
+import {severity, Toast} from '../../../shared/model/Toast';
+import {MultiSelectModule} from 'primeng/multiselect';
+import {Category} from '../category/Category';
+import {CategoryService} from '../category/category.service';
+import {FileUploadModule} from 'primeng/fileupload';
+import {ContentHolderDirective} from '../../../shared/directive/content-holder.directive';
 
 @Component({
   selector: 'app-post',
@@ -125,7 +125,6 @@ export class PostComponent implements OnInit {
 
   getPost(id: string) {
     this.service.getById(id).subscribe((res) => {
-      debugger
       this.formGroup.patchValue(res)
     })
   }
@@ -163,7 +162,6 @@ export class PostComponent implements OnInit {
 
 
   onFileSelected(event: any): void {
-    debugger
     const file: File = event.currentFiles;
     if (file) {
       this.selectedFile = file;

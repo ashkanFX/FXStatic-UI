@@ -1,4 +1,4 @@
-import { ImgIconEnum } from "../enums/imgIcon.enum";
+import {ImgIconEnum} from "../enums/imgIcon.enum";
 
 export class ImgModel {
   _imageTag?: HTMLImageElement;
