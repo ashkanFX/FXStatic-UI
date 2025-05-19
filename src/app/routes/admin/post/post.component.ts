@@ -8,7 +8,6 @@ import {ReplaySubject} from 'rxjs';
 import {UserResDto} from '../user/user.res.dto';
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {EditorModule} from 'primeng/editor';
-import {AsyncPipe, TitleCasePipe} from '@angular/common';
 import {QuillModule} from 'ngx-quill';
 import {InputTextModule} from 'primeng/inputtext';
 import {Button} from 'primeng/button';
@@ -31,11 +30,9 @@ import {ContentHolderDirective} from '../../../shared/directive/content-holder.d
     MultiSelectModule,
     ReactiveFormsModule,
     QuillModule,
-    TitleCasePipe,
     EditorModule,
     InputTextModule,
     Button,
-    AsyncPipe,
     FileUploadModule,
     ContentHolderDirective,
   ],
@@ -89,13 +86,13 @@ export class PostComponent implements OnInit {
         columnName: ['id', 'title', 'description', 'context'],
         columnNameAlias: ['id', 'title', 'description', 'context'],
         configGridUpdate: new ReplaySubject<ConfigGrid>(),
-        title: 'user',
+        title: 'post',
         rowBody: res,
         operation: {
           view: (row) => {
             this.getPost(row.id)
           },
-          update: (selectedRow) => {
+          update: () => {
           },
           delete: (row) => {
             this.deletePost(row.id)
@@ -162,8 +159,8 @@ export class PostComponent implements OnInit {
 
 
   onFileSelected(event: any): void {
-    const file: File = event.currentFiles;
-    if (file) {
+    const file: File = event.target.files[0];
+    if (file && this.formGroup.get('id').value   ) {
       this.selectedFile = file;
       const formData = new FormData();
       formData.append('file', file, file.name);

@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {TableModule} from "primeng/table";
 import {ConfigGrid} from "./config-grid";
-import {JsonPipe, NgClass, NgFor, NgForOf, NgIf, NgStyle, TitleCasePipe, UpperCasePipe} from "@angular/common";
+import {NgFor, NgForOf, NgIf, NgStyle, TitleCasePipe} from "@angular/common";
 
 @Component({
   selector: 'app-basic-grid',
@@ -11,11 +11,8 @@ import {JsonPipe, NgClass, NgFor, NgForOf, NgIf, NgStyle, TitleCasePipe, UpperCa
     NgFor,
     NgForOf,
     NgIf,
-    JsonPipe,
     NgStyle,
-    UpperCasePipe,
-    TitleCasePipe,
-    NgClass
+    TitleCasePipe
   ],
   templateUrl: './basic-grid.component.html',
   styleUrl: './basic-grid.component.css',
@@ -31,6 +28,9 @@ export class BasicGridComponent implements OnInit {
     this.configGrid.configGridUpdate.subscribe(res => {
       this.configGrid = res;
     })
+  }
+  truncateText(text, maxLength = 180) {
+    return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
   }
 }
 

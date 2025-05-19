@@ -23,8 +23,8 @@
       <tr (dblclick)="configGrid.operation?.view(RowBody)" *ngFor="let RowBody of configGrid.rowBody; let i  "
           class="max-w-0 hover:bg-black-alpha-10">
         <ng-container *ngFor="let columnName of configGrid?.columnName">
-          <td [ngStyle]="{ 'background-color': RowBody['color'] || null }">
-            {{ RowBody[columnName] }}
+          <td [ngStyle]="{ 'background-color': RowBody['color'] || null }"
+              [innerHTML]="truncateText(RowBody[columnName])">
           </td>
         </ng-container>
         <td *ngIf="configGrid?.operation">

@@ -1,21 +1,12 @@
 <section class="mt-4">
-  <h1 class="font-bold text-4xl text-white inline disableSelect">{{title}}
-<!--    <a href="#" class=" text-white hover:text-white-alpha-50 "><i class="pi pi-link font-bold text-4xl"></i></a>-->
-  </h1>
-  <div class="col-3 border-bottom-2 text-white"></div>
-  <div class="flex text-white col-12 justify-content-between px-0">
-    <section id="left " class="col-7 flex gap-4  disableSelect px-0 align-items-center">
-      <p id="time " class="m-0 disableSelect p-0">Updated <i class="pi-calendar pi"></i> : 12/2/2024 </p>
-      <ng-container *ngFor="let category of category ">
-        <div id="category" class="flex disableSelect gap-1">
-          {{category.name | titlecase }}
-        </div>
-      </ng-container>
-      <div id="countOfComment"><i class="pi pi-comments "></i> 10</div>
-      <div id="countOfView"><i class="pi pi-eye "></i> {{countOfView}}</div>
-    </section>
-    <section id="right" class="col-3 disableSelect flex justify-content-between align-items-center">
-      <div id="requiredTimeToRead">required time to read : 3m</div>
+  <h1 class="font-bold text-4xl text-white inline disableSelect">{{ title }}</h1>
+  <div class="col-5 border-bottom-2 text-white"></div>
+  <div class="flex flex-column md:flex-row text-white justify-between w-full px-0 gap-3 p-3 align-items-center">
+    <section id="left" class="w-full md:w-2/3 flex flex-wrap gap-3 px-0 align-items-center">
+      <p class="m-0 p-0">Updated <i class="pi pi-calendar"></i>: {{ updateAt | date }}</p>
+      <p-chip *ngFor="let category of category" label="{{ category.name | titlecase }}" class="mx-1" />
+<!--      <div><i class="pi pi-comments"></i> 10</div>-->
+      <div><i class="pi pi-eye"></i> {{ countOfView }}</div>
     </section>
   </div>
   <div class="col-12 p-0 flex justify-content-center disableSelect">
