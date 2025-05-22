@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {TableModule} from "primeng/table";
-import {ConfigGrid} from "./config-grid";
+import {
+  ConfigGrid} from "./config-grid";
 import {CommonModule, NgFor, NgForOf, NgIf, NgStyle, TitleCasePipe} from "@angular/common";
 import {SortEvent} from "primeng/api";
 
