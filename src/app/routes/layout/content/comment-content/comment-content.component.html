@@ -1,27 +1,33 @@
-<section id="commentPart" class="flex justify-content-center mt-4 px-2">
+<section id="commentPart" class="flex card justify-content-center mt-4 px-2">
   <div class="w-full md:w-2/3 flex flex-col gap-3">
-    <span class="p-float-label w-full">
+    <span class="p-float-label w-full ">
       <textarea
+        style="resize: none"
+        pInputTextarea
         id="comment-input"
         rows="3"
         [formControl]="commentControl"
-        class="w-full border-round-3xl p-inputtext"
-        placeholder="Write your comment here..."
+        class="w-full border-round-1xl"
+        [autoResize]="false"
       ></textarea>
       <label for="comment-input">Comment</label>
     </span>
 
-    <small class="text-red-400" *ngIf="commentControl.invalid && commentControl.touched">
-      Comment is required and must be under 500 characters.
-    </small>
+    @if (commentControl.invalid && commentControl.touched) {
+      <small class="text-red-400">
+        Comment is required and must be under 500 characters.
+      </small>
+    }
 
-    <p-button
+    <button
+      pButton
+      type="button"
       label="Submit Comment"
       [outlined]="true"
       severity="success"
       class="w-max self-end"
-      (onClick)="submitComment()"
+      (click)="submit()"
       [disabled]="commentControl.invalid"
-    ></p-button>
+    ></button>
   </div>
 </section>

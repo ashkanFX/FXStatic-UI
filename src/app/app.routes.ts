@@ -35,6 +35,11 @@ export const routes: Routes = [
         path: "category",
         loadComponent: () => import('./routes/admin/category/category.component').then(m => m.CategoryComponent),
         canActivate: [authGuard],
+      },
+      {
+        path: "comment",
+        loadComponent: () => import('./routes/admin/comment/comment.component').then(m => m.CommentComponent),
+        canActivate: [authGuard],
       }
 
     ]

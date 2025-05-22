@@ -1,10 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {MainPageComponent} from "../../core/pageConfig/main-page/main-page.component";
-import {NavBarComponent} from "../../core/nav-bar/nav-bar.component";
 import {Router, RouterLink, RouterOutlet} from "@angular/router";
 import {SidebarModule} from "primeng/sidebar";
 import {ButtonModule} from "primeng/button";
-import {AsyncPipe, NgClass, TitleCasePipe} from "@angular/common";
 import {rout} from "../../shared/model/routing.model";
 import {UserService} from "./user/user.service";
 import {CurrentUserResDto} from "./user/user.res.dto";
@@ -22,15 +19,10 @@ import {ImgIconEnum} from "../../shared/enums/imgIcon.enum";
   selector: 'app-admin',
   standalone: true,
   imports: [
-    MainPageComponent,
-    NavBarComponent,
     RouterOutlet,
     SidebarModule,
     ButtonModule,
-    NgClass,
     RouterLink,
-    AsyncPipe,
-    TitleCasePipe,
     DividerModule,
     FooterComponent
   ],

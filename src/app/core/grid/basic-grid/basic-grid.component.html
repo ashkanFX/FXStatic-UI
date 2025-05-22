@@ -1,47 +1,69 @@
-<section id="holder" class="col-12 disableSelect h-auto">
-  <div id="header">
-    <h3 class="mb-2 mt-0 ml-1">{{ configGrid?.title | titlecase }}:</h3>
-  </div>
-  <div class="overflow-hidden  border-2-color border-round-2xl ">
-    <table class="table  ">
-      <thead>
-      <tr>
-        <ng-container *ngIf="configGrid?.columnNameAlias!?.length === 0">
-          <th *ngFor="let columnName of configGrid?.columnName">
-            {{ columnName }}
-          </th>
-        </ng-container>
-        <ng-container *ngIf="configGrid?.columnNameAlias?.length! > 0">
-          <th *ngFor="let alias of configGrid?.columnNameAlias">
-            {{ alias }}
-          </th>
-        </ng-container>
-        <th *ngIf="configGrid?.operation">Operation</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr (dblclick)="configGrid.operation?.view(RowBody)" *ngFor="let RowBody of configGrid.rowBody; let i  "
-          class="max-w-0 hover:bg-black-alpha-10">
-        <ng-container *ngFor="let columnName of configGrid?.columnName">
-          <td [ngStyle]="{ 'background-color': RowBody['color'] || null }"
-              [innerHTML]="truncateText(RowBody[columnName])">
-          </td>
-        </ng-container>
-        <td *ngIf="configGrid?.operation">
-          <div class="flex gap-1 w-full justify-content-between">
-            <span *ngIf="configGrid?.operation?.view">
-              <i class="pi pi-eye" (click)="configGrid.operation?.view(RowBody)"></i>
-            </span>
-            <span *ngIf="configGrid?.operation?.update">
-              <i class="pi pi-arrow-circle-up" (click)="configGrid.operation?.update(RowBody)"></i>
-            </span>
-            <span *ngIf="configGrid?.operation?.delete">
-              <i class="pi pi-trash" (click)="configGrid.operation?.delete(RowBody)"></i>
-            </span>
-          </div>
+<p-table
+  [value]="configGrid?.rowBody"
+  [styleClass]="'p-datatable-sm p-datatable-gridlines'"
+  [autoLayout]="true"
+  [responsiveLayout]="'scroll'"
+  [rowsPerPageOptions]="[2, 10, 20]"
+  [paginator]="true"
+  [rows]="2"
+  (onPage)="pageChange($event)"
+  (sortFunction)="customSort($event)"
+  [customSort]="true"
+
+  class="w-full border-round-2xl overflow-hidden">
+  <ng-template pTemplate="caption">
+    <h3 class="mb-2 mt-0 ml-1">
+      {{configGrid.totalRow}}
+
+      {{ configGrid?.title | titlecase }}:
+    </h3>
+  </ng-template>
+
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="width: 4rem"><p-tableHeaderCheckbox /></th>
+
+      <ng-container *ngIf="configGrid?.columnNameAlias?.length === 0">
+        <th *ngFor="let columnName of configGrid?.columnName"   >
+           {{ columnName }}
+        </th>
+      </ng-container>
+      <ng-container *ngIf="configGrid?.columnNameAlias?.length > 0">
+        <th *ngFor="let alias of configGrid?.columnNameAlias" pSortableColumn="{{alias}}">
+          {{ alias }}
+          <p-sortIcon field="{{alias}}" />
+        </th>
+      </ng-container>
+      <th *ngIf="configGrid?.operation">Operation</th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-row let-rowIndex="rowIndex">
+    <tr
+      (dblclick)="configGrid.operation?.view(row)"
+      class="hover:bg-black-alpha-10">
+      <td>
+        <p-tableCheckbox    />
+      </td>
+      <ng-container *ngFor="let columnName of configGrid?.columnName">
+        <td [ngStyle]="{ 'background-color': row['color'] || null }">
+          <span [innerHTML]="truncateText(row[columnName])"></span>
         </td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
+      </ng-container>
+
+      <td *ngIf="configGrid?.operation">
+        <div class="flex gap-1 justify-content-between w-full">
+          <span *ngIf="configGrid?.operation?.view">
+            <i class="pi pi-eye" (click)="configGrid.operation.view(row)"></i>
+          </span>
+          <span *ngIf="configGrid?.operation?.update">
+            <i class="pi pi-arrow-circle-up" (click)="configGrid.operation.update(row)"></i>
+          </span>
+          <span *ngIf="configGrid?.operation?.delete">
+            <i class="pi pi-trash" (click)="configGrid.operation.delete(row)"></i>
+          </span>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

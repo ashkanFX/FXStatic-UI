@@ -39,7 +39,6 @@ export class ContentComponent implements OnInit , OnDestroy{
 
   ngOnInit(): void {
     this.postService.getById(this.postId).subscribe(res => {
-      debugger
       this.context.nativeElement.innerHTML = res.description;
       this.category = res.categories
       this.title = res.title

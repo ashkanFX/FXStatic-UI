@@ -4,6 +4,7 @@ export class ConfigGrid {
   configGridUpdate: ReplaySubject<ConfigGrid>
   title: string;
   columnName: string[];
+  totalRow ?: number = 1000 ;
   columnNameAlias ?: string[];
   rowBody: any[];
   class: string[]
