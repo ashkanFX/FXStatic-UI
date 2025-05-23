@@ -4,19 +4,16 @@
   <div class="flex flex-column md:flex-row text-white justify-between w-full px-0 gap-3 p-3 align-items-center">
     <section id="left" class="w-full md:w-2/3 flex flex-wrap gap-3 px-0 align-items-center">
       <p class="m-0 p-0">Updated <i class="pi pi-calendar"></i>: {{ updateAt | date }}</p>
-      <p-chip *ngFor="let category of category" label="{{ category.name | titlecase }}" class="mx-1" />
-<!--      <div><i class="pi pi-comments"></i> 10</div>-->
+      <p-chip *ngFor="let category of category" label="{{ category.name | titlecase }}" class="mx-1"/>
       <div><i class="pi pi-eye"></i> {{ countOfView }}</div>
     </section>
   </div>
   <div class="col-12 p-0 flex justify-content-center disableSelect">
-
     <img class="col-12 min-h-full p-0 border-round" style="object-fit: cover ; max-height:500px"
          [src]="blobUrl ? blobUrl : './assets/logo/png/logo-color.png' " alt="">
-
   </div>
 </section>
-<div class="m-0 ql-editor text-white-alpha-80" #context>
+<div class="m-0 px-0 ql-editor text-white-alpha-80" #context>
 
 </div>
 <app-comment-content/>

@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {CommentReqDto} from "./comment.req.dto";
 import {environment} from "../../../../environments/environment";
+import {CommentResDto} from "./comment.res.dto";
 
 @Injectable({
   providedIn: 'root'
@@ -13,31 +14,20 @@ export class CommentService {
   }
 
   public addComment(comments: CommentReqDto): Observable<CommentReqDto> {
-    return this.http.post<CommentReqDto>(environment.apiUrl + 'comments/public/add', comments)
+    return this.http.post<CommentReqDto>(environment.apiUrl + 'comments/add', comments)
   }
 
-  public activeComment(postId :number): Observable<CommentReqDto[]> {
-    return this.http.get<CommentReqDto[]>(environment.apiUrl + `comments/public/active/${postId}`)
+  public activeComment(postId: number): Observable<CommentResDto[]> {
+    return this.http.get<CommentResDto[]>(environment.apiUrl + `comments/public/active/${postId}`)
   }
 
-  public getAll(): Observable<any> {
-    return this.http.get<CommentReqDto[]>(environment.apiUrl + 'comments/get/all')
+  public getAll(): Observable<CommentResDto[]> {
+    return this.http.get<CommentResDto[]>(environment.apiUrl + 'comments/get/all')
   }
 
-  public getById(id: string | null): Observable<any> {
-    return this.http.get<any>(environment.apiUrl + `post/public/get/${id}`)
+  public activeStatus(id: number, status: boolean): Observable<CommentResDto[]> {
+    return this.http.put<CommentResDto[]>(environment.apiUrl + `comments/${id}/status?status=${status}` ,[])
   }
 
-  public deleteComment(id: string): Observable<any> {
-    return this.http.delete<any>(environment.apiUrl + `post/${id}`)
-  }
-
-  public getLatestComment(): Observable<any> {
-    return this.http.get<any>(environment.apiUrl + 'post/public/get/latest')
-  }
-
-  public uploadCommentImg(FormData: FormData): Observable<any> {
-    return this.http.post<any>(environment.apiUrl + 'document/upload', FormData)
-  }
 
 }

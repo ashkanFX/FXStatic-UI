@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {SessionService} from "../session/session.service";
 import {Subject} from "rxjs";
 import {UserAuthService} from "../../auth/user-auth.service";
-import {ActivatedRoute} from "@angular/router";
+import {Router} from "@angular/router";
 import {FormBuilder} from "@angular/forms";
 
 @Injectable({
@@ -10,7 +10,7 @@ import {FormBuilder} from "@angular/forms";
 })
 export class ShareService {
 
-  constructor(private session: SessionService, private userAuthService: UserAuthService, private route: ActivatedRoute, private fb: FormBuilder) {
+  constructor(private session: SessionService, private userAuthService: UserAuthService, private route: Router, private fb: FormBuilder  ) {
   }
 
   toast = new Subject<any>();
@@ -21,16 +21,19 @@ export class ShareService {
 
   get GetUserDetail() {
     try {
-      this._user = this.session.getItemInSessionStorage('user')
+      this._user = this.session.getItemInSessionStorage('currentUser')
       return this._user;
     } catch (error) {
       throw Error('user is not set in session storage')
     }
   }
+  get isLogin() : boolean {
+      return !!this.session.getItemInSessionStorage('jwtToken')
+  }
 
   set SetUserDetail(userDetail: any) {
     try {
-      this.session.setItemInSessionStorage('user', userDetail)
+      this.session.setItemInSessionStorage('currentUser', userDetail)
     } catch (error) {
       throw Error('can not set data for user')
     }

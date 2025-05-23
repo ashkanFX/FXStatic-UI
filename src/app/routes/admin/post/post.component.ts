@@ -1,4 +1,4 @@
-import {Component, CUSTOM_ELEMENTS_SCHEMA, OnInit} from '@angular/core';
+import {Component, CUSTOM_ELEMENTS_SCHEMA, OnInit, ViewChild} from '@angular/core';
 import {ChartModule} from 'primeng/chart';
 
 import {BasicGridComponent} from '../../../core/grid/basic-grid/basic-grid.component';
@@ -19,6 +19,10 @@ import {Category} from '../category/Category';
 import {CategoryService} from '../category/category.service';
 import {FileUploadModule} from 'primeng/fileupload';
 import {ContentHolderDirective} from '../../../shared/directive/content-holder.directive';
+import {CustomBox} from "./custom-blot";
+import Quill from "quill";
+
+Quill.register(CustomBox);
 
 @Component({
   selector: 'app-post',
@@ -41,6 +45,14 @@ import {ContentHolderDirective} from '../../../shared/directive/content-holder.d
   styleUrl: './post.component.css'
 })
 export class PostComponent implements OnInit {
+  @ViewChild('editor', {static: false}) editor: any;
+
+  addCustomBox() {
+    const quillEditor = this.editor?.quillEditor;
+    if (!quillEditor) return;
+    const index = quillEditor.getSelection()?.index || 0;
+    quillEditor.insertEmbed(index, 'customBox', '📦 این یک باکس سفارشی است');
+  }
 
   constructor(
     private fb: FormBuilder,
@@ -160,7 +172,7 @@ export class PostComponent implements OnInit {
 
   onFileSelected(event: any): void {
     const file: File = event.target.files[0];
-    if (file && this.formGroup.get('id').value   ) {
+    if (file && this.formGroup.get('id').value) {
       this.selectedFile = file;
       const formData = new FormData();
       formData.append('file', file, file.name);

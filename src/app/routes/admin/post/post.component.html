@@ -32,12 +32,16 @@
           <textarea rows="9" cols="40" pTextarea id="context" pTextarea style="resize: none"
                     formControlName="context"></textarea>
         </div>
+        <button type="button" (click)="addCustomBox()">افزودن باکس خاص</button>
+
         <quill-editor
           formControlName="description"
           [modules]="editorModules"
+          #editor
           class="w-full h-screen"
           [placeholder]="'Compose your text here...'">
         </quill-editor>
+
         <div class="flex justify-content-between pt-3">
           <input name="file-upload-field" type="file" formControlName="file" maxFileSize="900000"
                  (change)="onFileSelected($event)">

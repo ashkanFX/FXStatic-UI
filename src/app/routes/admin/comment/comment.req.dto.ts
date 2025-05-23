@@ -5,5 +5,5 @@ export class CommentReqDto {
   constructor() {
     this.comment = null
     this.postId = null
-  }
+   }
 }
