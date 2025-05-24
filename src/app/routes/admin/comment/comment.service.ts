@@ -28,6 +28,9 @@ export class CommentService {
   public activeStatus(id: number, status: boolean): Observable<CommentResDto[]> {
     return this.http.put<CommentResDto[]>(environment.apiUrl + `comments/${id}/status?status=${status}` ,[])
   }
+  public lastComment(): Observable<CommentResDto[]> {
+    return this.http.get<CommentResDto[]>(environment.apiUrl + `comments/public/latest` )
+  }
 
 
 }
