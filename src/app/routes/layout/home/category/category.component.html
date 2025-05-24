@@ -6,16 +6,21 @@
         class="align-content-start p-4 w-full overflow-auto gap glass align-content-start flex flex-wrap gap-2 h-10rem bg-2-color ">
         <ng-container *ngFor=" let item of categoryList ; ">
           <button
-            class="border-none text-1-color cursor-pointer h-auto p-3  h-3rem border-round-3xl "
-            (click)="getPostOfCategory(item)">{{item.name}}</button>
+            class="border-none  text-3-color   cursor-pointer h-auto p-3 h-3rem border-round-3xl m-1 font-bold"
+            [ngStyle]="{
+    'background-color': findCategoryColor(item.name),
+    'color': getTextColorForBackground(findCategoryColor(item.name))
+  }" (click)="getPostOfCategory(item)">
+            {{ item.name | titlecase }}
+          </button>
         </ng-container>
       </div>
       <p-divider></p-divider>
-      <div class="w-full h-20rem p-3 bg-2-color border-round-3xl flex flex-wrap gap-3">
+      <div class="w-full h-20rem p-3 bg-2-color border-round-3xl align-content-start flex flex-wrap gap-3">
         <ng-container *ngFor=" let item of selectedCategory ; ">
           <p class="border-none flex justify-content-between fadein animation-duration-1000
-           align-items-center  text-2-color bg-5-color cursor-pointer h-auto p-3  h-3rem border-round-3xl ">
-            {{item.name}}
+           align-items-center   text-2-color bg-5-color cursor-pointer h-auto p-3 mx-0  h-3rem border-round-3xl ">
+            {{ item.name }}
             <i class="pi pi-times ml-3" (click)="removeIem(item)"></i>
           </p>
         </ng-container>
@@ -26,9 +31,10 @@
       <ng-container *ngFor=" let item of  cards ; ">
         <p
           class="border-none text-1-color bg-3-color cursor-pointer h-auto p-3 zoomin  animation-duration-100  flex align-items-center h-3rem border-round-2xl ">
-          {{item.title}}
+          {{ item.title }}
         </p>
       </ng-container>
     </div>
   </section>
 </section>
+
