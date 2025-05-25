@@ -22,15 +22,14 @@ import {ChipModule} from "primeng/chip";
   styleUrl: './card.component.css'
 })
 export class CardComponent implements AfterViewInit, OnInit, OnDestroy {
-  // @ViewChild('context') context: ElementRef
+  @ViewChild('context') context: ElementRef
   @Input() config: Card
 
   constructor(private router: Router) {
   }
 
   ngAfterViewInit() {
-    // this.context.nativeElement.innerHTML = this.config.context.trim();
-
+    this.context.nativeElement.innerHTML = this.config.context.trim().slice(0, 130).concat('...');
   }
 
   blobUrl: string | null = null;

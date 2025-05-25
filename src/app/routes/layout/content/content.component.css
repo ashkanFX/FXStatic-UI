@@ -1,0 +1,6 @@
+::ng-deep .ql-editor a {
+  color: #86C232;
+}
+::ng-deep .ql-editor li {
+  list-style-type: disclosure-closed;
+}
